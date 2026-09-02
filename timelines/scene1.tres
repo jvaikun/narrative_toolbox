@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="Timeline" format=3 uid="uid://bjo6xnepmjavu"]
+
+[ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline.gd" id="1_0q8is"]
+[ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/event.gd" id="1_lsnxd"]
+[ext_resource type="Texture2D" uid="uid://dwsrfigvhaem3" path="res://timelines/textures/map.png" id="2_cb3ot"]
+[ext_resource type="Script" uid="uid://40q0ab7v28b4" path="res://classes/event_image.gd" id="3_ptfnm"]
+[ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/event_text.gd" id="4_ptfnm"]
+[ext_resource type="Texture2D" uid="uid://s2n85t1uyqng" path="res://timelines/textures/coach.png" id="5_x6t2e"]
+[ext_resource type="Script" uid="uid://5e50cn5p01dd" path="res://classes/event_choice.gd" id="6_u7t40"]
+[ext_resource type="Texture2D" uid="uid://bledl0utey0dd" path="res://timelines/textures/inn.png" id="7_ghngd"]
+
+[sub_resource type="Resource" id="Resource_75srb"]
+script = ExtResource("3_ptfnm")
+image = ExtResource("2_cb3ot")
+metadata/_custom_type_script = "uid://40q0ab7v28b4"
+
+[sub_resource type="Resource" id="Resource_cb3ot"]
+script = ExtResource("4_ptfnm")
+lines = "You have been hired by the Crown to escort one of their representatives to some derelict country manor called Mortus Mansion.
+Not being choosy about where your gold comes from, you agreed to their generous terms.
+Your first stop will be the nearby village of Fendringham, quite a ride from Lake Libra, giving you plenty of time to ponder the job."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_u7t40"]
+script = ExtResource("3_ptfnm")
+image = ExtResource("5_x6t2e")
+metadata/_custom_type_script = "uid://40q0ab7v28b4"
+
+[sub_resource type="Resource" id="Resource_ghngd"]
+script = ExtResource("4_ptfnm")
+lines = "The road to Fendringham is a narrow, ragged thing. Neglect and lack of traffic have allowed the wilderness to choke the old road into the rough path the coach is attempting to navigate.
+You and the Crown agent feel like a pair of dice as the coach shakes and rattles from traversing the uneven ground.
+Despite that, the King's man tries his best to make conversation, if only to make the trip more bearable.
+\"What do you suppose happened to the fellow we sent?\" he wonders aloud. \"You don't suppose some lingering evil lurks there still, do you?\""
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_0ocij"]
+script = ExtResource("6_u7t40")
+choices = Array[String](["Agree", "Disagree", "Shrug"])
+metadata/_custom_type_script = "uid://5e50cn5p01dd"
+
+[sub_resource type="Resource" id="Resource_kbhlj"]
+script = ExtResource("3_ptfnm")
+image = ExtResource("7_ghngd")
+metadata/_custom_type_script = "uid://40q0ab7v28b4"
+
+[sub_resource type="Resource" id="Resource_2afs7"]
+script = ExtResource("4_ptfnm")
+lines = "At last, you arrive at Fendringham, just as night falls. The coaching inn is larger than you expected, but your coach is only one of two on the grounds.
+Normally, you would wait to set up a base of operations at a larger settlement, but Fendringham is the closest village to the mansion in a sparsely populated area.
+\"We should see to getting a room and secure storage. Gathering information wouldn't hurt either,' declares the King's man as he disembarks. 
+He then asks, \"Would you mind having a look around while I arrange for room and board?\""
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_lkqdc"]
+script = ExtResource("6_u7t40")
+choices = Array[String](["I'll handle the rooms", "I'll look around", "I'm getting a drink"])
+metadata/_custom_type_script = "uid://5e50cn5p01dd"
+
+[resource]
+script = ExtResource("1_0q8is")
+events = Array[ExtResource("1_lsnxd")]([SubResource("Resource_75srb"), SubResource("Resource_cb3ot"), SubResource("Resource_u7t40"), SubResource("Resource_ghngd"), SubResource("Resource_0ocij"), SubResource("Resource_kbhlj"), SubResource("Resource_2afs7"), SubResource("Resource_lkqdc")])
+metadata/_custom_type_script = "uid://c702wmxhq83je"

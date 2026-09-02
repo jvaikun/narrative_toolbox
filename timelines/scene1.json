@@ -1,0 +1,56 @@
+[
+	{
+		"type": "image",
+		"data": "res://timelines/textures/map.png",
+		"wait": 0.2
+	},
+	{
+		"type": "text",
+		"data": [
+			"You have been hired by the Crown to escort one of their representatives to some derelict country manor called Mortus Mansion.",
+			"Not being choosy about where your gold comes from, you agreed to their generous terms.",
+			"Your first stop will be the nearby village of Fendringham, quite a ride from Lake Libra, giving you plenty of time to ponder the job.",
+		],
+		"wait": 0.2
+	},
+	{
+		"type": "image",
+		"data": "res://timelines/textures/coach.png",
+		"wait": 0.2
+	},
+	{
+		"type": "text",
+		"data": [
+			"The road to Fendringham is a narrow, ragged thing. Neglect and lack of traffic have allowed the wilderness to choke the old road into the rough path the coach is attempting to navigate.",
+			"You and the Crown agent feel like a pair of dice as the coach shakes and rattles from traversing the uneven ground.",
+			"Despite that, the fellow tries their best to make conversation, if only to make the trip more bearable.",
+			"'What do you suppose happened to the fellow we sent? Could there be something lurking in the Mansion, I wonder?'",
+		],
+		"wait": 0.2
+	},
+	{
+		"type": "choice",
+		"data": ["Agree", "Disagree", "Shrug"],
+		"wait": 0.2
+	},
+	{
+		"type": "image",
+		"data": "res://timelines/textures/inn.png",
+		"wait": 0.2
+	},
+	{
+		"type": "text",
+		"data": [
+			"At last, you arrive at Fendringham, just as night falls. The coaching inn is larger than you expected, but your coach is only one of two on the grounds.",
+			"Normally, you would wait to set up a base of operations at a larger settlement, but Fendringham is the closest village to the mansion in a sparsely populated area.",
+			"'We should see to getting a room and somewhere to safely stow our gear. Gathering information wouldn't hurt either,' ventures your partner.",
+			"'Would you mind having a look around while I arrange for room and board?'",
+		],
+		"wait": 0.2
+	},
+	{
+		"type": "choice",
+		"data": ["I'll handle the rooms", "I'll look around", "I'm getting a drink"],
+		"wait": 0.2
+	},
+]

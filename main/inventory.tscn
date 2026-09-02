@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://b743puy2def5j"]
+
+[ext_resource type="StyleBox" uid="uid://nuwo3o32lfvq" path="res://ui/themes/panel_border.tres" id="1_dwvmb"]
+[ext_resource type="FontFile" uid="uid://dbj2poekuv8y8" path="res://ui/fonts/adventurer.ttf" id="1_ff0gu"]
+[ext_resource type="Script" uid="uid://b6o556rdqhupq" path="res://main/inventory.gd" id="1_p6lm3"]
+[ext_resource type="Theme" uid="uid://p8ostjsjud8l" path="res://ui/themes/paper_white.tres" id="1_qr1h1"]
+[ext_resource type="FontFile" uid="uid://cou7t00vw3boe" path="res://ui/fonts/notjam_oldstyle.ttf" id="2_p6lm3"]
+[ext_resource type="Texture2D" uid="uid://cw5uly3cjdj65" path="res://ui/textures/paper_white.png" id="3_qr1h1"]
+[ext_resource type="Texture2D" uid="uid://cal802f87ngbx" path="res://main/textures/flintlock.png" id="6_vrwa2"]
+
+[node name="Inventory" type="PanelContainer" unique_id=616553246]
+offset_right = 644.0
+offset_bottom = 110.0
+theme = ExtResource("1_qr1h1")
+theme_override_styles/panel = ExtResource("1_dwvmb")
+script = ExtResource("1_p6lm3")
+
+[node name="Background" type="TextureRect" parent="." unique_id=496957486]
+layout_mode = 2
+texture = ExtResource("3_qr1h1")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Main" type="MarginContainer" parent="." unique_id=811421506]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Content" type="VBoxContainer" parent="Main" unique_id=58542991]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="Main/Content" unique_id=1548215280]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ff0gu")
+theme_override_font_sizes/font_size = 32
+text = "Inventory"
+
+[node name="Body" type="HBoxContainer" parent="Main/Content" unique_id=448767965]
+layout_mode = 2
+
+[node name="List" type="ItemList" parent="Main/Content/Body" unique_id=911454907]
+custom_minimum_size = Vector2(320, 240)
+layout_mode = 2
+
+[node name="Info" type="VBoxContainer" parent="Main/Content/Body" unique_id=442458095]
+layout_mode = 2
+
+[node name="Image" type="TextureRect" parent="Main/Content/Body/Info" unique_id=2022243944]
+custom_minimum_size = Vector2(256, 0)
+custom_maximum_size = Vector2(256, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("6_vrwa2")
+expand_mode = 5
+
+[node name="Text" type="Label" parent="Main/Content/Body/Info" unique_id=1520823572]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_fonts/font = ExtResource("2_p6lm3")
+theme_override_font_sizes/font_size = 24
+text = "Item Description"
+autowrap_mode = 2
+
+[node name="BtnUse" type="Button" parent="Main/Content/Body/Info" unique_id=569194270]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_p6lm3")
+theme_override_font_sizes/font_size = 24
+text = "Use Item"
+
+[node name="BtnBack" type="Button" parent="Main/Content/Body/Info" unique_id=197009251]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_p6lm3")
+theme_override_font_sizes/font_size = 24
+text = "Back"
+
+[connection signal="item_selected" from="Main/Content/Body/List" to="." method="_on_list_item_selected"]
+[connection signal="pressed" from="Main/Content/Body/Info/BtnBack" to="." method="_on_btn_back_pressed"]
