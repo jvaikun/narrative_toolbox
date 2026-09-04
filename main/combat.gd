@@ -1,26 +1,26 @@
-extends PanelContainer
+extends ColorRect
 
 const STAT_TEXT = "SKILL: %d\nSTAMINA: %d"
 
 @onready var ui_dice = [
-	$Main/Content/Body/Player/DiceRoll/Dice1,
-	$Main/Content/Body/Player/DiceRoll/Dice2,
-	$Main/Content/Body/Enemy/DiceRoll/Dice1,
-	$Main/Content/Body/Enemy/DiceRoll/Dice2,
+	$Dialog/Main/Content/Body/Player/DiceRoll/Dice1,
+	$Dialog/Main/Content/Body/Player/DiceRoll/Dice2,
+	$Dialog/Main/Content/Body/Enemy/DiceRoll/Dice1,
+	$Dialog/Main/Content/Body/Enemy/DiceRoll/Dice2,
 ]
 @onready var sides = {
 	"player": {
-		"portrait": $Main/Content/Body/Player/Portrait,
+		"portrait": $Dialog/Main/Content/Body/Player/Portrait,
 		"atlas": Game.ATLASES.player,
-		"stats": $Main/Content/Body/Player/Stats,
+		"stats": $Dialog/Main/Content/Body/Player/Stats,
 		"name":"",
 		"skill":"",
 		"stamina":"",
 	},
 	"enemy": {
-		"portrait": $Main/Content/Body/Enemy/Portrait,
+		"portrait": $Dialog/Main/Content/Body/Enemy/Portrait,
 		"atlas": Game.ATLASES.enemy,
-		"stats": $Main/Content/Body/Enemy/Stats,
+		"stats": $Dialog/Main/Content/Body/Enemy/Stats,
 		"name":"",
 		"skill":"",
 		"stamina":"",
@@ -75,3 +75,11 @@ func _on_btn_roll_pressed() -> void:
 
 func _on_btn_luck_pressed() -> void:
 	pass # Replace with function body.
+
+
+func _on_btn_item_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_btn_back_pressed() -> void:
+	hide()

@@ -1,61 +1,25 @@
 [gd_scene format=3 uid="uid://cjgdtibwpwgh5"]
 
 [ext_resource type="Script" uid="uid://b0bxpofdodd6n" path="res://main/main.gd" id="1_4dugh"]
-[ext_resource type="Texture2D" uid="uid://0v24q4moaf4c" path="res://ui/textures/paper.png" id="2_67ri8"]
 [ext_resource type="FontFile" uid="uid://cou7t00vw3boe" path="res://ui/fonts/notjam_oldstyle.ttf" id="3_grrlh"]
-[ext_resource type="Texture2D" uid="uid://cw5uly3cjdj65" path="res://ui/textures/paper_white.png" id="4_0i4oc"]
+[ext_resource type="StyleBox" uid="uid://8jumhchhyg18" path="res://ui/themes/stylebox_paper_brown.tres" id="3_na0o7"]
+[ext_resource type="StyleBox" uid="uid://dwx5p0gcq3exw" path="res://ui/themes/stylebox_frame_book.tres" id="4_73k8k"]
 [ext_resource type="Texture2D" uid="uid://dwsrfigvhaem3" path="res://timelines/textures/map.png" id="4_bsumw"]
-[ext_resource type="Texture2D" uid="uid://bmjxyka2dcbld" path="res://ui/borders/border_book.png" id="4_na0o7"]
 [ext_resource type="Texture2D" uid="uid://clplrkpv8eqd7" path="res://ui/textures/faces_player.png" id="5_bsumw"]
+[ext_resource type="StyleBox" uid="uid://cjdlglq8d6aoa" path="res://ui/themes/stylebox_paper_white.tres" id="6_5xyti"]
 [ext_resource type="FontFile" uid="uid://dbj2poekuv8y8" path="res://ui/fonts/adventurer.ttf" id="6_fwcvl"]
-[ext_resource type="Texture2D" uid="uid://dtu2j50r4pa5j" path="res://ui/borders/border_player.png" id="7_73k8k"]
 [ext_resource type="Theme" uid="uid://p8ostjsjud8l" path="res://ui/themes/paper_white.tres" id="7_bsumw"]
+[ext_resource type="StyleBox" uid="uid://by3qtvs4oekxa" path="res://ui/themes/stylebox_frame_player.tres" id="7_n3o0a"]
 [ext_resource type="PackedScene" uid="uid://b743puy2def5j" path="res://main/inventory.tscn" id="8_0i4oc"]
 [ext_resource type="PackedScene" uid="uid://dwir4ul5vpqnn" path="res://main/system.tscn" id="9_bsumw"]
 [ext_resource type="PackedScene" uid="uid://byblek3rnnn64" path="res://main/combat.tscn" id="10_fwcvl"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vkdpk"]
-content_margin_left = 8.0
-content_margin_top = 8.0
-content_margin_right = 8.0
-content_margin_bottom = 8.0
-texture = ExtResource("2_67ri8")
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k56px"]
-texture = ExtResource("4_na0o7")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-modulate_color = Color(0, 0, 0, 1)
-draw_center = false
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wp5od"]
-content_margin_left = 8.0
-content_margin_top = 8.0
-content_margin_right = 8.0
-content_margin_bottom = 8.0
-texture = ExtResource("2_67ri8")
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_na0o7"]
-texture = ExtResource("4_na0o7")
-texture_margin_left = 22.0
-texture_margin_top = 22.0
-texture_margin_right = 22.0
-texture_margin_bottom = 22.0
-modulate_color = Color(0, 0, 0, 1)
-draw_center = false
 
 [sub_resource type="Animation" id="Animation_na0o7"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TwoPage/PageL/Scene:modulate")
+tracks/0/path = NodePath("TwoPage/PageL/Frame/Content:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -67,7 +31,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("TwoPage/PageR/Narration/Body/Text:modulate")
+tracks/1/path = NodePath("TwoPage/PageR/Frame/Content/Body/Text:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -79,7 +43,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("TwoPage/PageR/Narration/Body/Buttons:modulate")
+tracks/2/path = NodePath("TwoPage/PageR/Frame/Content/Body/Choices:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -95,7 +59,7 @@ length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TwoPage/PageR/Narration/Body/Buttons:modulate")
+tracks/0/path = NodePath("TwoPage/PageR/Frame/Content/Body/Choices:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -110,7 +74,7 @@ resource_name = "scene_fade_in"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TwoPage/PageL/Scene:modulate")
+tracks/0/path = NodePath("TwoPage/PageL/Frame/Content:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -126,7 +90,7 @@ length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TwoPage/PageR/Narration/Body/Text:modulate")
+tracks/0/path = NodePath("TwoPage/PageR/Frame/Content/Body/Text:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -143,23 +107,6 @@ _data = {
 &"scene_fade_in": SubResource("Animation_73k8k"),
 &"text_fade_out": SubResource("Animation_5xyti")
 }
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_73k8k"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-texture = ExtResource("4_0i4oc")
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_530h6"]
-texture = ExtResource("7_73k8k")
-texture_margin_left = 12.0
-texture_margin_top = 12.0
-texture_margin_right = 12.0
-texture_margin_bottom = 12.0
-modulate_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s758e"]
 atlas = ExtResource("5_bsumw")
@@ -195,15 +142,22 @@ theme_override_constants/separation = 0
 [node name="PageL" type="PanelContainer" parent="Content/Book/TwoPage" unique_id=353536818]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_vkdpk")
+theme_override_styles/panel = ExtResource("3_na0o7")
 
-[node name="Scene" type="PanelContainer" parent="Content/Book/TwoPage/PageL" unique_id=1070692999]
-modulate = Color(1, 0.9, 0.8, 0)
+[node name="Frame" type="PanelContainer" parent="Content/Book/TwoPage/PageL" unique_id=1070692999]
 texture_filter = 1
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_k56px")
+theme_override_styles/panel = ExtResource("4_73k8k")
 
-[node name="Image" type="TextureRect" parent="Content/Book/TwoPage/PageL/Scene" unique_id=466740716]
+[node name="Content" type="MarginContainer" parent="Content/Book/TwoPage/PageL/Frame" unique_id=1085924386]
+modulate = Color(1, 0.9, 0.8, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Image" type="TextureRect" parent="Content/Book/TwoPage/PageL/Frame/Content" unique_id=466740716]
 use_parent_material = true
 layout_mode = 2
 texture = ExtResource("4_bsumw")
@@ -212,37 +166,45 @@ expand_mode = 1
 [node name="PageR" type="PanelContainer" parent="Content/Book/TwoPage" unique_id=1431296532]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_wp5od")
+theme_override_styles/panel = ExtResource("3_na0o7")
 
-[node name="Narration" type="PanelContainer" parent="Content/Book/TwoPage/PageR" unique_id=1900745369]
+[node name="Frame" type="PanelContainer" parent="Content/Book/TwoPage/PageR" unique_id=1900745369]
 texture_filter = 1
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_na0o7")
+theme_override_styles/panel = ExtResource("4_73k8k")
 
-[node name="Body" type="VBoxContainer" parent="Content/Book/TwoPage/PageR/Narration" unique_id=1141234233]
+[node name="Content" type="MarginContainer" parent="Content/Book/TwoPage/PageR/Frame" unique_id=565333641]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Body" type="VBoxContainer" parent="Content/Book/TwoPage/PageR/Frame/Content" unique_id=1141234233]
 layout_mode = 2
 
-[node name="Text" type="Label" parent="Content/Book/TwoPage/PageR/Narration/Body" unique_id=1459579272]
+[node name="Text" type="Label" parent="Content/Book/TwoPage/PageR/Frame/Content/Body" unique_id=1459579272]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 size_flags_vertical = 3
+text = "Body text test"
 autowrap_mode = 2
 
-[node name="Buttons" type="VBoxContainer" parent="Content/Book/TwoPage/PageR/Narration/Body" unique_id=1715372860]
+[node name="Choices" type="VBoxContainer" parent="Content/Book/TwoPage/PageR/Frame/Content/Body" unique_id=1715372860]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme = ExtResource("7_bsumw")
 
-[node name="BtnCommand1" type="Button" parent="Content/Book/TwoPage/PageR/Narration/Body/Buttons" unique_id=944611640]
+[node name="BtnChoice1" type="Button" parent="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices" unique_id=944611640]
 layout_mode = 2
 text = "Agree"
 
-[node name="BtnCommand2" type="Button" parent="Content/Book/TwoPage/PageR/Narration/Body/Buttons" unique_id=352682196]
+[node name="BtnChoice2" type="Button" parent="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices" unique_id=352682196]
 layout_mode = 2
 text = "Disagree"
 
-[node name="BtnCommand3" type="Button" parent="Content/Book/TwoPage/PageR/Narration/Body/Buttons" unique_id=2004936854]
+[node name="BtnChoice3" type="Button" parent="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices" unique_id=2004936854]
 layout_mode = 2
 text = "Shrug"
 
@@ -252,13 +214,13 @@ libraries/ = SubResource("AnimationLibrary_5xyti")
 [node name="Player" type="PanelContainer" parent="Content" unique_id=2017769728]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_73k8k")
+theme_override_styles/panel = ExtResource("6_5xyti")
 
 [node name="Content" type="PanelContainer" parent="Content/Player" unique_id=1945920279]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_530h6")
+theme_override_styles/panel = ExtResource("7_n3o0a")
 
 [node name="Body" type="VBoxContainer" parent="Content/Player/Content" unique_id=352372194]
 layout_mode = 2
@@ -342,39 +304,14 @@ text = "Combat Test"
 [node name="Inventory" parent="." unique_id=616553246 instance=ExtResource("8_0i4oc")]
 visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -322.0
-offset_top = -138.0
-offset_right = 322.0
-offset_bottom = 138.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="System" parent="." unique_id=746765915 instance=ExtResource("9_bsumw")]
 visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -240.0
-offset_top = -171.0
-offset_right = 240.0
-offset_bottom = 171.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Combat" parent="." unique_id=438614174 instance=ExtResource("10_fwcvl")]
 visible = false
 layout_mode = 1
-anchors_preset = 8
-offset_top = -142.0
-offset_bottom = 142.0
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1383764427]
 bus = &"music"

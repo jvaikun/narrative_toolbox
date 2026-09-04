@@ -1,4 +1,4 @@
-extends PanelContainer
+extends ColorRect
 
 const ITEMS = {
 	"magnum": {
@@ -27,20 +27,29 @@ const ITEMS = {
 	},
 }
 
+@onready var item_list = $Dialog/Main/Content/Body/List
+@onready var item_img = $Dialog/Main/Content/Body/Info/Image
+@onready var item_desc = $Dialog/Main/Content/Body/Info/Text
+@onready var item_use = $Dialog/Main/Content/Body/Info/BtnUse
+
 
 func _ready() -> void:
 	for key in ITEMS.keys():
-		$Main/Content/Body/List.add_item(ITEMS[key].name)
-		$Main/Content/Body/List.set_item_metadata(-1, key)
+		item_list.add_item(ITEMS[key].name)
+		item_list.set_item_metadata(-1, key)
 
 
 func _on_list_item_selected(index: int) -> void:
-	var item_id = $Main/Content/Body/List.get_item_metadata(index)
+	var item_id = item_list.get_item_metadata(index)
 	var this_item = ITEMS[item_id]
-	$Main/Content/Body/Info/Image.texture = load(this_item.img_path)
-	$Main/Content/Body/Info/Text.text = this_item.desc
-	$Main/Content/Body/Info/BtnUse.visible = this_item.usable
+	item_img.texture = load(this_item.img_path)
+	item_desc.text = this_item.desc
+	item_use.visible = this_item.usable
 
 
 func _on_btn_back_pressed() -> void:
 	hide()
+
+
+func _on_btn_use_pressed() -> void:
+	pass # Replace with function body.

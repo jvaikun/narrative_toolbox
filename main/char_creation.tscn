@@ -2,24 +2,12 @@
 
 [ext_resource type="Script" uid="uid://chi70dx5cc6yq" path="res://main/char_creation.gd" id="1_qjv5m"]
 [ext_resource type="Texture2D" uid="uid://clplrkpv8eqd7" path="res://ui/textures/faces_player.png" id="2_3hogx"]
-[ext_resource type="Texture2D" uid="uid://cw5uly3cjdj65" path="res://ui/textures/paper_white.png" id="2_fpl4t"]
 [ext_resource type="FontFile" uid="uid://dbj2poekuv8y8" path="res://ui/fonts/adventurer.ttf" id="3_g8ynn"]
+[ext_resource type="StyleBox" uid="uid://cjdlglq8d6aoa" path="res://ui/themes/stylebox_paper_white.tres" id="3_n8wxf"]
+[ext_resource type="StyleBox" uid="uid://by3qtvs4oekxa" path="res://ui/themes/stylebox_frame_player.tres" id="4_ahwe6"]
 [ext_resource type="Theme" uid="uid://p8ostjsjud8l" path="res://ui/themes/paper_white.tres" id="4_g8ynn"]
 [ext_resource type="FontFile" uid="uid://cou7t00vw3boe" path="res://ui/fonts/notjam_oldstyle.ttf" id="5_n8wxf"]
 [ext_resource type="Texture2D" uid="uid://bm0dicbhhien4" path="res://main/textures/d6_number.png" id="6_ahwe6"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g8ynn"]
-bg_color = Color(1, 1, 1, 0.78431374)
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wp5od"]
 atlas = ExtResource("2_3hogx")
@@ -35,6 +23,7 @@ color = Color(0, 0, 0, 0.5019608)
 script = ExtResource("1_qjv5m")
 
 [node name="Dialog" type="PanelContainer" parent="." unique_id=1704498489]
+texture_filter = 1
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -49,20 +38,11 @@ offset_bottom = 111.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_g8ynn")
-theme_override_styles/panel = SubResource("StyleBoxFlat_g8ynn")
+theme_override_styles/panel = ExtResource("3_n8wxf")
 
-[node name="Background" type="TextureRect" parent="Dialog" unique_id=81420505]
+[node name="Main" type="PanelContainer" parent="Dialog" unique_id=2035946273]
 layout_mode = 2
-texture = ExtResource("2_fpl4t")
-expand_mode = 1
-stretch_mode = 1
-
-[node name="Main" type="MarginContainer" parent="Dialog" unique_id=1715839360]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_styles/panel = ExtResource("4_ahwe6")
 
 [node name="Content" type="VBoxContainer" parent="Dialog/Main" unique_id=1434053258]
 layout_mode = 2

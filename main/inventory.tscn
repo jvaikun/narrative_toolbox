@@ -1,53 +1,63 @@
 [gd_scene format=3 uid="uid://b743puy2def5j"]
 
-[ext_resource type="StyleBox" uid="uid://nuwo3o32lfvq" path="res://ui/themes/panel_border.tres" id="1_dwvmb"]
 [ext_resource type="FontFile" uid="uid://dbj2poekuv8y8" path="res://ui/fonts/adventurer.ttf" id="1_ff0gu"]
 [ext_resource type="Script" uid="uid://b6o556rdqhupq" path="res://main/inventory.gd" id="1_p6lm3"]
 [ext_resource type="Theme" uid="uid://p8ostjsjud8l" path="res://ui/themes/paper_white.tres" id="1_qr1h1"]
 [ext_resource type="FontFile" uid="uid://cou7t00vw3boe" path="res://ui/fonts/notjam_oldstyle.ttf" id="2_p6lm3"]
-[ext_resource type="Texture2D" uid="uid://cw5uly3cjdj65" path="res://ui/textures/paper_white.png" id="3_qr1h1"]
+[ext_resource type="StyleBox" uid="uid://cjdlglq8d6aoa" path="res://ui/themes/stylebox_paper_white.tres" id="3_vrwa2"]
+[ext_resource type="StyleBox" uid="uid://by3qtvs4oekxa" path="res://ui/themes/stylebox_frame_player.tres" id="4_dvy5c"]
 [ext_resource type="Texture2D" uid="uid://cal802f87ngbx" path="res://main/textures/flintlock.png" id="6_vrwa2"]
 
-[node name="Inventory" type="PanelContainer" unique_id=616553246]
-offset_right = 644.0
-offset_bottom = 110.0
-theme = ExtResource("1_qr1h1")
-theme_override_styles/panel = ExtResource("1_dwvmb")
+[node name="Inventory" type="ColorRect" unique_id=1966721854]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5019608)
 script = ExtResource("1_p6lm3")
 
-[node name="Background" type="TextureRect" parent="." unique_id=496957486]
-layout_mode = 2
-texture = ExtResource("3_qr1h1")
-expand_mode = 1
-stretch_mode = 1
+[node name="Dialog" type="PanelContainer" parent="." unique_id=616553246]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -338.0
+offset_top = -154.0
+offset_right = 338.0
+offset_bottom = 154.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qr1h1")
+theme_override_styles/panel = ExtResource("3_vrwa2")
 
-[node name="Main" type="MarginContainer" parent="." unique_id=811421506]
+[node name="Main" type="PanelContainer" parent="Dialog" unique_id=948919377]
 layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_styles/panel = ExtResource("4_dvy5c")
 
-[node name="Content" type="VBoxContainer" parent="Main" unique_id=58542991]
+[node name="Content" type="VBoxContainer" parent="Dialog/Main" unique_id=58542991]
 layout_mode = 2
 
-[node name="Header" type="Label" parent="Main/Content" unique_id=1548215280]
+[node name="Header" type="Label" parent="Dialog/Main/Content" unique_id=1548215280]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ff0gu")
 theme_override_font_sizes/font_size = 32
 text = "Inventory"
 
-[node name="Body" type="HBoxContainer" parent="Main/Content" unique_id=448767965]
+[node name="Body" type="HBoxContainer" parent="Dialog/Main/Content" unique_id=448767965]
 layout_mode = 2
 
-[node name="List" type="ItemList" parent="Main/Content/Body" unique_id=911454907]
+[node name="List" type="ItemList" parent="Dialog/Main/Content/Body" unique_id=911454907]
 custom_minimum_size = Vector2(320, 240)
 layout_mode = 2
 
-[node name="Info" type="VBoxContainer" parent="Main/Content/Body" unique_id=442458095]
+[node name="Info" type="VBoxContainer" parent="Dialog/Main/Content/Body" unique_id=442458095]
 layout_mode = 2
 
-[node name="Image" type="TextureRect" parent="Main/Content/Body/Info" unique_id=2022243944]
+[node name="Image" type="TextureRect" parent="Dialog/Main/Content/Body/Info" unique_id=2022243944]
 custom_minimum_size = Vector2(256, 0)
 custom_maximum_size = Vector2(256, -1)
 layout_mode = 2
@@ -55,7 +65,7 @@ size_flags_horizontal = 4
 texture = ExtResource("6_vrwa2")
 expand_mode = 5
 
-[node name="Text" type="Label" parent="Main/Content/Body/Info" unique_id=1520823572]
+[node name="Text" type="Label" parent="Dialog/Main/Content/Body/Info" unique_id=1520823572]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 size_flags_vertical = 2
@@ -64,18 +74,19 @@ theme_override_font_sizes/font_size = 24
 text = "Item Description"
 autowrap_mode = 2
 
-[node name="BtnUse" type="Button" parent="Main/Content/Body/Info" unique_id=569194270]
+[node name="BtnUse" type="Button" parent="Dialog/Main/Content/Body/Info" unique_id=569194270]
 visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_p6lm3")
 theme_override_font_sizes/font_size = 24
 text = "Use Item"
 
-[node name="BtnBack" type="Button" parent="Main/Content/Body/Info" unique_id=197009251]
+[node name="BtnBack" type="Button" parent="Dialog/Main/Content/Body/Info" unique_id=197009251]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_p6lm3")
 theme_override_font_sizes/font_size = 24
 text = "Back"
 
-[connection signal="item_selected" from="Main/Content/Body/List" to="." method="_on_list_item_selected"]
-[connection signal="pressed" from="Main/Content/Body/Info/BtnBack" to="." method="_on_btn_back_pressed"]
+[connection signal="item_selected" from="Dialog/Main/Content/Body/List" to="Dialog" method="_on_list_item_selected"]
+[connection signal="pressed" from="Dialog/Main/Content/Body/Info/BtnUse" to="." method="_on_btn_use_pressed"]
+[connection signal="pressed" from="Dialog/Main/Content/Body/Info/BtnBack" to="." method="_on_btn_back_pressed"]

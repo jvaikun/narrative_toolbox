@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://6v6wrk2rk05o" path="res://main/system.gd" id="1_2oc78"]
 [ext_resource type="FontFile" uid="uid://cou7t00vw3boe" path="res://ui/fonts/notjam_oldstyle.ttf" id="1_24lf8"]
-[ext_resource type="StyleBox" uid="uid://nuwo3o32lfvq" path="res://ui/themes/panel_border.tres" id="1_tldno"]
-[ext_resource type="Texture2D" uid="uid://cw5uly3cjdj65" path="res://ui/textures/paper_white.png" id="3_65t0c"]
+[ext_resource type="StyleBox" uid="uid://cjdlglq8d6aoa" path="res://ui/themes/stylebox_paper_white.tres" id="3_tldno"]
+[ext_resource type="StyleBox" uid="uid://by3qtvs4oekxa" path="res://ui/themes/stylebox_frame_player.tres" id="4_65t0c"]
 [ext_resource type="Theme" uid="uid://p8ostjsjud8l" path="res://ui/themes/paper_white.tres" id="4_vvf3y"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_grrlh"]
@@ -13,48 +13,58 @@ content_margin_right = 4.0
 content_margin_bottom = 0.0
 thickness = 2
 
-[node name="System" type="PanelContainer" unique_id=746765915]
-custom_minimum_size = Vector2(480, 0)
-offset_right = 480.0
-offset_bottom = 250.0
-theme = ExtResource("4_vvf3y")
-theme_override_styles/panel = ExtResource("1_tldno")
+[node name="System" type="ColorRect" unique_id=1066409869]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5019608)
 script = ExtResource("1_2oc78")
 
-[node name="Background" type="TextureRect" parent="." unique_id=1555190884]
-layout_mode = 2
-texture = ExtResource("3_65t0c")
-expand_mode = 1
-stretch_mode = 1
+[node name="Dialog" type="PanelContainer" parent="." unique_id=746765915]
+texture_filter = 1
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -175.0
+offset_right = 256.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_vvf3y")
+theme_override_styles/panel = ExtResource("3_tldno")
 
-[node name="Main" type="MarginContainer" parent="." unique_id=264803184]
+[node name="Main" type="PanelContainer" parent="Dialog" unique_id=968096523]
 layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_styles/panel = ExtResource("4_65t0c")
 
-[node name="Content" type="VBoxContainer" parent="Main" unique_id=280417485]
+[node name="Content" type="VBoxContainer" parent="Dialog/Main" unique_id=280417485]
 layout_mode = 2
 
-[node name="Body" type="TabContainer" parent="Main/Content" unique_id=1683185203]
+[node name="Body" type="TabContainer" parent="Dialog/Main/Content" unique_id=1683185203]
 custom_minimum_size = Vector2(0, 240)
 layout_mode = 2
 theme = ExtResource("4_vvf3y")
 current_tab = 0
 
-[node name="Options" type="GridContainer" parent="Main/Content/Body" unique_id=1391115717]
+[node name="Options" type="GridContainer" parent="Dialog/Main/Content/Body" unique_id=1391115717]
 layout_mode = 2
 columns = 3
 metadata/_tab_index = 0
 
-[node name="MusicText" type="Label" parent="Main/Content/Body/Options" unique_id=986093070]
+[node name="MusicText" type="Label" parent="Dialog/Main/Content/Body/Options" unique_id=986093070]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_24lf8")
 theme_override_font_sizes/font_size = 32
 text = "Music Volume: "
 
-[node name="Music" type="HSlider" parent="Main/Content/Body/Options" unique_id=1537192799]
+[node name="Music" type="HSlider" parent="Dialog/Main/Content/Body/Options" unique_id=1537192799]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -62,20 +72,20 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="MusicNum" type="Label" parent="Main/Content/Body/Options" unique_id=1901232801]
+[node name="MusicNum" type="Label" parent="Dialog/Main/Content/Body/Options" unique_id=1901232801]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_24lf8")
 theme_override_font_sizes/font_size = 32
 text = "100"
 
-[node name="SFXText" type="Label" parent="Main/Content/Body/Options" unique_id=2128258412]
+[node name="SFXText" type="Label" parent="Dialog/Main/Content/Body/Options" unique_id=2128258412]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_24lf8")
 theme_override_font_sizes/font_size = 32
 text = "SFX Volume: "
 
-[node name="SFX" type="HSlider" parent="Main/Content/Body/Options" unique_id=1219873397]
+[node name="SFX" type="HSlider" parent="Dialog/Main/Content/Body/Options" unique_id=1219873397]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -83,20 +93,20 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="SFXNum" type="Label" parent="Main/Content/Body/Options" unique_id=497802127]
+[node name="SFXNum" type="Label" parent="Dialog/Main/Content/Body/Options" unique_id=497802127]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_24lf8")
 theme_override_font_sizes/font_size = 32
 text = "100"
 
-[node name="UIText" type="Label" parent="Main/Content/Body/Options" unique_id=64044519]
+[node name="UIText" type="Label" parent="Dialog/Main/Content/Body/Options" unique_id=64044519]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_24lf8")
 theme_override_font_sizes/font_size = 32
 text = "UI Volume: "
 
-[node name="UI" type="HSlider" parent="Main/Content/Body/Options" unique_id=426669189]
+[node name="UI" type="HSlider" parent="Dialog/Main/Content/Body/Options" unique_id=426669189]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -104,90 +114,90 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="UINum" type="Label" parent="Main/Content/Body/Options" unique_id=327757263]
+[node name="UINum" type="Label" parent="Dialog/Main/Content/Body/Options" unique_id=327757263]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_24lf8")
 theme_override_font_sizes/font_size = 32
 text = "100"
 
-[node name="SpeedText" type="Label" parent="Main/Content/Body/Options" unique_id=849899293]
+[node name="SpeedText" type="Label" parent="Dialog/Main/Content/Body/Options" unique_id=849899293]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Text Speed: "
 
-[node name="TextSpd" type="SpinBox" parent="Main/Content/Body/Options" unique_id=1311436833]
+[node name="TextSpd" type="SpinBox" parent="Dialog/Main/Content/Body/Options" unique_id=1311436833]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Spacer" type="Label" parent="Main/Content/Body/Options" unique_id=1463896692]
+[node name="Spacer" type="Label" parent="Dialog/Main/Content/Body/Options" unique_id=1463896692]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 
-[node name="Save" type="VBoxContainer" parent="Main/Content/Body" unique_id=109648469]
+[node name="Save" type="VBoxContainer" parent="Dialog/Main/Content/Body" unique_id=109648469]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="BtnSave1" type="Button" parent="Main/Content/Body/Save" unique_id=720792057]
+[node name="BtnSave1" type="Button" parent="Dialog/Main/Content/Body/Save" unique_id=720792057]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_24lf8")
 theme_override_font_sizes/font_size = 32
 text = "Save Slot 1"
 
-[node name="BtnSave2" type="Button" parent="Main/Content/Body/Save" unique_id=48623945]
+[node name="BtnSave2" type="Button" parent="Dialog/Main/Content/Body/Save" unique_id=48623945]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_24lf8")
 theme_override_font_sizes/font_size = 32
 text = "Save Slot 2"
 
-[node name="BtnSave3" type="Button" parent="Main/Content/Body/Save" unique_id=1332052407]
+[node name="BtnSave3" type="Button" parent="Dialog/Main/Content/Body/Save" unique_id=1332052407]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_24lf8")
 theme_override_font_sizes/font_size = 32
 text = "Save Slot 3"
 
-[node name="Load" type="VBoxContainer" parent="Main/Content/Body" unique_id=1308184899]
+[node name="Load" type="VBoxContainer" parent="Dialog/Main/Content/Body" unique_id=1308184899]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="BtnLoad1" type="Button" parent="Main/Content/Body/Load" unique_id=1788653507]
+[node name="BtnLoad1" type="Button" parent="Dialog/Main/Content/Body/Load" unique_id=1788653507]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_24lf8")
 theme_override_font_sizes/font_size = 32
 text = "Load Slot 1"
 
-[node name="BtnLoad2" type="Button" parent="Main/Content/Body/Load" unique_id=1159064060]
+[node name="BtnLoad2" type="Button" parent="Dialog/Main/Content/Body/Load" unique_id=1159064060]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_24lf8")
 theme_override_font_sizes/font_size = 32
 text = "Load Slot 2"
 
-[node name="BtnLoad3" type="Button" parent="Main/Content/Body/Load" unique_id=730550667]
+[node name="BtnLoad3" type="Button" parent="Dialog/Main/Content/Body/Load" unique_id=730550667]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_24lf8")
 theme_override_font_sizes/font_size = 32
 text = "Load Slot 3"
 
-[node name="HSeparator" type="HSeparator" parent="Main/Content" unique_id=126411938]
+[node name="HSeparator" type="HSeparator" parent="Dialog/Main/Content" unique_id=126411938]
 layout_mode = 2
 theme_override_constants/separation = 8
 theme_override_styles/separator = SubResource("StyleBoxLine_grrlh")
 
-[node name="BtnQuit" type="Button" parent="Main/Content" unique_id=1363598307]
+[node name="BtnQuit" type="Button" parent="Dialog/Main/Content" unique_id=1363598307]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_24lf8")
 theme_override_font_sizes/font_size = 32
 text = "Quit to Title"
 
-[node name="BtnBack" type="Button" parent="Main/Content" unique_id=650402464]
+[node name="BtnBack" type="Button" parent="Dialog/Main/Content" unique_id=650402464]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_24lf8")
 theme_override_font_sizes/font_size = 32
 text = "Back"
 
-[connection signal="value_changed" from="Main/Content/Body/Options/TextSpd" to="." method="_on_text_spd_value_changed"]
-[connection signal="pressed" from="Main/Content/BtnQuit" to="." method="_on_btn_quit_pressed"]
-[connection signal="pressed" from="Main/Content/BtnBack" to="." method="_on_btn_back_pressed"]
+[connection signal="value_changed" from="Dialog/Main/Content/Body/Options/TextSpd" to="." method="_on_text_spd_value_changed"]
+[connection signal="pressed" from="Dialog/Main/Content/BtnQuit" to="." method="_on_btn_quit_pressed"]
+[connection signal="pressed" from="Dialog/Main/Content/BtnBack" to="." method="_on_btn_back_pressed"]

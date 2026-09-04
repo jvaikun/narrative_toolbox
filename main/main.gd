@@ -10,7 +10,18 @@ extends Control
 	"sfx": $SFX,
 	"vo": $Voice,
 }
-@onready var choice_btns = $Content/Book/TwoPage/PageR/Narration/Body/Buttons.get_children()
+@onready var player_stat_ui = {
+	"name": $Content/Player/Content/Body/Name,
+	"skill": $Content/Player/Content/Body/Stats/SkillNum,
+	"stamina": $Content/Player/Content/Body/Stats/StaNum,
+	"luck": $Content/Player/Content/Body/Stats/LuckNum,
+}
+@onready var player_portrait = $Content/Player/Content/Body/Portrait
+@onready var image_container = $Content/Book/TwoPage/PageL/Frame/Content
+@onready var book_image = $Content/Book/TwoPage/PageL/Frame/Content/Image
+@onready var narrate_text = $Content/Book/TwoPage/PageR/Frame/Content/Body/Text
+@onready var ui_choices = $Content/Book/TwoPage/PageR/Frame/Content/Body/Choices
+@onready var choice_btns = $Content/Book/TwoPage/PageR/Frame/Content/Body/Choices.get_children()
 @onready var anim_book = $Content/Book/AnimBook
 
 var current_menu : String = "none" :
@@ -27,9 +38,8 @@ var timeline_index : int = -1
 
 
 func _ready() -> void:
-	#load_timeline("res://timelines/scene1.json")
 	load_timeline("res://timelines/scene1.tres")
-	$Content/Player/Content/Body/Portrait.texture = load(Game.ATLASES.player.path)
+	player_portrait.texture = load(Game.ATLASES.player.path)
 	_info_update()
 	for button in choice_btns:
 		button.pressed.connect(on_choice_made)
@@ -47,9 +57,9 @@ func load_timeline(file_path : String):
 	timeline = load(file_path).events
 	timeline_index = -1
 	anim_book.play("RESET")
-	$Content/Book/TwoPage/PageR/Narration/Body/Text.text = ""
-	$Content/Book/TwoPage/PageR/Narration/Body/Text.visible_characters = 0
-	$Content/Book/TwoPage/PageR/Narration/Body/Text.modulate.a = 1
+	narrate_text.text = ""
+	narrate_text.visible_characters = 0
+	narrate_text.modulate.a = 1
 
 
 func next_event():
@@ -78,31 +88,31 @@ func play_audio(event : EventAudio):
 
 
 func show_image(event : EventImage):
-	if $Content/Book/TwoPage/PageL/Scene.modulate.a != 0:
+	if image_container.modulate.a != 0:
 		anim_book.play("scene_fade_in", -1, -1.0/event.fade_time, true)
 		await anim_book.animation_finished
-	$Content/Book/TwoPage/PageL/Scene/Image.texture = event.image
+	book_image.texture = event.image
 	anim_book.play("scene_fade_in", -1, 1.0/event.fade_time)
 	await anim_book.animation_finished
 	next_event()
 
 
 func show_text(event : EventText):
-	if $Content/Book/TwoPage/PageR/Narration/Body/Text.modulate.a != 0:
+	if narrate_text.modulate.a != 0:
 		anim_book.play("text_fade_out")
 		await anim_book.animation_finished
-	$Content/Book/TwoPage/PageR/Narration/Body/Text.text = ""
-	$Content/Book/TwoPage/PageR/Narration/Body/Text.visible_characters = 0
-	$Content/Book/TwoPage/PageR/Narration/Body/Text.modulate.a = 1
+	narrate_text.text = ""
+	narrate_text.visible_characters = 0
+	narrate_text.modulate.a = 1
 	var split_string : PackedStringArray = event.lines.split("\n")
 	var full_text : String = ""
 	var tween_time : float = 1.0
 	for line in split_string:
 		tween_time = line.length() / Game.settings.text_speed
 		full_text += line + "\n"
-		$Content/Book/TwoPage/PageR/Narration/Body/Text.text = full_text
+		narrate_text.text = full_text
 		var tween_text = create_tween()
-		tween_text.tween_property($Content/Book/TwoPage/PageR/Narration/Body/Text,
+		tween_text.tween_property(narrate_text,
 			"visible_characters", full_text.length(), tween_time)
 		tween_text.play()
 		await tween_text.finished
@@ -115,7 +125,7 @@ func show_text(event : EventText):
 
 
 func show_choice(choices : Array[String]):
-	if $Content/Book/TwoPage/PageR/Narration/Body/Buttons.modulate.a != 0:
+	if ui_choices.modulate.a != 0:
 		anim_book.play_backwards("btn_fade_in")
 		await anim_book.animation_finished
 	for i in choice_btns.size():
@@ -134,16 +144,14 @@ func on_choice_made():
 
 
 func _info_update():
-	var this_tex = $Content/Player/Content/Body/Portrait.texture
+	var this_tex = player_portrait.texture
 	var atlas_width = int(this_tex.atlas.get_width() / this_tex.region.size.x)
 	this_tex.region.position = Vector2(
 		Game.player.portrait % atlas_width,
 		Game.player.portrait / atlas_width
 	) * this_tex.region.size.x
-	$Content/Player/Content/Body/Name.text = Game.player.name
-	$Content/Player/Content/Body/Stats/SkillNum.text = str(Game.player.skill)
-	$Content/Player/Content/Body/Stats/StaNum.text = str(Game.player.stamina)
-	$Content/Player/Content/Body/Stats/LuckNum.text = str(Game.player.luck)
+	for key in player_stat_ui.keys():
+		player_stat_ui[key].text = str(Game.player[key])
 
 
 func _on_btn_inventory_pressed() -> void:
