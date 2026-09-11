@@ -37,6 +37,8 @@ func _ready() -> void:
 	for key in ITEMS.keys():
 		item_list.add_item(ITEMS[key].name)
 		item_list.set_item_metadata(-1, key)
+	item_list.select(0)
+	_on_list_item_selected(0)
 
 
 func _on_list_item_selected(index: int) -> void:

@@ -58,12 +58,11 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Image" type="TextureRect" parent="Dialog/Main/Content/Body/Info" unique_id=2022243944]
-custom_minimum_size = Vector2(256, 0)
-custom_maximum_size = Vector2(256, -1)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_vertical = 3
 texture = ExtResource("6_vrwa2")
-expand_mode = 5
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Text" type="Label" parent="Dialog/Main/Content/Body/Info" unique_id=1520823572]
 custom_minimum_size = Vector2(320, 0)
@@ -87,6 +86,6 @@ theme_override_fonts/font = ExtResource("2_p6lm3")
 theme_override_font_sizes/font_size = 24
 text = "Back"
 
-[connection signal="item_selected" from="Dialog/Main/Content/Body/List" to="Dialog" method="_on_list_item_selected"]
+[connection signal="item_selected" from="Dialog/Main/Content/Body/List" to="." method="_on_list_item_selected"]
 [connection signal="pressed" from="Dialog/Main/Content/Body/Info/BtnUse" to="." method="_on_btn_use_pressed"]
 [connection signal="pressed" from="Dialog/Main/Content/Body/Info/BtnBack" to="." method="_on_btn_back_pressed"]

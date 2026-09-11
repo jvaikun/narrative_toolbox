@@ -36,12 +36,12 @@ func _ready() -> void:
 
 
 func set_portrait(side: String, idx: int):
-	var this_atlas = sides[side].portrait.texture
-	var atlas_width = int(this_atlas.get_width() / this_atlas.region.size.x)
+	var this_tex = sides[side].portrait.texture
+	var atlas_width = int(this_tex.atlas.get_width() / this_tex.region.size.x)
 	sides[side].portrait.texture.region.position = Vector2(
 		idx % atlas_width,
 		idx / atlas_width
-	) * this_atlas.region.size.x
+	) * this_tex.region.size.x
 
 
 func init_combat():

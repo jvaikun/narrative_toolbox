@@ -47,13 +47,7 @@ var settings = {
 	"auto_text": false,
 }
 
-var current_enemy : Dictionary = {
-	"name": "Enemy",
-	"portrait": 2,
-	"skill": 6,
-	"stamina": 12,
-	"luck": 6
-}
+var current_enemy : EnemyData
 
 
 func _ready() -> void:
