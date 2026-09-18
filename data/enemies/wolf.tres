@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bq5un7kp4bc7s"]
+
+[ext_resource type="Script" uid="uid://bus748aeyadrp" path="res://classes/enemy_data.gd" id="1_oico5"]
+[ext_resource type="Texture2D" uid="uid://cspspsu1rkbiu" path="res://data/textures/wolf.png" id="1_rgm1u"]
+
+[resource]
+script = ExtResource("1_oico5")
+name = "Wolf"
+portrait = ExtResource("1_rgm1u")
+stamina = 6
+metadata/_custom_type_script = "uid://bus748aeyadrp"

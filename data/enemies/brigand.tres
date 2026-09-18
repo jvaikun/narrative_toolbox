@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://blrn8vqn1h6af"]
+
+[ext_resource type="Texture2D" uid="uid://c0c1eylc5e2af" path="res://data/textures/brigand.png" id="1_iw80x"]
+[ext_resource type="Script" uid="uid://bus748aeyadrp" path="res://classes/enemy_data.gd" id="1_syqmr"]
+
+[resource]
+script = ExtResource("1_syqmr")
+name = "Brigand"
+portrait = ExtResource("1_iw80x")
+metadata/_custom_type_script = "uid://bus748aeyadrp"

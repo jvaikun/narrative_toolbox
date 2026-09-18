@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://co52dsgi8du4s"]
+
+[ext_resource type="Texture2D" uid="uid://b718xa04tl7q2" path="res://data/textures/ghoul.png" id="1_46tw2"]
+[ext_resource type="Script" uid="uid://bus748aeyadrp" path="res://classes/enemy_data.gd" id="1_tiw72"]
+
+[resource]
+script = ExtResource("1_tiw72")
+name = "Ghoul"
+portrait = ExtResource("1_46tw2")
+skill = 8
+metadata/_custom_type_script = "uid://bus748aeyadrp"

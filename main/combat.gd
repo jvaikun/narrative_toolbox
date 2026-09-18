@@ -10,6 +10,7 @@ const STAT_TEXT = "SKILL: %d\nSTAMINA: %d"
 ]
 @onready var sides = {
 	"player": {
+		"header": $Dialog/Main/Content/Body/Player/Name,
 		"portrait": $Dialog/Main/Content/Body/Player/Portrait,
 		"atlas": Game.ATLASES.player,
 		"stats": $Dialog/Main/Content/Body/Player/Stats,
@@ -18,6 +19,7 @@ const STAT_TEXT = "SKILL: %d\nSTAMINA: %d"
 		"stamina":"",
 	},
 	"enemy": {
+		"header": $Dialog/Main/Content/Body/Enemy/Name,
 		"portrait": $Dialog/Main/Content/Body/Enemy/Portrait,
 		"atlas": Game.ATLASES.enemy,
 		"stats": $Dialog/Main/Content/Body/Enemy/Stats,
@@ -49,10 +51,12 @@ func init_combat():
 		var data = {}
 		if key == "player":
 			data = Game.player
+			set_portrait(key, data.portrait)
 		else:
 			data = Game.current_enemy
-		set_portrait(key, data.portrait)
+			sides.enemy.portrait.texture = data.portrait
 		sides[key].name = data.name
+		sides[key].header.text = data.name
 		sides[key].skill = data.skill
 		sides[key].stamina = data.stamina
 	_ui_update()

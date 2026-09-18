@@ -1,5 +1,10 @@
 extends Control
 
+enum DayTimes {MORNING, NOON, NIGHT}
+
+const TIMES = ["Morning", "Noon", "Night"]
+const TIME_TEXT = "Day %d, %s"
+
 @onready var mansion_map = {
 	"entrance": $"Map/1F/Entrance",
 	"1f_east1": $"Map/1F/1FEast1",
@@ -19,6 +24,12 @@ extends Control
 	"crypt1": $Map/B2/Crypt1,
 	"crypt2": $Map/B2/Crypt2,
 	"crypt3": $Map/B2/Crypt3,
+}
+@onready var floors = {
+	"2F": {"btn": $Floors/Btn2F, "layer": $"Map/2F"},
+	"1F":{"btn": $Floors/Btn1F, "layer": $"Map/1F"},
+	"B1":{"btn": $Floors/BtnB1, "layer": $Map/B1},
+	"B2":{"btn": $Floors/BtnB2, "layer": $Map/B2},
 }
 
 var characters = {
@@ -64,8 +75,24 @@ var characters = {
 	},
 }
 
-var turn_count : int = 0
+var day : int = 1
+var day_time : DayTimes = DayTimes.MORNING
 
 
 func _ready() -> void:
-	pass # Replace with function body.
+	for key in floors.keys():
+		floors[key].btn.pressed.connect(set_layer.bind(key))
+
+
+func set_layer(layer):
+	for key in floors.keys():
+		floors[key].layer.visible = (key == layer)
+
+
+func _on_btn_advance_pressed() -> void:
+	if day_time == DayTimes.NIGHT:
+		day_time = DayTimes.MORNING
+		day += 1
+	else:
+		day_time = (day_time + 1) as DayTimes
+	$Time/Time.text = TIME_TEXT % [day, TIMES[day_time]]

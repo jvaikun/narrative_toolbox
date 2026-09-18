@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bm7r8urtiocn4"]
+
+[ext_resource type="Texture2D" uid="uid://dfl5mhy8h8tml" path="res://data/textures/knife.png" id="1_lhbww"]
+[ext_resource type="Script" uid="uid://dkolyx216p3dd" path="res://classes/item_data.gd" id="1_qpmi0"]
+
+[resource]
+script = ExtResource("1_qpmi0")
+name = "Bloody knife"
+image = ExtResource("1_lhbww")
+description = "A knife, stained with blood. You hope it isn't Chris' blood..."
+metadata/_custom_type_script = "uid://dkolyx216p3dd"

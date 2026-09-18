@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c6tnjl4epqj5d"]
+
+[ext_resource type="Script" uid="uid://dkolyx216p3dd" path="res://classes/item_data.gd" id="1_an710"]
+[ext_resource type="Texture2D" uid="uid://cal802f87ngbx" path="res://data/textures/flintlock.png" id="1_lja6c"]
+
+[resource]
+script = ExtResource("1_an710")
+name = "Magnum Flintlock"
+image = ExtResource("1_lja6c")
+description = "It's really powerful, especially against living things!"
+metadata/_custom_type_script = "uid://dkolyx216p3dd"

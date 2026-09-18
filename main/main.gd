@@ -21,7 +21,10 @@ extends Control
 @onready var book_image = $Content/Book/TwoPage/PageL/Frame/Content/Image
 @onready var narrate_text = $Content/Book/TwoPage/PageR/Frame/Content/Body/Text
 @onready var ui_choices = $Content/Book/TwoPage/PageR/Frame/Content/Body/Choices
-@onready var choice_btns = $Content/Book/TwoPage/PageR/Frame/Content/Body/Choices.get_children()
+@onready var choice_timer = $Content/Book/TwoPage/PageR/Frame/Content/Body/Choices/ChoiceTimer
+@onready var ui_timer = $Content/Book/TwoPage/PageR/Frame/Content/Body/Choices/Timer
+@onready var timer_bar = $Content/Book/TwoPage/PageR/Frame/Content/Body/Choices/Timer/Bar
+@onready var choice_btns = $Content/Book/TwoPage/PageR/Frame/Content/Body/Choices/Buttons.get_children()
 @onready var anim_book = $Content/Book/AnimBook
 
 var current_menu : String = "none" :
@@ -41,6 +44,8 @@ func _ready() -> void:
 	load_timeline("res://timelines/scene1.tres")
 	player_portrait.texture = load(Game.ATLASES.player.path)
 	_info_update()
+	timer_bar.value = 1.0
+	ui_timer.hide()
 	for button in choice_btns:
 		button.pressed.connect(on_choice_made)
 	current_menu = "none"
@@ -48,6 +53,8 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	if !choice_timer.is_stopped():
+		timer_bar.value = choice_timer.time_left/choice_timer.wait_time
 	if Input.is_action_just_pressed("ui_home"):
 		#next_event()
 		pass
@@ -72,7 +79,7 @@ func next_event():
 	if this_event is EventAudio:
 		play_audio(this_event)
 	elif this_event is EventChoice:
-		show_choice(this_event.choices)
+		show_choice(this_event)
 	elif this_event is EventImage:
 		show_image(this_event)
 	elif this_event is EventText:
@@ -121,23 +128,44 @@ func show_text(event : EventText):
 		if timeline[timeline_index+1] is EventChoice:
 			next_event()
 		else:
-			show_choice(["Next..."])
+			next_prompt()
 
 
-func show_choice(choices : Array[String]):
+func next_prompt():
 	if ui_choices.modulate.a != 0:
 		anim_book.play_backwards("btn_fade_in")
 		await anim_book.animation_finished
 	for i in choice_btns.size():
-		if i >= choices.size():
-			choice_btns[i].hide()
-		else:
+		if i == 0:
 			choice_btns[i].show()
-			choice_btns[i].text = choices[i]
+			choice_btns[i].text = "Next. . ."
+		else:
+			choice_btns[i].hide()
 	anim_book.play("btn_fade_in")
 
 
+func show_choice(event : EventChoice):
+	if ui_choices.modulate.a != 0:
+		anim_book.play_backwards("btn_fade_in")
+		await anim_book.animation_finished
+	ui_timer.hide()
+	timer_bar.value = 1.0
+	if event.choice_time > 0.0:
+		ui_timer.show()
+	for i in choice_btns.size():
+		if i >= event.choices.size():
+			choice_btns[i].hide()
+		else:
+			choice_btns[i].show()
+			choice_btns[i].text = event.choices[i]
+	anim_book.play("btn_fade_in")
+	await anim_book.animation_finished
+	if event.choice_time > 0.0:
+		choice_timer.start(event.choice_time)
+
+
 func on_choice_made():
+	choice_timer.stop()
 	anim_book.play_backwards("btn_fade_in")
 	await anim_book.animation_finished
 	next_event()
@@ -163,5 +191,13 @@ func _on_btn_options_pressed() -> void:
 
 
 func _on_btn_combat_pressed() -> void:
+	var rand_enemy = ["bigrat","brigand","ghoul","wolf","zombie"].pick_random()
+	Game.current_enemy = load(Game.ENEMY_PATH % rand_enemy)
 	$Combat.init_combat()
 	current_menu = "combat"
+
+
+func _on_choice_timeout() -> void:
+	var this_event = timeline[timeline_index]
+	if this_event is EventChoice:
+		choice_btns[this_event.default_choice].pressed.emit()

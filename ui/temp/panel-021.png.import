@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cal802f87ngbx"
-path="res://.godot/imported/flintlock.png-834a805fffbdf5edbf7037fd9eace334.ctex"
+uid="uid://c76dditjds4oj"
+path="res://.godot/imported/panel-021.png-647dd1bf76e5abe802dd6f6aa0ef8516.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main/textures/flintlock.png"
-dest_files=["res://.godot/imported/flintlock.png-834a805fffbdf5edbf7037fd9eace334.ctex"]
+source_file="res://ui/temp/panel-021.png"
+dest_files=["res://.godot/imported/panel-021.png-647dd1bf76e5abe802dd6f6aa0ef8516.ctex"]
 
 [params]
 

@@ -8,8 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://clplrkpv8eqd7" path="res://ui/textures/faces_player.png" id="5_bsumw"]
 [ext_resource type="StyleBox" uid="uid://cjdlglq8d6aoa" path="res://ui/themes/stylebox_paper_white.tres" id="6_5xyti"]
 [ext_resource type="FontFile" uid="uid://dbj2poekuv8y8" path="res://ui/fonts/adventurer.ttf" id="6_fwcvl"]
+[ext_resource type="Texture2D" uid="uid://bgtsbjqhrdds6" path="res://ui/borders/bar_over.png" id="6_n3o0a"]
+[ext_resource type="Texture2D" uid="uid://fle0a65l3gq8" path="res://main/textures/stopwatch.png" id="6_s758e"]
 [ext_resource type="Theme" uid="uid://p8ostjsjud8l" path="res://ui/themes/paper_white.tres" id="7_bsumw"]
 [ext_resource type="StyleBox" uid="uid://by3qtvs4oekxa" path="res://ui/themes/stylebox_frame_player.tres" id="7_n3o0a"]
+[ext_resource type="Texture2D" uid="uid://tssmn777ijg8" path="res://ui/borders/bar_prog.png" id="7_s758e"]
 [ext_resource type="PackedScene" uid="uid://b743puy2def5j" path="res://main/inventory.tscn" id="8_0i4oc"]
 [ext_resource type="PackedScene" uid="uid://dwir4ul5vpqnn" path="res://main/system.tscn" id="9_bsumw"]
 [ext_resource type="PackedScene" uid="uid://byblek3rnnn64" path="res://main/combat.tscn" id="10_fwcvl"]
@@ -183,28 +186,60 @@ theme_override_constants/margin_bottom = 8
 [node name="Body" type="VBoxContainer" parent="Content/Book/TwoPage/PageR/Frame/Content" unique_id=1141234233]
 layout_mode = 2
 
-[node name="Text" type="Label" parent="Content/Book/TwoPage/PageR/Frame/Content/Body" unique_id=1459579272]
+[node name="Text" type="RichTextLabel" parent="Content/Book/TwoPage/PageR/Frame/Content/Body" unique_id=1301891326]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 size_flags_vertical = 3
 text = "Body text test"
 autowrap_mode = 2
+visible_characters_behavior = 1
 
 [node name="Choices" type="VBoxContainer" parent="Content/Book/TwoPage/PageR/Frame/Content/Body" unique_id=1715372860]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme = ExtResource("7_bsumw")
 
-[node name="BtnChoice1" type="Button" parent="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices" unique_id=944611640]
+[node name="ChoiceTimer" type="Timer" parent="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices" unique_id=220638130]
+one_shot = true
+
+[node name="Timer" type="HBoxContainer" parent="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices" unique_id=1751927192]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices/Timer" unique_id=872080451]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("6_s758e")
+stretch_mode = 5
+
+[node name="Bar" type="TextureProgressBar" parent="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices/Timer" unique_id=337464946]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.001
+value = 0.5
+nine_patch_stretch = true
+stretch_margin_left = 12
+stretch_margin_top = 12
+stretch_margin_right = 12
+stretch_margin_bottom = 12
+texture_over = ExtResource("6_n3o0a")
+texture_progress = ExtResource("7_s758e")
+
+[node name="Buttons" type="VBoxContainer" parent="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices" unique_id=1427017722]
+layout_mode = 2
+
+[node name="BtnChoice1" type="Button" parent="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices/Buttons" unique_id=944611640]
 layout_mode = 2
 text = "Agree"
 
-[node name="BtnChoice2" type="Button" parent="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices" unique_id=352682196]
+[node name="BtnChoice2" type="Button" parent="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices/Buttons" unique_id=352682196]
 layout_mode = 2
 text = "Disagree"
 
-[node name="BtnChoice3" type="Button" parent="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices" unique_id=2004936854]
+[node name="BtnChoice3" type="Button" parent="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices/Buttons" unique_id=2004936854]
 layout_mode = 2
 text = "Shrug"
 
@@ -301,9 +336,20 @@ layout_mode = 2
 theme = ExtResource("7_bsumw")
 text = "Combat Test"
 
+[node name="MenuOverlay" type="ColorRect" parent="." unique_id=450626394]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5019608)
+
 [node name="Inventory" parent="." unique_id=616553246 instance=ExtResource("8_0i4oc")]
 visible = false
 layout_mode = 1
+anchors_preset = 15
 
 [node name="System" parent="." unique_id=746765915 instance=ExtResource("9_bsumw")]
 visible = false
@@ -322,6 +368,7 @@ bus = &"sfx"
 [node name="Voice" type="AudioStreamPlayer" parent="." unique_id=780078950]
 bus = &"vo"
 
+[connection signal="timeout" from="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices/ChoiceTimer" to="." method="_on_choice_timeout"]
 [connection signal="pressed" from="Content/Player/Content/Body/BtnInventory" to="." method="_on_btn_inventory_pressed"]
 [connection signal="pressed" from="Content/Player/Content/Body/BtnOptions" to="." method="_on_btn_options_pressed"]
 [connection signal="pressed" from="Content/Player/Content/Body/BtnCombat" to="." method="_on_btn_combat_pressed"]

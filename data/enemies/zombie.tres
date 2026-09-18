@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bwndrgmeydcey"]
+
+[ext_resource type="Texture2D" uid="uid://cseeoy1748d08" path="res://data/textures/zombie.png" id="1_bncb8"]
+[ext_resource type="Script" uid="uid://bus748aeyadrp" path="res://classes/enemy_data.gd" id="1_gbyyd"]
+
+[resource]
+script = ExtResource("1_gbyyd")
+name = "Zombie"
+portrait = ExtResource("1_bncb8")
+stamina = 6
+metadata/_custom_type_script = "uid://bus748aeyadrp"

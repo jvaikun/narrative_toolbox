@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c624r5wcq084b"]
+
+[ext_resource type="Texture2D" uid="uid://cjvsgaa565c2g" path="res://data/textures/sandwich.png" id="1_0k6k0"]
+[ext_resource type="Script" uid="uid://dkolyx216p3dd" path="res://classes/item_data.gd" id="1_v1kp7"]
+
+[resource]
+script = ExtResource("1_v1kp7")
+name = "Jill's sandwich"
+image = ExtResource("1_0k6k0")
+usable = true
+description = "You almost had this for lunch. Restores 2 STAMINA."
+metadata/_custom_type_script = "uid://dkolyx216p3dd"

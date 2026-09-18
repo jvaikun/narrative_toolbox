@@ -1,32 +1,5 @@
 extends ColorRect
 
-const ITEMS = {
-	"magnum": {
-		"name": "Magnum Flintlock",
-		"img_path": "res://main/textures/flintlock.png",
-		"desc": "It's really powerful. Especially against living things!",
-		"usable": false,
-	},
-	"chris_blood": {
-		"name": "Chris' Blood",
-		"img_path": "res://main/textures/d6_number.png",
-		"desc": "You had hoped this wasn't Chris' blood, but it is.",
-		"usable": false,
-	},
-	"not_chris_blood": {
-		"name": "Not Chris' Blood",
-		"img_path": "res://main/textures/d6_number.png",
-		"desc": "You had hoped this wasn't Chris' blood. Thankfully, it isn't.",
-		"usable": false,
-	},
-	"jill_sandwich": {
-		"name": "Jill Sandwich",
-		"img_path": "res://main/textures/d6_number.png",
-		"desc": "You almost ate this for lunch.",
-		"usable": true,
-	},
-}
-
 @onready var item_list = $Dialog/Main/Content/Body/List
 @onready var item_img = $Dialog/Main/Content/Body/Info/Image
 @onready var item_desc = $Dialog/Main/Content/Body/Info/Text
@@ -34,18 +7,20 @@ const ITEMS = {
 
 
 func _ready() -> void:
-	for key in ITEMS.keys():
-		item_list.add_item(ITEMS[key].name)
-		item_list.set_item_metadata(-1, key)
+	for item_id in Game.inventory:
+		var new_item = load(Game.ITEM_PATH % item_id)
+		if new_item != null:
+			if new_item is ItemData:
+				item_list.add_item(new_item.name)
+				item_list.set_item_metadata(-1, new_item)
 	item_list.select(0)
 	_on_list_item_selected(0)
 
 
 func _on_list_item_selected(index: int) -> void:
-	var item_id = item_list.get_item_metadata(index)
-	var this_item = ITEMS[item_id]
-	item_img.texture = load(this_item.img_path)
-	item_desc.text = this_item.desc
+	var this_item = item_list.get_item_metadata(index)
+	item_img.texture = this_item.image
+	item_desc.text = this_item.description
 	item_use.visible = this_item.usable
 
 

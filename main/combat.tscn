@@ -13,10 +13,6 @@
 atlas = ExtResource("6_662rd")
 region = Rect2(0, 0, 36, 36)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_662rd"]
-atlas = ExtResource("6_662rd")
-region = Rect2(0, 0, 36, 36)
-
 [node name="Combat" type="ColorRect" unique_id=1323091114]
 anchors_preset = 15
 anchor_right = 1.0
@@ -118,7 +114,9 @@ horizontal_alignment = 1
 [node name="Portrait" type="TextureRect" parent="Dialog/Main/Content/Body/Enemy" unique_id=140612283]
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
-texture = SubResource("AtlasTexture_662rd")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Stats" type="Label" parent="Dialog/Main/Content/Body/Enemy" unique_id=719572965]

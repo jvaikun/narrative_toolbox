@@ -6,10 +6,9 @@
 [ext_resource type="FontFile" uid="uid://cou7t00vw3boe" path="res://ui/fonts/notjam_oldstyle.ttf" id="2_p6lm3"]
 [ext_resource type="StyleBox" uid="uid://cjdlglq8d6aoa" path="res://ui/themes/stylebox_paper_white.tres" id="3_vrwa2"]
 [ext_resource type="StyleBox" uid="uid://by3qtvs4oekxa" path="res://ui/themes/stylebox_frame_player.tres" id="4_dvy5c"]
-[ext_resource type="Texture2D" uid="uid://cal802f87ngbx" path="res://main/textures/flintlock.png" id="6_vrwa2"]
+[ext_resource type="Texture2D" uid="uid://cal802f87ngbx" path="res://data/textures/flintlock.png" id="6_vrwa2"]
 
 [node name="Inventory" type="ColorRect" unique_id=1966721854]
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2

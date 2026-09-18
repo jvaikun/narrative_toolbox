@@ -1,5 +1,7 @@
 extends Node
 
+const ITEM_PATH = "res://data/items/%s.tres"
+const ENEMY_PATH = "res://data/enemies/%s.tres"
 const ATLASES = {
 	"player": {
 		"path": "res://ui/textures/atlas_player.tres",
@@ -30,6 +32,8 @@ var player : Dictionary = {
 	"stamina": 24,
 	"luck": 12
 }
+
+var inventory : Array = ["magnum", "knife", "sandwich"]
 
 var game_state = {
 	"intro": {},
