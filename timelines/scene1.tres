@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://40q0ab7v28b4" path="res://classes/timeline/event_image.gd" id="3_ptfnm"]
 [ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="4_ptfnm"]
 [ext_resource type="Texture2D" uid="uid://s2n85t1uyqng" path="res://timelines/textures/coach.png" id="5_x6t2e"]
+[ext_resource type="Script" uid="uid://dkfdnmlrdhh5u" path="res://classes/timeline/choice_branch.gd" id="6_0ocij"]
 [ext_resource type="Script" uid="uid://5e50cn5p01dd" path="res://classes/timeline/event_choice.gd" id="6_u7t40"]
 [ext_resource type="Texture2D" uid="uid://bledl0utey0dd" path="res://timelines/textures/inn.png" id="7_ghngd"]
 
@@ -35,18 +36,51 @@ Despite that, the King's man tries his best to make conversation, if only to mak
 metadata/_custom_type_script = "uid://qiibr5iabuqw"
 
 [sub_resource type="Resource" id="Resource_0ocij"]
-script = ExtResource("6_u7t40")
-choice_time = 5.0
-default_choice = 2
-choices = Array[String](["Agree", "Disagree", "Shrug"])
-metadata/_custom_type_script = "uid://5e50cn5p01dd"
+script = ExtResource("4_ptfnm")
+lines = "The Crown agent chuckles nervously. \"I suppose there is some benefit coming into this expecting a fight,\" he replies. \"Although I would prefer a more mundane culprit for our man's seeming disappearance.\""
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_3f4fo"]
+script = ExtResource("6_0ocij")
+title = "Agree"
+events = Array[ExtResource("1_lsnxd")]([SubResource("Resource_0ocij")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
 
 [sub_resource type="Resource" id="Resource_kbhlj"]
+script = ExtResource("4_ptfnm")
+lines = "The Crown agent's expression brightens visibly. \"Good to know that you're taking the rumors with a grain of salt,\" he replies. \"It's far more likely that everyday ne'er do wells are responsible for our man's lack of contact. Looters or brigands, I'd say.\""
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_v6k4r"]
+script = ExtResource("6_0ocij")
+title = "Disagree"
+events = Array[ExtResource("1_lsnxd")]([SubResource("Resource_kbhlj")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_2afs7"]
+script = ExtResource("4_ptfnm")
+lines = "The Crown agent's expression sours. \"Come now, our man is likely in distress,\" he chides, wagging his finger. \"It would not do to be so indifferent to his plight!\""
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_ok8hj"]
+script = ExtResource("6_0ocij")
+title = "Shrug"
+events = Array[ExtResource("1_lsnxd")]([SubResource("Resource_2afs7")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_opigw"]
+script = ExtResource("6_u7t40")
+choice_time = 3.0
+default_choice = 2
+choices = Array[ExtResource("6_0ocij")]([SubResource("Resource_3f4fo"), SubResource("Resource_v6k4r"), SubResource("Resource_ok8hj")])
+metadata/_custom_type_script = "uid://5e50cn5p01dd"
+
+[sub_resource type="Resource" id="Resource_e6dfl"]
 script = ExtResource("3_ptfnm")
 image = ExtResource("7_ghngd")
 metadata/_custom_type_script = "uid://40q0ab7v28b4"
 
-[sub_resource type="Resource" id="Resource_2afs7"]
+[sub_resource type="Resource" id="Resource_l04ru"]
 script = ExtResource("4_ptfnm")
 lines = "At last, you arrive at Fendringham, just as night falls. The coaching inn is larger than you expected, but your coach is only one of two on the grounds.
 Normally, you would wait to set up a base of operations at a larger settlement, but Fendringham is the closest village to the mansion in a sparsely populated area.
@@ -54,12 +88,29 @@ Normally, you would wait to set up a base of operations at a larger settlement, 
 He then asks, \"Would you mind having a look around while I arrange for room and board?\""
 metadata/_custom_type_script = "uid://qiibr5iabuqw"
 
+[sub_resource type="Resource" id="Resource_i4tv2"]
+script = ExtResource("6_0ocij")
+title = "I'll have a look around"
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_62p0d"]
+script = ExtResource("6_0ocij")
+title = "I'll handle the rooms"
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_2fhw0"]
+script = ExtResource("6_0ocij")
+title = "I'm getting a drink"
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
 [sub_resource type="Resource" id="Resource_lkqdc"]
 script = ExtResource("6_u7t40")
-choices = Array[String](["I'll handle the rooms", "I'll look around", "I'm getting a drink"])
+choice_time = 3.0
+default_choice = 2
+choices = Array[ExtResource("6_0ocij")]([SubResource("Resource_i4tv2"), SubResource("Resource_62p0d"), SubResource("Resource_2fhw0")])
 metadata/_custom_type_script = "uid://5e50cn5p01dd"
 
 [resource]
 script = ExtResource("1_0q8is")
-events = Array[ExtResource("1_lsnxd")]([SubResource("Resource_75srb"), SubResource("Resource_cb3ot"), SubResource("Resource_u7t40"), SubResource("Resource_ghngd"), SubResource("Resource_0ocij"), SubResource("Resource_kbhlj"), SubResource("Resource_2afs7"), SubResource("Resource_lkqdc")])
+events = Array[ExtResource("1_lsnxd")]([SubResource("Resource_75srb"), SubResource("Resource_cb3ot"), SubResource("Resource_u7t40"), SubResource("Resource_ghngd"), SubResource("Resource_opigw"), SubResource("Resource_e6dfl"), SubResource("Resource_l04ru"), SubResource("Resource_lkqdc")])
 metadata/_custom_type_script = "uid://c702wmxhq83je"

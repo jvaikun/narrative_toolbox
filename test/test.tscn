@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bln81s002mop5"]
+
+[ext_resource type="Script" uid="uid://cbpoudjlgaoy0" path="res://test/test.gd" id="1_syuel"]
+
+[node name="Test" type="Control" unique_id=264962310]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_syuel")
+
+[node name="Timeline" type="PanelContainer" parent="." unique_id=551149451]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = -81.5
+offset_right = 116.0
+offset_bottom = 81.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Content" type="VBoxContainer" parent="Timeline" unique_id=1912868970]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="Timeline/Content" unique_id=916241636]
+layout_mode = 2
+text = "Event Information"
+
+[node name="Desc" type="Label" parent="Timeline/Content" unique_id=1093618268]
+layout_mode = 2
+text = "Event Information"
+
+[node name="Details" type="HBoxContainer" parent="Timeline/Content" unique_id=1757762763]
+layout_mode = 2
+
+[node name="Image" type="TextureRect" parent="Timeline/Content/Details" unique_id=1562674868]
+layout_mode = 2
+
+[node name="Caption" type="Label" parent="Timeline/Content/Details" unique_id=2046947030]
+layout_mode = 2
+
+[node name="Choices" type="VBoxContainer" parent="Timeline/Content" unique_id=1290028347]
+layout_mode = 2
+
+[node name="BtnChoice1" type="Button" parent="Timeline/Content/Choices" unique_id=953039025]
+layout_mode = 2
+text = "Choice 1"
+
+[node name="BtnChoice2" type="Button" parent="Timeline/Content/Choices" unique_id=1138285175]
+layout_mode = 2
+text = "Choice 2"
+
+[node name="BtnChoice3" type="Button" parent="Timeline/Content/Choices" unique_id=1536282216]
+layout_mode = 2
+text = "Choice 3"
+
+[node name="Nav" type="HBoxContainer" parent="Timeline/Content" unique_id=1828158737]
+layout_mode = 2
+
+[node name="BtnPrev" type="Button" parent="Timeline/Content/Nav" unique_id=1927352842]
+layout_mode = 2
+text = "<< Prev Event"
+
+[node name="BtnNext" type="Button" parent="Timeline/Content/Nav" unique_id=455141185]
+layout_mode = 2
+text = "Next Event >>"
+
+[connection signal="pressed" from="Timeline/Content/Nav/BtnPrev" to="." method="_on_btn_prev_pressed"]
+[connection signal="pressed" from="Timeline/Content/Nav/BtnNext" to="." method="_on_btn_next_pressed"]

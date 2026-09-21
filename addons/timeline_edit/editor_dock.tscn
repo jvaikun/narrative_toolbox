@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://et2t0s6qi6fp"]
 
+[ext_resource type="Script" uid="uid://c72cy6kbcu3ke" path="res://addons/timeline_edit/editor_dock.gd" id="1_3f4fo"]
+
 [node name="EditorDock" type="Control" unique_id=1883623526]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +9,39 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_3f4fo")
+
+[node name="Content" type="HBoxContainer" parent="." unique_id=1274959527]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Timelines" type="VBoxContainer" parent="Content" unique_id=1441141417]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="Content/Timelines" unique_id=597729994]
+layout_mode = 2
+text = "Timelines"
+
+[node name="List" type="ItemList" parent="Content/Timelines" unique_id=586861324]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Editor" type="VBoxContainer" parent="Content" unique_id=42493394]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Header" type="Label" parent="Content/Editor" unique_id=1179942894]
+layout_mode = 2
+text = "Timeline Editor"
+
+[node name="EditorInspector" type="EditorInspector" parent="Content/Editor" unique_id=168420272]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="item_selected" from="Content/Timelines/List" to="." method="_on_list_item_selected"]

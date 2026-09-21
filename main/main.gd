@@ -37,7 +37,8 @@ var current_menu : String = "none" :
 				menu_list[key].hide()
 
 var timeline = []
-var timeline_index : int = -1
+var current_event : Event = null
+#var timeline_index : int = -1
 
 
 func _ready() -> void:
@@ -46,8 +47,8 @@ func _ready() -> void:
 	_info_update()
 	timer_bar.value = 1.0
 	ui_timer.hide()
-	for button in choice_btns:
-		button.pressed.connect(on_choice_made)
+	for i in choice_btns.size():
+		choice_btns[i].pressed.connect(_on_choice_made.bind(i))
 	current_menu = "none"
 	next_event()
 
@@ -61,29 +62,34 @@ func _process(_delta: float) -> void:
 
 
 func load_timeline(file_path : String):
-	timeline = load(file_path).events
-	timeline_index = -1
+	timeline = load(file_path) #.events
+	timeline.compile()
+	current_event = timeline.events[0]
+	#timeline_index = -1
 	anim_book.play("RESET")
 	narrate_text.text = ""
 	narrate_text.visible_characters = 0
 	narrate_text.modulate.a = 1
 
 
-func next_event():
+func next_event(index : int = 0):
 	# Don't go past the end
-	if timeline_index >= timeline.size()-1:
+	#if timeline_index >= timeline.size()-1:
+	if current_event.next_events.is_empty():
 		print("End of timeline reached, no more events to play.")
 		return
-	timeline_index = clamp(timeline_index+1, 0, timeline.size()-1)
-	var this_event = timeline[timeline_index]
-	if this_event is EventAudio:
-		play_audio(this_event)
-	elif this_event is EventChoice:
-		show_choice(this_event)
-	elif this_event is EventImage:
-		show_image(this_event)
-	elif this_event is EventText:
-		show_text(this_event)
+	else:
+		current_event = current_event.next_events[index]
+	#timeline_index = clamp(timeline_index+1, 0, timeline.size()-1)
+	#var this_event = timeline[timeline_index]
+	if current_event is EventAudio:
+		play_audio(current_event)
+	elif current_event is EventChoice:
+		show_choice(current_event)
+	elif current_event is EventImage:
+		show_image(current_event)
+	elif current_event is EventText:
+		show_text(current_event)
 	else:
 		print("Invalid event type, check timeline data.")
 
@@ -124,8 +130,10 @@ func show_text(event : EventText):
 		tween_text.play()
 		await tween_text.finished
 		await get_tree().create_timer(event.wait_time).timeout
-	if timeline_index < timeline.size()-1:
-		if timeline[timeline_index+1] is EventChoice:
+	#if timeline_index < timeline.size()-1:
+	if !current_event.next_events.is_empty():
+		#if timeline[timeline_index+1] is EventChoice:
+		if current_event.next_events[0] is EventChoice:
 			next_event()
 		else:
 			next_prompt()
@@ -157,18 +165,18 @@ func show_choice(event : EventChoice):
 			choice_btns[i].hide()
 		else:
 			choice_btns[i].show()
-			choice_btns[i].text = event.choices[i]
+			choice_btns[i].text = event.choices[i].title
 	anim_book.play("btn_fade_in")
 	await anim_book.animation_finished
 	if event.choice_time > 0.0:
 		choice_timer.start(event.choice_time)
 
 
-func on_choice_made():
+func _on_choice_made(index: int):
 	choice_timer.stop()
 	anim_book.play_backwards("btn_fade_in")
 	await anim_book.animation_finished
-	next_event()
+	next_event(index)
 
 
 func _info_update():
@@ -198,6 +206,6 @@ func _on_btn_combat_pressed() -> void:
 
 
 func _on_choice_timeout() -> void:
-	var this_event = timeline[timeline_index]
-	if this_event is EventChoice:
-		choice_btns[this_event.default_choice].pressed.emit()
+	#var this_event = timeline[timeline_index]
+	if current_event is EventChoice:
+		choice_btns[current_event.default_choice].pressed.emit()
