@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Timeline" format=3 uid="uid://31g4jbh4ah8r"]
+
+[ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/timeline/event.gd" id="1_ie28q"]
+[ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="2_e7f1k"]
+[ext_resource type="Script" uid="uid://dkfdnmlrdhh5u" path="res://classes/timeline/choice_branch.gd" id="3_rnbfj"]
+[ext_resource type="Script" uid="uid://5e50cn5p01dd" path="res://classes/timeline/event_choice.gd" id="4_kcdlv"]
+[ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="5_tlm8x"]
+
+[sub_resource type="Resource" id="Resource_qclhi"]
+script = ExtResource("2_e7f1k")
+lines = "Market Square
+Fendringham's market square is crawling with armed militiamen, their expressions grim. Patrols frequently pass through, giving updates to the militia commander before continuing their rounds. You hear muttering and bickering about whether 'another pack' will come by."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_0ncg8"]
+script = ExtResource("3_rnbfj")
+title = "Talk to commander"
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_pmmxa"]
+script = ExtResource("3_rnbfj")
+title = "Listen to gossip"
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_1sxrp"]
+script = ExtResource("3_rnbfj")
+title = ""
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_ss58i"]
+script = ExtResource("4_kcdlv")
+choices = Array[ExtResource("3_rnbfj")]([SubResource("Resource_0ncg8"), SubResource("Resource_pmmxa"), SubResource("Resource_1sxrp")])
+metadata/_custom_type_script = "uid://5e50cn5p01dd"
+
+[resource]
+script = ExtResource("5_tlm8x")
+events = Array[ExtResource("1_ie28q")]([SubResource("Resource_qclhi"), SubResource("Resource_ss58i")])
+metadata/_custom_type_script = "uid://c702wmxhq83je"

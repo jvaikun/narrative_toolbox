@@ -25,23 +25,107 @@ layout_mode = 2
 
 [node name="Header" type="Label" parent="Content/Timelines" unique_id=597729994]
 layout_mode = 2
-text = "Timelines"
+text = "File List"
 
 [node name="List" type="ItemList" parent="Content/Timelines" unique_id=586861324]
-custom_minimum_size = Vector2(240, 0)
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_vertical = 3
+item_count = 4
+item_0/text = "mm_inn.tres"
+item_1/text = "mm_square.tres"
+item_2/text = "mm_temple.tres"
+item_3/text = "scene1.tres"
+
+[node name="BtnTest" type="Button" parent="Content/Timelines" unique_id=564556309]
+layout_mode = 2
+text = "Parse Timeline"
 
 [node name="Editor" type="VBoxContainer" parent="Content" unique_id=42493394]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Header" type="Label" parent="Content/Editor" unique_id=1179942894]
-layout_mode = 2
-text = "Timeline Editor"
-
 [node name="EditorInspector" type="EditorInspector" parent="Content/Editor" unique_id=168420272]
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="Events" type="ScrollContainer" parent="Content/Editor" unique_id=1160833191]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="List" type="VBoxContainer" parent="Content/Editor/Events" unique_id=779191126]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Events" type="VBoxContainer" parent="Content" unique_id=2124625837]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+
+[node name="Header" type="Label" parent="Content/Events" unique_id=1304957866]
+layout_mode = 2
+text = "Main"
+
+[node name="Media" type="HFlowContainer" parent="Content/Events" unique_id=1148799231]
+layout_mode = 2
+
+[node name="BtnAudio" type="Button" parent="Content/Events/Media" unique_id=977869218]
+layout_mode = 2
+text = "Audio"
+
+[node name="BtnImage" type="Button" parent="Content/Events/Media" unique_id=1412601011]
+layout_mode = 2
+text = "Image"
+
+[node name="BtnText" type="Button" parent="Content/Events/Media" unique_id=1963854176]
+layout_mode = 2
+text = "Text"
+
+[node name="Header2" type="Label" parent="Content/Events" unique_id=116321665]
+layout_mode = 2
+text = "Flow Control"
+
+[node name="Flow" type="HFlowContainer" parent="Content/Events" unique_id=993364171]
+layout_mode = 2
+
+[node name="BtnDecision" type="Button" parent="Content/Events/Flow" unique_id=1602367225]
+layout_mode = 2
+text = "Decision"
+
+[node name="BtnChoice" type="Button" parent="Content/Events/Flow" unique_id=831463038]
+layout_mode = 2
+text = "Choice"
+
+[node name="BtnCondition" type="Button" parent="Content/Events/Flow" unique_id=1441122239]
+layout_mode = 2
+text = "Condition"
+
+[node name="BtnJump" type="Button" parent="Content/Events/Flow" unique_id=98694319]
+layout_mode = 2
+text = "Jump"
+
+[node name="BtnWait" type="Button" parent="Content/Events/Flow" unique_id=451930285]
+layout_mode = 2
+text = "Wait"
+
+[node name="Header3" type="Label" parent="Content/Events" unique_id=1420448226]
+layout_mode = 2
+text = "Markers"
+
+[node name="Marker" type="HFlowContainer" parent="Content/Events" unique_id=1249704319]
+layout_mode = 2
+
+[node name="BtnTag" type="Button" parent="Content/Events/Marker" unique_id=2129135578]
+layout_mode = 2
+text = "Tag"
+
+[node name="BtnClear" type="Button" parent="Content/Events/Marker" unique_id=535963893]
+layout_mode = 2
+text = "Clear"
+
+[node name="BtnEnd" type="Button" parent="Content/Events/Marker" unique_id=421910892]
+layout_mode = 2
+text = "End"
+
 [connection signal="item_selected" from="Content/Timelines/List" to="." method="_on_list_item_selected"]
+[connection signal="pressed" from="Content/Timelines/BtnTest" to="." method="_on_btn_test_pressed"]

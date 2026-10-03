@@ -17,12 +17,12 @@ const ATLASES = {
 	}
 }
 const DICE_TEXTURES = [
-	"res://main/textures/dice_1.png",
-	"res://main/textures/dice_2.png",
-	"res://main/textures/dice_3.png",
-	"res://main/textures/dice_4.png",
-	"res://main/textures/dice_5.png",
-	"res://main/textures/dice_6.png",
+	"res://mansion/main/textures/dice_1.png",
+	"res://mansion/main/textures/dice_2.png",
+	"res://mansion/main/textures/dice_3.png",
+	"res://mansion/main/textures/dice_4.png",
+	"res://mansion/main/textures/dice_5.png",
+	"res://mansion/main/textures/dice_6.png",
 ]
 
 var player : Dictionary = {
@@ -65,7 +65,7 @@ func set_audio(val : float, type : String):
 
 
 func new_game():
-	get_tree().change_scene_to_file("res://main/main.tscn")
+	get_tree().change_scene_to_file("res://mansion/main/main.tscn")
 
 
 func load_game(_slot : int):

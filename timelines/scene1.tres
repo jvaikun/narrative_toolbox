@@ -70,9 +70,93 @@ metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
 
 [sub_resource type="Resource" id="Resource_opigw"]
 script = ExtResource("6_u7t40")
-choice_time = 3.0
-default_choice = 2
 choices = Array[ExtResource("6_0ocij")]([SubResource("Resource_3f4fo"), SubResource("Resource_v6k4r"), SubResource("Resource_ok8hj")])
+metadata/_custom_type_script = "uid://5e50cn5p01dd"
+
+[sub_resource type="Resource" id="Resource_pr1g3"]
+script = ExtResource("4_ptfnm")
+lines = "Question 2 from the King's man."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_6lqn1"]
+script = ExtResource("4_ptfnm")
+lines = "Question 2, Choice 1"
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_rsi24"]
+script = ExtResource("6_0ocij")
+title = "Q2 Choice 1"
+events = Array[ExtResource("1_lsnxd")]([SubResource("Resource_6lqn1")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_b0vy5"]
+script = ExtResource("4_ptfnm")
+lines = "Question 2, Choice 2"
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_adul7"]
+script = ExtResource("6_0ocij")
+title = "Q2 Choice 2"
+events = Array[ExtResource("1_lsnxd")]([SubResource("Resource_b0vy5")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_hh6ce"]
+script = ExtResource("4_ptfnm")
+lines = "Question 2, Choice 3"
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_t7csj"]
+script = ExtResource("6_0ocij")
+title = "Q2 Choice 3"
+events = Array[ExtResource("1_lsnxd")]([SubResource("Resource_hh6ce")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_5abps"]
+script = ExtResource("6_u7t40")
+choices = Array[ExtResource("6_0ocij")]([SubResource("Resource_rsi24"), SubResource("Resource_adul7"), SubResource("Resource_t7csj")])
+metadata/_custom_type_script = "uid://5e50cn5p01dd"
+
+[sub_resource type="Resource" id="Resource_4g07q"]
+script = ExtResource("4_ptfnm")
+lines = "Question 3 from the King's man."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_gy1kq"]
+script = ExtResource("4_ptfnm")
+lines = "Question 3, Choice 1"
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_mlje1"]
+script = ExtResource("6_0ocij")
+title = "Q3 Choice 1"
+events = Array[ExtResource("1_lsnxd")]([SubResource("Resource_gy1kq")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_jc76b"]
+script = ExtResource("4_ptfnm")
+lines = "Question 3, Choice 2"
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_s8i5a"]
+script = ExtResource("6_0ocij")
+title = "Q3 Choice 2"
+events = Array[ExtResource("1_lsnxd")]([SubResource("Resource_jc76b")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_416m8"]
+script = ExtResource("4_ptfnm")
+lines = "Question 3, Choice 3"
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_h1ap8"]
+script = ExtResource("6_0ocij")
+title = "Q3 Choice 3"
+events = Array[ExtResource("1_lsnxd")]([SubResource("Resource_416m8")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_r8kev"]
+script = ExtResource("6_u7t40")
+choices = Array[ExtResource("6_0ocij")]([SubResource("Resource_mlje1"), SubResource("Resource_s8i5a"), SubResource("Resource_h1ap8")])
 metadata/_custom_type_script = "uid://5e50cn5p01dd"
 
 [sub_resource type="Resource" id="Resource_e6dfl"]
@@ -112,5 +196,5 @@ metadata/_custom_type_script = "uid://5e50cn5p01dd"
 
 [resource]
 script = ExtResource("1_0q8is")
-events = Array[ExtResource("1_lsnxd")]([SubResource("Resource_75srb"), SubResource("Resource_cb3ot"), SubResource("Resource_u7t40"), SubResource("Resource_ghngd"), SubResource("Resource_opigw"), SubResource("Resource_e6dfl"), SubResource("Resource_l04ru"), SubResource("Resource_lkqdc")])
+events = Array[ExtResource("1_lsnxd")]([SubResource("Resource_75srb"), SubResource("Resource_cb3ot"), SubResource("Resource_u7t40"), SubResource("Resource_ghngd"), SubResource("Resource_opigw"), SubResource("Resource_pr1g3"), SubResource("Resource_5abps"), SubResource("Resource_4g07q"), SubResource("Resource_r8kev"), SubResource("Resource_e6dfl"), SubResource("Resource_l04ru"), SubResource("Resource_lkqdc")])
 metadata/_custom_type_script = "uid://c702wmxhq83je"

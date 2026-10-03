@@ -4,11 +4,12 @@ extends Resource
 @export var events : Array[Event]
 
 
-func compile():
+func compile() -> void:
 	build_tree(events)
 
 
-func build_tree(trunk):
+func build_tree(trunk : Array[Event]) -> void:
+	# Create key-value list of tag_id and array indices
 	var tl_length : int = trunk.size()
 	var this_event : Event = null
 	var not_at_end : bool = true

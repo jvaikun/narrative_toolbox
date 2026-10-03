@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://cuu1ym2ygu7rf"]
+
+[ext_resource type="Theme" uid="uid://p8ostjsjud8l" path="res://ui/themes/paper_white.tres" id="1_yipg4"]
+[ext_resource type="Texture2D" uid="uid://0v24q4moaf4c" path="res://ui/textures/paper.png" id="2_c17j7"]
+[ext_resource type="Script" uid="uid://b7grb4q77oibo" path="res://main_title/main_title.gd" id="2_is5tp"]
+[ext_resource type="FontFile" uid="uid://dbj2poekuv8y8" path="res://ui/fonts/adventurer.ttf" id="3_is5tp"]
+[ext_resource type="StyleBox" uid="uid://cjdlglq8d6aoa" path="res://ui/themes/stylebox_paper_white.tres" id="4_7arr8"]
+
+[node name="MainTitle" type="Control" unique_id=1508062393]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_yipg4")
+script = ExtResource("2_is5tp")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1442883139]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_c17j7")
+stretch_mode = 1
+
+[node name="Content" type="VBoxContainer" parent="." unique_id=1353752613]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -407.5
+offset_top = -161.5
+offset_right = 407.5
+offset_bottom = 161.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="Content" unique_id=261683018]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_is5tp")
+theme_override_font_sizes/font_size = 72
+text = "AniGab Narrative Toolbox"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Content" unique_id=1546028717]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Proof of Concept Demos"
+horizontal_alignment = 1
+
+[node name="Demo1" type="PanelContainer" parent="Content" unique_id=1441615237]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_7arr8")
+
+[node name="Desc" type="Label" parent="Content/Demo1" unique_id=1489655556]
+layout_mode = 2
+text = "Beneath Mortus Mansion
+An adventure game in the style of a gamebook.
+"
+autowrap_mode = 2
+
+[node name="BtnMansion" type="Button" parent="Content/Demo1" unique_id=1154318081]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Play"
+
+[node name="Demo2" type="PanelContainer" parent="Content" unique_id=94668803]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_7arr8")
+
+[node name="Desc" type="Label" parent="Content/Demo2" unique_id=1560830930]
+layout_mode = 2
+text = "Point and Click
+An adventure game in the style of a 90's point and click adventure game.
+"
+autowrap_mode = 2
+
+[node name="BtnAdventure" type="Button" parent="Content/Demo2" unique_id=2088118944]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Play"
+
+[node name="BtnQuit" type="Button" parent="Content" unique_id=327179692]
+layout_mode = 2
+text = "Quit to Desktop"
+
+[connection signal="pressed" from="Content/Demo1/BtnMansion" to="." method="_on_btn_mansion_pressed"]
+[connection signal="pressed" from="Content/Demo2/BtnAdventure" to="." method="_on_btn_adventure_pressed"]
+[connection signal="pressed" from="Content/BtnQuit" to="." method="_on_btn_quit_pressed"]

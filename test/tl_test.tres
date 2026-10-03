@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/timeline/event.gd" id="1_o2bes"]
 [ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="2_6cupg"]
-[ext_resource type="Texture2D" uid="uid://d2s1mfdlmnnyq" path="res://main/textures/dice_1.png" id="2_s7w8c"]
+[ext_resource type="Texture2D" uid="uid://d2s1mfdlmnnyq" path="res://mansion/main/textures/dice_1.png" id="2_s7w8c"]
 [ext_resource type="Script" uid="uid://40q0ab7v28b4" path="res://classes/timeline/event_image.gd" id="3_c1r6m"]
 [ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="4_15rco"]
 [ext_resource type="Script" uid="uid://dkfdnmlrdhh5u" path="res://classes/timeline/choice_branch.gd" id="5_883sg"]
-[ext_resource type="Texture2D" uid="uid://d3qhcnl74quc3" path="res://main/textures/dice_2.png" id="5_wlsoh"]
+[ext_resource type="Texture2D" uid="uid://d3qhcnl74quc3" path="res://mansion/main/textures/dice_2.png" id="5_wlsoh"]
 [ext_resource type="Texture2D" uid="uid://c0c1eylc5e2af" path="res://data/textures/brigand.png" id="6_u5lev"]
 [ext_resource type="Texture2D" uid="uid://ba4w6cl5g1fc3" path="res://data/textures/bigrat.png" id="7_nhpvx"]
 [ext_resource type="Texture2D" uid="uid://cseeoy1748d08" path="res://data/textures/zombie.png" id="8_r105u"]

@@ -3,8 +3,19 @@ extends Control
 
 const PATH = "res://timelines/"
 
+@onready var event_adds = {
+	"audio": $Content/Events/BtnAudio,
+	"choice": $Content/Events/BtnChoice,
+	"image": $Content/Events/BtnImage,
+	"text": $Content/Events/BtnText,
+}
 @onready var file_list = $Content/Timelines/List
 @onready var inspector = $Content/Editor/EditorInspector
+@onready var event_pane = $Content/Editor/Events
+@onready var event_list = $Content/Editor/Events/List
+
+var this_tl : Timeline = null
+
 
 func _ready() -> void:
 	var files = ResourceLoader.list_directory(PATH)
@@ -13,9 +24,74 @@ func _ready() -> void:
 		if file.contains(".tres"):
 			file_list.add_item(file)
 			file_list.set_item_metadata(-1, PATH + file)
+	for key in event_adds.keys():
+		event_adds[key].pressed.connect(_add_event.bind(key))
+
+
+func _refresh():
+	pass
+
+
+func _add_event(event_id):
+	if event_id not in event_adds.keys() or this_tl == null:
+		return
+	match event_id:
+		"audio":
+			var new_event = EventAudio.new()
+			this_tl.events.append(new_event)
+		"choice":
+			var new_event = EventChoice.new()
+			this_tl.events.append(new_event)
+		"image":
+			var new_event = EventImage.new()
+			this_tl.events.append(new_event)
+		"text":
+			var new_event = EventText.new()
+			this_tl.events.append(new_event)
+	notify_property_list_changed()
 
 
 func _on_list_item_selected(index: int) -> void:
 	var file_path = file_list.get_item_metadata(index)
-	var timeline = load(file_path) as Timeline
-	inspector.edit(timeline)
+	this_tl = load(file_path) as Timeline
+	inspector.edit(this_tl)
+	event_pane.hide()
+	inspector.show()
+
+
+func _on_btn_test_pressed() -> void:
+	if this_tl == null:
+		return
+	for event in event_list.get_children():
+		event.queue_free()
+	var event_obj
+	for event in this_tl.events:
+		if event is ChoiceBranch:
+			event_obj = load("res://addons/timeline_edit/events/event_choice.tscn")
+		if event is EventAudio:
+			event_obj = load("res://addons/timeline_edit/events/event_audio.tscn")
+		if event is EventChoice:
+			event_obj = load("res://addons/timeline_edit/events/event_branch.tscn")
+		if event is EventClear:
+			event_obj = load("res://addons/timeline_edit/events/event_clear.tscn")
+		if event is EventCondition:
+			event_obj = load("res://addons/timeline_edit/events/event_condition.tscn")
+		if event is EventEnd:
+			event_obj = load("res://addons/timeline_edit/events/event_end.tscn")
+		if event is EventImage:
+			event_obj = load("res://addons/timeline_edit/events/event_image.tscn")
+		if event is EventJump:
+			event_obj = load("res://addons/timeline_edit/events/event_jump.tscn")
+		if event is EventSetVar:
+			event_obj = load("res://addons/timeline_edit/events/event_setvar.tscn")
+		if event is EventTag:
+			event_obj = load("res://addons/timeline_edit/events/event_tag.tscn")
+		if event is EventText:
+			event_obj = load("res://addons/timeline_edit/events/event_text.tscn")
+		if event is EventWait:
+			event_obj = load("res://addons/timeline_edit/events/event_wait.tscn")
+		var new_event = event_obj.instantiate()
+		event_list.add_child(new_event)
+		new_event.set_data(event)
+	inspector.hide()
+	event_pane.show()

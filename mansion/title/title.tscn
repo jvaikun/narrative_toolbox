@@ -1,0 +1,352 @@
+[gd_scene format=3 uid="uid://bdqgk6gy5cdg"]
+
+[ext_resource type="Theme" uid="uid://p8ostjsjud8l" path="res://ui/themes/paper_white.tres" id="1_0tjwc"]
+[ext_resource type="Script" uid="uid://dwibnlxixsynn" path="res://mansion/title/title.gd" id="1_8qxnu"]
+[ext_resource type="Texture2D" uid="uid://c5i1ei6onywy3" path="res://mansion/title/bg_title.png" id="2_6s8lb"]
+[ext_resource type="AudioStream" uid="uid://2c5f604fsrcc" path="res://mansion/title/title_intro.ogg" id="3_4bwyn"]
+[ext_resource type="FontFile" uid="uid://dbj2poekuv8y8" path="res://ui/fonts/adventurer.ttf" id="3_8xu2e"]
+[ext_resource type="FontFile" uid="uid://cou7t00vw3boe" path="res://ui/fonts/notjam_oldstyle.ttf" id="4_0tjwc"]
+[ext_resource type="PackedScene" uid="uid://geurvwf12dgh" path="res://mansion/main/char_creation.tscn" id="5_8xu2e"]
+[ext_resource type="StyleBox" uid="uid://nuwo3o32lfvq" path="res://ui/themes/panel_border.tres" id="6_64gp6"]
+
+[sub_resource type="Animation" id="Animation_64gp6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Content:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fade:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Intro:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_4bwyn"]
+resource_name = "title_intro"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Content:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fade:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Intro:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_grl6k"]
+_data = {
+&"RESET": SubResource("Animation_64gp6"),
+&"title_intro": SubResource("Animation_4bwyn")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wp5od"]
+blend_mode = 2
+
+[node name="Title" type="Control" unique_id=1820097305]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0tjwc")
+script = ExtResource("1_8qxnu")
+
+[node name="AnimTitle" type="AnimationPlayer" parent="." unique_id=950401384]
+libraries/ = SubResource("AnimationLibrary_grl6k")
+
+[node name="Intro" type="AudioStreamPlayer" parent="." unique_id=1349858839]
+stream = ExtResource("3_4bwyn")
+volume_db = -10.0
+bus = &"music"
+
+[node name="Background" type="TextureRect" parent="." unique_id=1567184514]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6s8lb")
+stretch_mode = 1
+
+[node name="Content" type="VBoxContainer" parent="." unique_id=1598930219]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.065
+anchor_right = 0.05
+anchor_bottom = 0.065
+offset_right = 688.0
+offset_bottom = 281.0
+
+[node name="Title" type="Label" parent="Content" unique_id=345631985]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.5, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_8xu2e")
+theme_override_font_sizes/font_size = 64
+text = "Beneath Mortus Mansion"
+
+[node name="Subtitle" type="Label" parent="Content" unique_id=970909612]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.5, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("4_0tjwc")
+theme_override_font_sizes/font_size = 32
+text = "AniGab Narrative Toolbox Prototype"
+
+[node name="HSeparator" type="HSeparator" parent="Content" unique_id=246096147]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Main" type="PanelContainer" parent="Content" unique_id=932727614]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = ExtResource("6_64gp6")
+
+[node name="Content" type="VBoxContainer" parent="Content/Main" unique_id=189370980]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="BtnNewGame" type="Button" parent="Content/Main/Content" unique_id=565183773]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_0tjwc")
+theme_override_font_sizes/font_size = 32
+text = "New Adventure"
+
+[node name="BtnLoadGame" type="Button" parent="Content/Main/Content" unique_id=805201896]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_0tjwc")
+theme_override_font_sizes/font_size = 32
+text = "Resume Adventure"
+
+[node name="BtnOptions" type="Button" parent="Content/Main/Content" unique_id=20116727]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_0tjwc")
+theme_override_font_sizes/font_size = 32
+text = "Options"
+
+[node name="BtnQuit" type="Button" parent="Content/Main/Content" unique_id=925837323]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_0tjwc")
+theme_override_font_sizes/font_size = 32
+text = "Quit to Main Menu"
+
+[node name="Load" type="PanelContainer" parent="Content" unique_id=2097619241]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = ExtResource("6_64gp6")
+
+[node name="Content" type="VBoxContainer" parent="Content/Load" unique_id=266618666]
+layout_mode = 2
+
+[node name="Head" type="Label" parent="Content/Load/Content" unique_id=1933057367]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Select save file to load:"
+
+[node name="List" type="VBoxContainer" parent="Content/Load/Content" unique_id=9977940]
+layout_mode = 2
+
+[node name="BtnBack" type="Button" parent="Content/Load/Content" unique_id=1684319855]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="Options" type="PanelContainer" parent="Content" unique_id=1756985094]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = ExtResource("6_64gp6")
+
+[node name="Content" type="VBoxContainer" parent="Content/Options" unique_id=240570418]
+layout_mode = 2
+
+[node name="Head" type="Label" parent="Content/Options/Content" unique_id=2057127207]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Game options:"
+
+[node name="List" type="GridContainer" parent="Content/Options/Content" unique_id=902720388]
+layout_mode = 2
+columns = 3
+
+[node name="MusicText" type="Label" parent="Content/Options/Content/List" unique_id=636286485]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Music Volume: "
+
+[node name="Music" type="HSlider" parent="Content/Options/Content/List" unique_id=1930140557]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MusicNum" type="Label" parent="Content/Options/Content/List" unique_id=1294800228]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "100"
+
+[node name="SFXText" type="Label" parent="Content/Options/Content/List" unique_id=1482708130]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "SFX Volume: "
+
+[node name="SFX" type="HSlider" parent="Content/Options/Content/List" unique_id=866478977]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SFXNum" type="Label" parent="Content/Options/Content/List" unique_id=1846261349]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "100"
+
+[node name="UIText" type="Label" parent="Content/Options/Content/List" unique_id=178213110]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "UI Volume: "
+
+[node name="UI" type="HSlider" parent="Content/Options/Content/List" unique_id=1125922428]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="UINum" type="Label" parent="Content/Options/Content/List" unique_id=883158394]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "100"
+
+[node name="SpeedText" type="Label" parent="Content/Options/Content/List" unique_id=414396437]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Text Speed: "
+
+[node name="TextSpd" type="SpinBox" parent="Content/Options/Content/List" unique_id=1048583570]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Spacer" type="Label" parent="Content/Options/Content/List" unique_id=725192062]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="BtnBack" type="Button" parent="Content/Options/Content" unique_id=1264135110]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="Fade" type="ColorRect" parent="." unique_id=246902019]
+material = SubResource("CanvasItemMaterial_wp5od")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharCreation" parent="." unique_id=1704498489 instance=ExtResource("5_8xu2e")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="Content/Main/Content/BtnNewGame" to="." method="_on_btn_new_game_pressed"]
+[connection signal="pressed" from="Content/Main/Content/BtnLoadGame" to="." method="_on_btn_load_game_pressed"]
+[connection signal="pressed" from="Content/Main/Content/BtnOptions" to="." method="_on_btn_options_pressed"]
+[connection signal="pressed" from="Content/Main/Content/BtnQuit" to="." method="_on_btn_quit_pressed"]
+[connection signal="pressed" from="Content/Load/Content/BtnBack" to="." method="_on_btn_back_pressed"]
+[connection signal="value_changed" from="Content/Options/Content/List/TextSpd" to="." method="_on_text_spd_value_changed"]
+[connection signal="pressed" from="Content/Options/Content/BtnBack" to="." method="_on_btn_back_pressed"]

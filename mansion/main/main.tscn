@@ -1,0 +1,374 @@
+[gd_scene format=3 uid="uid://cjgdtibwpwgh5"]
+
+[ext_resource type="Script" uid="uid://b0bxpofdodd6n" path="res://mansion/main/main.gd" id="1_4dugh"]
+[ext_resource type="FontFile" uid="uid://cou7t00vw3boe" path="res://ui/fonts/notjam_oldstyle.ttf" id="3_grrlh"]
+[ext_resource type="StyleBox" uid="uid://8jumhchhyg18" path="res://ui/themes/stylebox_paper_brown.tres" id="3_na0o7"]
+[ext_resource type="StyleBox" uid="uid://dwx5p0gcq3exw" path="res://ui/themes/stylebox_frame_book.tres" id="4_73k8k"]
+[ext_resource type="Texture2D" uid="uid://dwsrfigvhaem3" path="res://timelines/textures/map.png" id="4_bsumw"]
+[ext_resource type="Texture2D" uid="uid://clplrkpv8eqd7" path="res://ui/textures/faces_player.png" id="5_bsumw"]
+[ext_resource type="StyleBox" uid="uid://cjdlglq8d6aoa" path="res://ui/themes/stylebox_paper_white.tres" id="6_5xyti"]
+[ext_resource type="FontFile" uid="uid://dbj2poekuv8y8" path="res://ui/fonts/adventurer.ttf" id="6_fwcvl"]
+[ext_resource type="Texture2D" uid="uid://bgtsbjqhrdds6" path="res://ui/borders/bar_over.png" id="6_n3o0a"]
+[ext_resource type="Texture2D" uid="uid://fle0a65l3gq8" path="res://mansion/main/textures/stopwatch.png" id="6_s758e"]
+[ext_resource type="Theme" uid="uid://p8ostjsjud8l" path="res://ui/themes/paper_white.tres" id="7_bsumw"]
+[ext_resource type="StyleBox" uid="uid://by3qtvs4oekxa" path="res://ui/themes/stylebox_frame_player.tres" id="7_n3o0a"]
+[ext_resource type="Texture2D" uid="uid://tssmn777ijg8" path="res://ui/borders/bar_prog.png" id="7_s758e"]
+[ext_resource type="PackedScene" uid="uid://b743puy2def5j" path="res://mansion/main/inventory.tscn" id="8_0i4oc"]
+[ext_resource type="PackedScene" uid="uid://dwir4ul5vpqnn" path="res://mansion/main/system.tscn" id="9_bsumw"]
+[ext_resource type="PackedScene" uid="uid://byblek3rnnn64" path="res://mansion/main/combat.tscn" id="10_fwcvl"]
+
+[sub_resource type="Animation" id="Animation_na0o7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TwoPage/PageL/Frame/Content:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.9, 0.8, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TwoPage/PageR/Frame/Content/Body/Text:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TwoPage/PageR/Frame/Content/Body/Choices:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_n3o0a"]
+resource_name = "btn_fade_in"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TwoPage/PageR/Frame/Content/Body/Choices:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.100000024),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_73k8k"]
+resource_name = "scene_fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TwoPage/PageL/Frame/Content:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.9, 0.8, 0), Color(1, 0.9, 0.8, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5xyti"]
+resource_name = "text_fade_out"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TwoPage/PageR/Frame/Content/Body/Text:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.100000024),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5xyti"]
+_data = {
+&"RESET": SubResource("Animation_na0o7"),
+&"btn_fade_in": SubResource("Animation_n3o0a"),
+&"scene_fade_in": SubResource("Animation_73k8k"),
+&"text_fade_out": SubResource("Animation_5xyti")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s758e"]
+atlas = ExtResource("5_bsumw")
+region = Rect2(0, 0, 36, 36)
+
+[node name="Main" type="Control" unique_id=1641617615]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_bsumw")
+script = ExtResource("1_4dugh")
+
+[node name="Content" type="HBoxContainer" parent="." unique_id=1899129058]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Book" type="MarginContainer" parent="Content" unique_id=1444707150]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+
+[node name="TwoPage" type="HBoxContainer" parent="Content/Book" unique_id=173014305]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PageL" type="PanelContainer" parent="Content/Book/TwoPage" unique_id=353536818]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("3_na0o7")
+
+[node name="Frame" type="PanelContainer" parent="Content/Book/TwoPage/PageL" unique_id=1070692999]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_73k8k")
+
+[node name="Content" type="MarginContainer" parent="Content/Book/TwoPage/PageL/Frame" unique_id=1085924386]
+modulate = Color(1, 0.9, 0.8, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Image" type="TextureRect" parent="Content/Book/TwoPage/PageL/Frame/Content" unique_id=466740716]
+use_parent_material = true
+layout_mode = 2
+texture = ExtResource("4_bsumw")
+expand_mode = 1
+
+[node name="PageR" type="PanelContainer" parent="Content/Book/TwoPage" unique_id=1431296532]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("3_na0o7")
+
+[node name="Frame" type="PanelContainer" parent="Content/Book/TwoPage/PageR" unique_id=1900745369]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_73k8k")
+
+[node name="Content" type="MarginContainer" parent="Content/Book/TwoPage/PageR/Frame" unique_id=565333641]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Body" type="VBoxContainer" parent="Content/Book/TwoPage/PageR/Frame/Content" unique_id=1141234233]
+layout_mode = 2
+
+[node name="Text" type="RichTextLabel" parent="Content/Book/TwoPage/PageR/Frame/Content/Body" unique_id=1301891326]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Body text test"
+autowrap_mode = 2
+visible_characters_behavior = 1
+
+[node name="Choices" type="VBoxContainer" parent="Content/Book/TwoPage/PageR/Frame/Content/Body" unique_id=1715372860]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme = ExtResource("7_bsumw")
+
+[node name="ChoiceTimer" type="Timer" parent="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices" unique_id=220638130]
+one_shot = true
+
+[node name="Timer" type="HBoxContainer" parent="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices" unique_id=1751927192]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices/Timer" unique_id=872080451]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("6_s758e")
+stretch_mode = 5
+
+[node name="Bar" type="TextureProgressBar" parent="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices/Timer" unique_id=337464946]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.001
+value = 0.5
+nine_patch_stretch = true
+stretch_margin_left = 12
+stretch_margin_top = 12
+stretch_margin_right = 12
+stretch_margin_bottom = 12
+texture_over = ExtResource("6_n3o0a")
+texture_progress = ExtResource("7_s758e")
+
+[node name="Buttons" type="VBoxContainer" parent="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices" unique_id=1427017722]
+layout_mode = 2
+
+[node name="BtnChoice1" type="Button" parent="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices/Buttons" unique_id=944611640]
+layout_mode = 2
+text = "Agree"
+
+[node name="BtnChoice2" type="Button" parent="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices/Buttons" unique_id=352682196]
+layout_mode = 2
+text = "Disagree"
+
+[node name="BtnChoice3" type="Button" parent="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices/Buttons" unique_id=2004936854]
+layout_mode = 2
+text = "Shrug"
+
+[node name="AnimBook" type="AnimationPlayer" parent="Content/Book" unique_id=1505911923]
+libraries/ = SubResource("AnimationLibrary_5xyti")
+
+[node name="Player" type="PanelContainer" parent="Content" unique_id=2017769728]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("6_5xyti")
+
+[node name="Content" type="PanelContainer" parent="Content/Player" unique_id=1945920279]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("7_n3o0a")
+
+[node name="Body" type="VBoxContainer" parent="Content/Player/Content" unique_id=352372194]
+layout_mode = 2
+
+[node name="Portrait" type="TextureRect" parent="Content/Player/Content/Body" unique_id=1500995744]
+texture_filter = 1
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = SubResource("AtlasTexture_s758e")
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="Content/Player/Content/Body" unique_id=612199331]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_fwcvl")
+theme_override_font_sizes/font_size = 32
+text = "Player Name"
+
+[node name="Stats" type="GridContainer" parent="Content/Player/Content/Body" unique_id=1612091046]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+columns = 2
+
+[node name="Skill" type="Label" parent="Content/Player/Content/Body/Stats" unique_id=586012637]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_grrlh")
+theme_override_font_sizes/font_size = 36
+text = "SKILL"
+
+[node name="SkillNum" type="Label" parent="Content/Player/Content/Body/Stats" unique_id=1750564071]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_grrlh")
+theme_override_font_sizes/font_size = 36
+text = "12"
+
+[node name="Stamina" type="Label" parent="Content/Player/Content/Body/Stats" unique_id=1370226830]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_grrlh")
+theme_override_font_sizes/font_size = 36
+text = "STAMINA"
+
+[node name="StaNum" type="Label" parent="Content/Player/Content/Body/Stats" unique_id=1198618771]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_grrlh")
+theme_override_font_sizes/font_size = 36
+text = "24"
+
+[node name="Luck" type="Label" parent="Content/Player/Content/Body/Stats" unique_id=1053977043]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_grrlh")
+theme_override_font_sizes/font_size = 36
+text = "LUCK"
+
+[node name="LuckNum" type="Label" parent="Content/Player/Content/Body/Stats" unique_id=184079756]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_grrlh")
+theme_override_font_sizes/font_size = 36
+text = "12"
+
+[node name="BtnInventory" type="Button" parent="Content/Player/Content/Body" unique_id=9350398]
+layout_mode = 2
+theme = ExtResource("7_bsumw")
+text = "Inventory"
+
+[node name="BtnOptions" type="Button" parent="Content/Player/Content/Body" unique_id=1591243890]
+layout_mode = 2
+theme = ExtResource("7_bsumw")
+text = "System"
+
+[node name="BtnCombat" type="Button" parent="Content/Player/Content/Body" unique_id=2127886532]
+layout_mode = 2
+theme = ExtResource("7_bsumw")
+text = "Combat Test"
+
+[node name="MenuOverlay" type="ColorRect" parent="." unique_id=450626394]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5019608)
+
+[node name="Inventory" parent="." unique_id=616553246 instance=ExtResource("8_0i4oc")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+
+[node name="System" parent="." unique_id=746765915 instance=ExtResource("9_bsumw")]
+visible = false
+layout_mode = 1
+
+[node name="Combat" parent="." unique_id=438614174 instance=ExtResource("10_fwcvl")]
+visible = false
+layout_mode = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1383764427]
+bus = &"music"
+
+[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=2104128074]
+bus = &"sfx"
+
+[node name="Voice" type="AudioStreamPlayer" parent="." unique_id=780078950]
+bus = &"vo"
+
+[connection signal="timeout" from="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices/ChoiceTimer" to="." method="_on_choice_timeout"]
+[connection signal="pressed" from="Content/Player/Content/Body/BtnInventory" to="." method="_on_btn_inventory_pressed"]
+[connection signal="pressed" from="Content/Player/Content/Body/BtnOptions" to="." method="_on_btn_options_pressed"]
+[connection signal="pressed" from="Content/Player/Content/Body/BtnCombat" to="." method="_on_btn_combat_pressed"]

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Beneath Mortus Mansion"
 config/tags=PackedStringArray("anigab")
-run/main_scene="uid://bdqgk6gy5cdg"
+run/main_scene="uid://cuu1ym2ygu7rf"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
