@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Timeline" format=3 uid="uid://cmhobiqw8cxak"]
+
+[ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/timeline/event.gd" id="1_hr1w6"]
+[ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="2_clkdl"]
+[ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="2_qclhi"]
+
+[sub_resource type="Resource" id="Resource_7p6hl"]
+script = ExtResource("2_qclhi")
+lines = "Temple
+The temple is dedicated to the God of Ways. Normally, it would be filled with all manner of guests and travellers seeking blessings or divine guidance for their journeys. It quickly becomes clear that these are not normal cirumstances.
+Grieviously wounded people occupy most of the space, tended to by healers and volunteers. Most of the wounded appear to have been attacked by beasts, but what kind you cannot say.
+A cordoned off area lies in the back, presumably a space for the sick. A censer sits in the middle of that area, emanating smoke that smells sharply of herbs and resin."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[resource]
+script = ExtResource("2_clkdl")
+events = Array[ExtResource("1_hr1w6")]([SubResource("Resource_7p6hl")])
+metadata/_custom_type_script = "uid://c702wmxhq83je"

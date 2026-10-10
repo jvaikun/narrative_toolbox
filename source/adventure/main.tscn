@@ -1,0 +1,185 @@
+[gd_scene format=3 uid="uid://8scrjfxxb2fe"]
+
+[ext_resource type="Script" uid="uid://publbuj28h7u" path="res://adventure/main.gd" id="1_pieo5"]
+[ext_resource type="Theme" uid="uid://p8ostjsjud8l" path="res://ui/themes/paper_white.tres" id="1_wsf4b"]
+[ext_resource type="Texture2D" uid="uid://0v24q4moaf4c" path="res://ui/textures/paper.png" id="3_t68go"]
+[ext_resource type="StyleBox" uid="uid://dwx5p0gcq3exw" path="res://ui/themes/stylebox_frame_book.tres" id="4_hlrdr"]
+[ext_resource type="Texture2D" uid="uid://c5i1ei6onywy3" path="res://mansion/title/bg_title.png" id="5_jtwj4"]
+[ext_resource type="StyleBox" uid="uid://by3qtvs4oekxa" path="res://ui/themes/stylebox_frame_player.tres" id="6_wsf4b"]
+[ext_resource type="Texture2D" uid="uid://cal802f87ngbx" path="res://data/textures/flintlock.png" id="7_ximeu"]
+[ext_resource type="Texture2D" uid="uid://dfl5mhy8h8tml" path="res://data/textures/knife.png" id="8_k1fs4"]
+[ext_resource type="Texture2D" uid="uid://cjvsgaa565c2g" path="res://data/textures/sandwich.png" id="9_11qgx"]
+[ext_resource type="Texture2D" uid="uid://ced8ckvay1w57" path="res://adventure/compass.jpg" id="10_brceg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h22ha"]
+texture = ExtResource("3_t68go")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="Gradient" id="Gradient_0qstt"]
+offsets = PackedFloat32Array(0.9, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wp5od"]
+gradient = SubResource("Gradient_0qstt")
+width = 32
+height = 32
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+metadata/_snap_enabled = true
+
+[node name="Main" type="Control" unique_id=486406146]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_wsf4b")
+script = ExtResource("1_pieo5")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1258484874]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_t68go")
+stretch_mode = 1
+
+[node name="Main" type="HBoxContainer" parent="." unique_id=1630877558]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Display" type="VBoxContainer" parent="Main" unique_id=440275410]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Room" type="PanelContainer" parent="Main/Display" unique_id=1886561001]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_hlrdr")
+
+[node name="Scene" type="TextureRect" parent="Main/Display/Room" unique_id=577754721]
+layout_mode = 2
+texture = ExtResource("5_jtwj4")
+expand_mode = 1
+
+[node name="RoomInfo" type="PanelContainer" parent="Main/Display/Room" unique_id=1234560158]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_h22ha")
+
+[node name="Frame" type="PanelContainer" parent="Main/Display/Room/RoomInfo" unique_id=455064050]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_wsf4b")
+
+[node name="Info" type="Label" parent="Main/Display/Room/RoomInfo/Frame" unique_id=427810778]
+layout_mode = 2
+text = "Time, Room Info"
+
+[node name="Narration" type="PanelContainer" parent="Main/Display" unique_id=565538243]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_hlrdr")
+
+[node name="Text" type="Label" parent="Main/Display/Narration" unique_id=1652287791]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+size_flags_vertical = 0
+text = "Descriptive text of scene"
+
+[node name="ToolBar" type="VBoxContainer" parent="Main" unique_id=1873170967]
+layout_mode = 2
+
+[node name="Inventory" type="PanelContainer" parent="Main/ToolBar" unique_id=2076974026]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_hlrdr")
+
+[node name="IconGrid" type="GridContainer" parent="Main/ToolBar/Inventory" unique_id=514015294]
+layout_mode = 2
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="Main/ToolBar/Inventory/IconGrid" unique_id=709387364]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("7_ximeu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Main/ToolBar/Inventory/IconGrid" unique_id=386203309]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("8_k1fs4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="Main/ToolBar/Inventory/IconGrid" unique_id=1002640532]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("9_11qgx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="Main/ToolBar/Inventory/IconGrid" unique_id=1505889336]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = SubResource("GradientTexture2D_wp5od")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect5" type="TextureRect" parent="Main/ToolBar/Inventory/IconGrid" unique_id=1593963044]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = SubResource("GradientTexture2D_wp5od")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect6" type="TextureRect" parent="Main/ToolBar/Inventory/IconGrid" unique_id=13353942]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = SubResource("GradientTexture2D_wp5od")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect7" type="TextureRect" parent="Main/ToolBar/Inventory/IconGrid" unique_id=408605595]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = SubResource("GradientTexture2D_wp5od")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect8" type="TextureRect" parent="Main/ToolBar/Inventory/IconGrid" unique_id=1484246181]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = SubResource("GradientTexture2D_wp5od")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Navigation" type="PanelContainer" parent="Main/ToolBar" unique_id=49539300]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_hlrdr")
+
+[node name="Content" type="VBoxContainer" parent="Main/ToolBar/Navigation" unique_id=113392532]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="Main/ToolBar/Navigation/Content" unique_id=406335745]
+layout_mode = 2
+text = "Navigation"
+horizontal_alignment = 1
+
+[node name="Compass" type="TextureRect" parent="Main/ToolBar/Navigation/Content" unique_id=116701415]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("10_brceg")
+expand_mode = 1
+stretch_mode = 5

@@ -29,6 +29,10 @@ Game="*res://globals/game.gd"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/timeline_edit/plugin.cfg")
+
 [input]
 
 move_up={

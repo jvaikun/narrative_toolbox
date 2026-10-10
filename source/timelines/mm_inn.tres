@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Timeline" format=3 uid="uid://qosugbuwurlm"]
+
+[ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/timeline/event.gd" id="1_ho5dy"]
+[ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="2_1l4o0"]
+[ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="2_x4t0a"]
+
+[sub_resource type="Resource" id="Resource_us6gg"]
+script = ExtResource("2_1l4o0")
+lines = "Inn
+The coaching inn is a modest affair, favoring simple comfort over gaudy luxury. It would be downright cosy, were it not for the dark mood that seems to hang in the air. The innkeeper is at the front counter, regarding you with trepidition."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[resource]
+script = ExtResource("2_x4t0a")
+events = Array[ExtResource("1_ho5dy")]([SubResource("Resource_us6gg")])
+metadata/_custom_type_script = "uid://c702wmxhq83je"

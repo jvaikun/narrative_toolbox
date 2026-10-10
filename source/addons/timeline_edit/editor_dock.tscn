@@ -23,6 +23,17 @@ grow_vertical = 2
 [node name="Timelines" type="VBoxContainer" parent="Content" unique_id=1441141417]
 layout_mode = 2
 
+[node name="Buttons" type="HFlowContainer" parent="Content/Timelines" unique_id=2051307007]
+layout_mode = 2
+
+[node name="BtnParse" type="Button" parent="Content/Timelines/Buttons" unique_id=564556309]
+layout_mode = 2
+text = "Parse"
+
+[node name="BtnRefresh" type="Button" parent="Content/Timelines/Buttons" unique_id=1753999792]
+layout_mode = 2
+text = "Refresh"
+
 [node name="Header" type="Label" parent="Content/Timelines" unique_id=597729994]
 layout_mode = 2
 text = "File List"
@@ -36,10 +47,6 @@ item_0/text = "mm_inn.tres"
 item_1/text = "mm_square.tres"
 item_2/text = "mm_temple.tres"
 item_3/text = "scene1.tres"
-
-[node name="BtnTest" type="Button" parent="Content/Timelines" unique_id=564556309]
-layout_mode = 2
-text = "Parse Timeline"
 
 [node name="Editor" type="VBoxContainer" parent="Content" unique_id=42493394]
 layout_mode = 2
@@ -127,5 +134,6 @@ text = "Clear"
 layout_mode = 2
 text = "End"
 
+[connection signal="pressed" from="Content/Timelines/Buttons/BtnParse" to="." method="_on_btn_parse_pressed"]
+[connection signal="pressed" from="Content/Timelines/Buttons/BtnRefresh" to="." method="_on_btn_refresh_pressed"]
 [connection signal="item_selected" from="Content/Timelines/List" to="." method="_on_list_item_selected"]
-[connection signal="pressed" from="Content/Timelines/BtnTest" to="." method="_on_btn_test_pressed"]

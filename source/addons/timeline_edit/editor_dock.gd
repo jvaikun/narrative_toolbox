@@ -4,10 +4,10 @@ extends Control
 const PATH = "res://timelines/"
 
 @onready var event_adds = {
-	"audio": $Content/Events/BtnAudio,
-	"choice": $Content/Events/BtnChoice,
-	"image": $Content/Events/BtnImage,
-	"text": $Content/Events/BtnText,
+	"audio": $Content/Events/Media/BtnAudio,
+	"choice": $Content/Events/Flow/BtnChoice,
+	"image": $Content/Events/Media/BtnImage,
+	"text": $Content/Events/Media/BtnText,
 }
 @onready var file_list = $Content/Timelines/List
 @onready var inspector = $Content/Editor/EditorInspector
@@ -28,27 +28,27 @@ func _ready() -> void:
 		event_adds[key].pressed.connect(_add_event.bind(key))
 
 
-func _refresh():
-	pass
-
-
 func _add_event(event_id):
 	if event_id not in event_adds.keys() or this_tl == null:
 		return
 	match event_id:
 		"audio":
+			print("Audio added")
 			var new_event = EventAudio.new()
 			this_tl.events.append(new_event)
 		"choice":
+			print("Choice added")
 			var new_event = EventChoice.new()
 			this_tl.events.append(new_event)
 		"image":
+			print("Image added")
 			var new_event = EventImage.new()
 			this_tl.events.append(new_event)
 		"text":
+			print("Text added")
 			var new_event = EventText.new()
 			this_tl.events.append(new_event)
-	notify_property_list_changed()
+	#notify_property_list_changed()
 
 
 func _on_list_item_selected(index: int) -> void:
@@ -59,7 +59,7 @@ func _on_list_item_selected(index: int) -> void:
 	inspector.show()
 
 
-func _on_btn_test_pressed() -> void:
+func _on_btn_parse_pressed() -> void:
 	if this_tl == null:
 		return
 	for event in event_list.get_children():
@@ -95,3 +95,10 @@ func _on_btn_test_pressed() -> void:
 		new_event.set_data(event)
 	inspector.hide()
 	event_pane.show()
+
+
+func _on_btn_refresh_pressed() -> void:
+	var select_index = file_list.get_selected_items()[0]
+	var file_path = file_list.get_item_metadata(select_index)
+	this_tl = load(file_path) as Timeline
+	inspector.edit(this_tl)

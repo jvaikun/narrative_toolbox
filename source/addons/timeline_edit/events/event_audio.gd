@@ -2,7 +2,7 @@
 extends PanelContainer
 
 @onready var btn_fold: Button = %BtnFold
-@onready var body: PanelContainer = %Body
+@onready var body: HBoxContainer = %Body
 @onready var volume: SpinBox = %Volume
 
 var data : EventAudio = null
