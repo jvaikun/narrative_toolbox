@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnfy0vajxcbvy"
-path="res://.godot/imported/direction_w.png-feec8babf9ef55f2a4350c1eb29bbef4.ctex"
+uid="uid://b2h3k0yfxrj7a"
+path="res://.godot/imported/nav_se_off.png-359d0a86ed7bf8ee46ccf1f23e75ae78.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mansion/main/textures/direction_w.png"
-dest_files=["res://.godot/imported/direction_w.png-feec8babf9ef55f2a4350c1eb29bbef4.ctex"]
+source_file="res://ui/textures/nav_se_off.png"
+dest_files=["res://.godot/imported/nav_se_off.png-359d0a86ed7bf8ee46ccf1f23e75ae78.ctex"]
 
 [params]
 

@@ -2,15 +2,116 @@
 
 [ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/timeline/event.gd" id="1_ho5dy"]
 [ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="2_1l4o0"]
+[ext_resource type="Texture2D" uid="uid://bledl0utey0dd" path="res://timelines/textures/inn.png" id="2_kklp4"]
 [ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="2_x4t0a"]
+[ext_resource type="Script" uid="uid://40q0ab7v28b4" path="res://classes/timeline/event_image.gd" id="3_lj3dk"]
+[ext_resource type="Script" uid="uid://dkfdnmlrdhh5u" path="res://classes/timeline/choice_branch.gd" id="5_nakv5"]
+[ext_resource type="Script" uid="uid://5e50cn5p01dd" path="res://classes/timeline/event_choice.gd" id="6_32lfk"]
+[ext_resource type="Script" uid="uid://cqsprxne5jjhf" path="res://classes/timeline/event_jump.gd" id="7_1ne0y"]
+
+[sub_resource type="Resource" id="Resource_54phy"]
+script = ExtResource("3_lj3dk")
+image = ExtResource("2_kklp4")
+metadata/_custom_type_script = "uid://40q0ab7v28b4"
 
 [sub_resource type="Resource" id="Resource_us6gg"]
 script = ExtResource("2_1l4o0")
 lines = "Inn
-The coaching inn is a modest affair, favoring simple comfort over gaudy luxury. It would be downright cosy, were it not for the dark mood that seems to hang in the air. The innkeeper is at the front counter, regarding you with trepidition."
+The coaching inn is a modest affair, favoring simple comfort over gaudy luxury. It would be downright cosy, were it not for the dark mood that seems to hang in the air. The innkeeper is at the front counter, regarding you with trepidition. You introduce yourselves and ask about the previous team. The innkeeper nods in recognition, but remains tense.
+\"Aye, that lot came through 'ere about a few weeks ago. We've cleaned up their rooms and stowed their luggage since then, though,\" he explains. When asked to show you the stored luggage, he obliges and leads you to a storage area by the pantries."
 metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_xbfat"]
+script = ExtResource("3_lj3dk")
+image = ExtResource("2_kklp4")
+metadata/_custom_type_script = "uid://40q0ab7v28b4"
+
+[sub_resource type="Resource" id="Resource_uhd8p"]
+script = ExtResource("2_1l4o0")
+lines = "The last team's luggage is stacked in a corner of the storage area, and has been for a while, given the thin film of dust on them. On closer inspection, the locks on the trunks have clearly been forced open. Even a cursory examination of their contents tells you they've been picked clean of anything remotely of value.
+With that revelation, the reason for the innkeeper's unease is clear, as he is likely the one who looted the luggage. The question at hand now is how to deal with the crook."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_45uem"]
+script = ExtResource("2_1l4o0")
+lines = "It only takes a few threatening gestures before the innkeeper caves. Unfortunately, he seems to have already sold or traded away most of the pilfered items. What remains are miscellaneous pieces of gear that you and your cohort already possess. However, the simpering scoundrel offers you a small token of compensation: a flask of herbal liqueur, known for its restorative properties.
+(Drinking the Herbal Liqueur restores 4 STAMINA, and it can be drunk during combat)"
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_jefor"]
+script = ExtResource("5_nakv5")
+title = "Threaten him"
+events = Array[ExtResource("1_ho5dy")]([SubResource("Resource_45uem")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_ri352"]
+script = ExtResource("2_1l4o0")
+lines = "With an even tone, you bring up the issue of the missing items. A great deal of apologies tumble out of his mouth, along with a great deal of hemming and hawing. Eventually, he admits to already having sold or traded off most of the goods he'd taken. In an act of remarkable shamelessness, he offers you some gold as recompense, presumably your cut of the proceeds.
+Seeing that the missing equipment is a lost cause, you accept the dubious gift."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_4bi2q"]
+script = ExtResource("5_nakv5")
+title = "Calmly confront him"
+events = Array[ExtResource("1_ho5dy")]([SubResource("Resource_ri352")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_1w12e"]
+script = ExtResource("2_1l4o0")
+lines = "You glare pointedly at the innkeeper, but say nothing. Your cohort scowls in disapproval at not upbraiding the thief, but he remains silent as well."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_cr0j4"]
+script = ExtResource("5_nakv5")
+title = "Let it go"
+events = Array[ExtResource("1_ho5dy")]([SubResource("Resource_1w12e")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_vt7gr"]
+script = ExtResource("6_32lfk")
+choice_time = 4.0
+default_choice = 2
+choices = Array[ExtResource("5_nakv5")]([SubResource("Resource_jefor"), SubResource("Resource_4bi2q"), SubResource("Resource_cr0j4")])
+metadata/_custom_type_script = "uid://5e50cn5p01dd"
+
+[sub_resource type="Resource" id="Resource_3l3ks"]
+script = ExtResource("3_lj3dk")
+image = ExtResource("2_kklp4")
+metadata/_custom_type_script = "uid://40q0ab7v28b4"
+
+[sub_resource type="Resource" id="Resource_jkg6o"]
+script = ExtResource("2_1l4o0")
+lines = "You leave the inn slightly frustrated. The previous agents' equipment and supplies may as well be scattered to the four winds at this point. Still, that's at least one piece of information that's new. Nothing left but to press on, as you ponder the next place to investigate..."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_muo8s"]
+script = ExtResource("7_1ne0y")
+timeline = "mm_temple2"
+metadata/_custom_type_script = "uid://cqsprxne5jjhf"
+
+[sub_resource type="Resource" id="Resource_v63aa"]
+script = ExtResource("5_nakv5")
+title = "Go to the temple"
+events = Array[ExtResource("1_ho5dy")]([SubResource("Resource_muo8s")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_repgy"]
+script = ExtResource("7_1ne0y")
+timeline = "mm_square2"
+metadata/_custom_type_script = "uid://cqsprxne5jjhf"
+
+[sub_resource type="Resource" id="Resource_hlp53"]
+script = ExtResource("5_nakv5")
+title = "Go to the market square"
+events = Array[ExtResource("1_ho5dy")]([SubResource("Resource_repgy")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_hx10o"]
+script = ExtResource("6_32lfk")
+choices = Array[ExtResource("5_nakv5")]([SubResource("Resource_v63aa"), SubResource("Resource_hlp53")])
+metadata/_custom_type_script = "uid://5e50cn5p01dd"
 
 [resource]
 script = ExtResource("2_x4t0a")
-events = Array[ExtResource("1_ho5dy")]([SubResource("Resource_us6gg")])
+events = Array[ExtResource("1_ho5dy")]([SubResource("Resource_54phy"), SubResource("Resource_us6gg"), SubResource("Resource_xbfat"), SubResource("Resource_uhd8p"), SubResource("Resource_vt7gr"), SubResource("Resource_3l3ks"), SubResource("Resource_jkg6o"), SubResource("Resource_hx10o")])
 metadata/_custom_type_script = "uid://c702wmxhq83je"

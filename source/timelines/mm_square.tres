@@ -2,37 +2,77 @@
 
 [ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/timeline/event.gd" id="1_ie28q"]
 [ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="2_e7f1k"]
+[ext_resource type="Texture2D" uid="uid://bledl0utey0dd" path="res://timelines/textures/inn.png" id="2_kcdlv"]
 [ext_resource type="Script" uid="uid://dkfdnmlrdhh5u" path="res://classes/timeline/choice_branch.gd" id="3_rnbfj"]
+[ext_resource type="Script" uid="uid://40q0ab7v28b4" path="res://classes/timeline/event_image.gd" id="3_tlm8x"]
+[ext_resource type="Script" uid="uid://cqsprxne5jjhf" path="res://classes/timeline/event_jump.gd" id="4_e7f1k"]
 [ext_resource type="Script" uid="uid://5e50cn5p01dd" path="res://classes/timeline/event_choice.gd" id="4_kcdlv"]
 [ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="5_tlm8x"]
 
+[sub_resource type="Resource" id="Resource_sxafl"]
+script = ExtResource("3_tlm8x")
+image = ExtResource("2_kcdlv")
+metadata/_custom_type_script = "uid://40q0ab7v28b4"
+
 [sub_resource type="Resource" id="Resource_qclhi"]
 script = ExtResource("2_e7f1k")
-lines = "Market Square
-Fendringham's market square is crawling with armed militiamen, their expressions grim. Patrols frequently pass through, giving updates to the militia commander before continuing their rounds. You hear muttering and bickering about whether 'another pack' will come by."
+lines = "Fendringham's market square is crawling with grim-faced militiamen, with patrols frequently passing through. You hear muttering and bickering about whether 'another pack' will come by.
+Dominating the middle of the square is a pile of charred remains that are distressingly humanoid, the waning light and deepening shadows making their shapes all the more grotesque. You approach for a closer look, but are stopped by one of the militiamen.
+\"Careful now,\" he cautions. \"That's undead remains there. Ghouls, they were. They been attacking the village in packs every other bloody night.\"
+You frown. Ghouls are carrion feeders, not marauding pack hunters. Why would they be hounding villages like this?"
 metadata/_custom_type_script = "uid://qiibr5iabuqw"
 
-[sub_resource type="Resource" id="Resource_0ncg8"]
-script = ExtResource("3_rnbfj")
-title = "Talk to commander"
-metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+[sub_resource type="Resource" id="Resource_kklp4"]
+script = ExtResource("2_e7f1k")
+lines = "You ask the militiaman as much. \"Aye, normally they feast on the dead, rooting about barrows n' graveyards n' such,\" he explains. \"But these buggers are a different sort.\"
+The man prods at some of the burnt remains with his spear. The spearhead connects with a metallic noise, strangely. \"Iron bands,\" he grumbles. \"Set into their very flesh and bones. The worst of them have blades set into their arms, if you can believe it.\"
+The notion of iron reinforced ghouls seems ridiculous, but the remains before you say otherwise. You prod the man for more information regarding the ghoul attacks: when they started, how often, and where the horrid things are coming from.
+All the answers you get seem to point to one place: Mortus Mansion."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_lj3dk"]
+script = ExtResource("2_e7f1k")
+lines = "Thanking the militiaman, you make to leave, but he stops you. \"Hold a moment, sir,\" he says while looking around furtively. \"You seem seasoned enough, reckon you're wanting to take a crack at the mansion, just like those fellers from a few weeks back, eh?\"
+You shrug non-committally, not wanting to give the game away too early. The man presses on, making you an offer. \"We've been going through Ghoulbane faster than the apothecary can make it, but I've got a few extra vials of it tucked away. Could be useful to you gents if you're having a go at the mansion. How about you trade me some of your grub for a few doses worth?\"
+The man is asking for 2 Provisions in exchange for 2 vials of Ghoulbane, no more, no less, and he will not haggle."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_32lfk"]
+script = ExtResource("4_kcdlv")
+metadata/_custom_type_script = "uid://5e50cn5p01dd"
+
+[sub_resource type="Resource" id="Resource_nakv5"]
+script = ExtResource("2_e7f1k")
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_is5tp"]
+script = ExtResource("4_e7f1k")
+timeline = "mm_temple2"
+metadata/_custom_type_script = "uid://cqsprxne5jjhf"
 
 [sub_resource type="Resource" id="Resource_pmmxa"]
 script = ExtResource("3_rnbfj")
-title = "Listen to gossip"
+title = "Go to the temple"
+events = Array[ExtResource("1_ie28q")]([SubResource("Resource_is5tp")])
 metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_c17j7"]
+script = ExtResource("4_e7f1k")
+timeline = "mm_inn2"
+metadata/_custom_type_script = "uid://cqsprxne5jjhf"
 
 [sub_resource type="Resource" id="Resource_1sxrp"]
 script = ExtResource("3_rnbfj")
 title = "Go to the inn"
+events = Array[ExtResource("1_ie28q")]([SubResource("Resource_c17j7")])
 metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
 
 [sub_resource type="Resource" id="Resource_ss58i"]
 script = ExtResource("4_kcdlv")
-choices = Array[ExtResource("3_rnbfj")]([SubResource("Resource_0ncg8"), SubResource("Resource_pmmxa"), SubResource("Resource_1sxrp")])
+choices = Array[ExtResource("3_rnbfj")]([SubResource("Resource_pmmxa"), SubResource("Resource_1sxrp")])
 metadata/_custom_type_script = "uid://5e50cn5p01dd"
 
 [resource]
 script = ExtResource("5_tlm8x")
-events = Array[ExtResource("1_ie28q")]([SubResource("Resource_qclhi"), SubResource("Resource_ss58i")])
+events = Array[ExtResource("1_ie28q")]([SubResource("Resource_sxafl"), SubResource("Resource_qclhi"), SubResource("Resource_kklp4"), SubResource("Resource_lj3dk"), SubResource("Resource_32lfk"), SubResource("Resource_nakv5"), SubResource("Resource_ss58i")])
 metadata/_custom_type_script = "uid://c702wmxhq83je"

@@ -43,13 +43,14 @@ var current_event : Event = null
 
 
 func _ready() -> void:
-	load_timeline("res://timelines/scene1.tres")
+	load_timeline("res://timelines/mm_intro.tres")
 	player_portrait.texture = load(Game.ATLASES.player.path)
 	_info_update()
 	timer_bar.value = 1.0
 	ui_timer.hide()
 	for i in choice_btns.size():
 		choice_btns[i].pressed.connect(_on_choice_made.bind(i))
+	$Combat.visibility_changed.connect(_info_update)
 	current_menu = "none"
 	play_event()
 
@@ -79,6 +80,10 @@ func play_event():
 		show_image(current_event)
 	elif current_event is EventText:
 		show_text(current_event)
+	elif current_event is EventCombat:
+		start_combat(current_event)
+	elif current_event is EventJump:
+		jump(current_event)
 	else:
 		print("Invalid event type, check timeline data.")
 
@@ -136,6 +141,19 @@ func show_text(event : EventText):
 			next_prompt()
 
 
+func start_combat(event: EventCombat):
+	Game.current_enemy = event.enemy
+	$Combat.init_combat()
+	current_menu = "combat"
+	await $Combat.combat_won
+	next_event()
+
+
+func jump(event: EventJump):
+	load_timeline("res://timelines/%s.tres" % event.timeline)
+	play_event()
+
+
 func next_prompt():
 	if ui_choices.modulate.a != 0:
 		anim_book.play_backwards("btn_fade_in")
@@ -186,6 +204,7 @@ func _info_update():
 	) * this_tex.region.size.x
 	for key in player_stat_ui.keys():
 		player_stat_ui[key].text = str(Game.player[key])
+	%Rations.text = "Rations: %d" % Game.rations
 
 
 func _on_btn_inventory_pressed() -> void:
@@ -206,3 +225,10 @@ func _on_btn_combat_pressed() -> void:
 func _on_choice_timeout() -> void:
 	if current_event is EventChoice:
 		choice_btns[current_event.default_choice].pressed.emit()
+
+
+func _on_btn_eat_pressed() -> void:
+	if Game.player.stamina < Game.stamina_max:
+		Game.rations -= 1
+		Game.player.stamina = min(Game.player.stamina+4, Game.stamina_max)
+	_info_update()

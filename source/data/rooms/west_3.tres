@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Room" format=3 uid="uid://ndwn5wb7qasp"]
+
+[ext_resource type="Texture2D" uid="uid://cj2lsjvnkqs7j" path="res://data/textures/west_3.png" id="1_2rarl"]
+[ext_resource type="Script" uid="uid://0roridvigmn0" path="res://classes/room.gd" id="1_wdvxi"]
+
+[resource]
+script = ExtResource("1_wdvxi")
+name = "West Wing 3"
+background = ExtResource("1_2rarl")
+desc = "This is the third and final chamber of the West Wing.
+The rest of the West Wing lies to the south."
+exits = Dictionary[String, String]({
+"s": "west_2"
+})
+metadata/_custom_type_script = "uid://0roridvigmn0"

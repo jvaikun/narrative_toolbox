@@ -220,6 +220,7 @@ layout_mode = 2
 theme = ExtResource("4_g8ynn")
 text = "OK"
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="Dialog/Main/Content/Body/Portrait/Carousel/BtnPrev" to="." method="_on_btn_prev_pressed"]
 [connection signal="pressed" from="Dialog/Main/Content/Body/Portrait/Carousel/BtnNext" to="." method="_on_btn_next_pressed"]
 [connection signal="pressed" from="Dialog/Main/Content/Buttons/BtnCancel" to="." method="_on_btn_cancel_pressed"]

@@ -1,0 +1,234 @@
+[gd_resource type="Resource" script_class="Timeline" format=3 uid="uid://bjo6xnepmjavu"]
+
+[ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/timeline/event.gd" id="1_rshiv"]
+[ext_resource type="Texture2D" uid="uid://dwsrfigvhaem3" path="res://timelines/textures/map.png" id="2_vt7gr"]
+[ext_resource type="Script" uid="uid://40q0ab7v28b4" path="res://classes/timeline/event_image.gd" id="3_jefor"]
+[ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="4_4bi2q"]
+[ext_resource type="Texture2D" uid="uid://s2n85t1uyqng" path="res://timelines/textures/coach.png" id="5_cr0j4"]
+[ext_resource type="Script" uid="uid://dkfdnmlrdhh5u" path="res://classes/timeline/choice_branch.gd" id="6_xbfat"]
+[ext_resource type="Script" uid="uid://5e50cn5p01dd" path="res://classes/timeline/event_choice.gd" id="7_uhd8p"]
+[ext_resource type="Texture2D" uid="uid://bledl0utey0dd" path="res://timelines/textures/inn.png" id="8_54phy"]
+[ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="9_45uem"]
+[ext_resource type="Script" uid="uid://cqsprxne5jjhf" path="res://classes/timeline/event_jump.gd" id="9_vt7gr"]
+
+[sub_resource type="Resource" id="Resource_75srb"]
+script = ExtResource("3_jefor")
+image = ExtResource("2_vt7gr")
+metadata/_custom_type_script = "uid://40q0ab7v28b4"
+
+[sub_resource type="Resource" id="Resource_cb3ot"]
+script = ExtResource("4_4bi2q")
+lines = "You have been hired by the Crown to escort one of their representatives to some derelict country manor called Mortus Mansion.
+The nearest settlement to the mansion is the village of Fendringham, quite a ride from Lake Libra, where you are to meet with your traveling companion, a Crown agent with whom you are unfamiliar. 
+Apparently the Crown is concerned enough to assign you a minder. Not exactly confidence inspiring.
+Nevertheless, you hope they will be an agreeable sort, otherwise this job will be more arduous than necessary."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_u7t40"]
+script = ExtResource("3_jefor")
+image = ExtResource("5_cr0j4")
+metadata/_custom_type_script = "uid://40q0ab7v28b4"
+
+[sub_resource type="Resource" id="Resource_ghngd"]
+script = ExtResource("4_4bi2q")
+lines = "Your fellow traveler is a surprisingly youthful and enthusiastic fellow. Everything about his look and manner practically shouts 'greenhorn' at you. It would seem the Crown is not so concerned that they would send a more experienced agent.
+On the bright side, he seems to be properly equipped for the task at hand. Light leathers and arms, gear for scouting work, the same as you chose for the job. That bodes well for the adventuring work, at least.
+The King's man greets you, all smiles. \"You're our man, or our new man, I should say. Well met!\""
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_gy1kq"]
+script = ExtResource("4_4bi2q")
+lines = "You greet him with equally friendly candor, which pleases him to no end. You can literally feel his enthusiasm as he clasps your hand and shakes it vigorously. On your way to boarding the coach, you are peppered with questions on the particulars of the profession. Clearly, your warm demeanor has opened some floodgates."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_mlje1"]
+script = ExtResource("6_xbfat")
+title = "Be friendly"
+events = Array[ExtResource("1_rshiv")]([SubResource("Resource_gy1kq")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_jc76b"]
+script = ExtResource("4_4bi2q")
+lines = "You greet him with the customary professional courtesy. Not too distant, but not overly familiar either. He seems satisfied with that, perhaps even a little pleased. You exchange a few more pleasantries while you make for the coach."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_s8i5a"]
+script = ExtResource("6_xbfat")
+title = "Be professional"
+events = Array[ExtResource("1_rshiv")]([SubResource("Resource_jc76b")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_416m8"]
+script = ExtResource("4_4bi2q")
+lines = "You greet him with a curt hello and give him nothing else. He seems at a loss for a moment before he retreats into himself. The practiced ease with which he does so suggests he's no stranger to being rebuffed by peers and seniors alike. You board the coach without any further chit-chat."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_h1ap8"]
+script = ExtResource("6_xbfat")
+title = "Be gruff"
+events = Array[ExtResource("1_rshiv")]([SubResource("Resource_416m8")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_r8kev"]
+script = ExtResource("7_uhd8p")
+choice_time = 4.0
+default_choice = 1
+choices = Array[ExtResource("6_xbfat")]([SubResource("Resource_mlje1"), SubResource("Resource_s8i5a"), SubResource("Resource_h1ap8")])
+metadata/_custom_type_script = "uid://5e50cn5p01dd"
+
+[sub_resource type="Resource" id="Resource_vt7gr"]
+script = ExtResource("3_jefor")
+image = ExtResource("5_cr0j4")
+metadata/_custom_type_script = "uid://40q0ab7v28b4"
+
+[sub_resource type="Resource" id="Resource_pr1g3"]
+script = ExtResource("4_4bi2q")
+lines = "The way out from Lake Libra is a smooth and uneventful ride. You and the King's man take the opportunity to review the tasks set before you.
+In a nutshell, you are to determine what has happened to the first group of investigators dispatched to the mansion, and render assistance as needed. If the worst has come to pass and the party has perished or deserted, then you are to take up their mission and secure Mortus Mansion.
+\"What do you suppose happened to the fellows that went before us? Do you suppose there truly is some lingering danger in that place, and they have run afoul of it?\""
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_0ocij"]
+script = ExtResource("4_4bi2q")
+lines = "The Crown agent chuckles nervously. \"I suppose there is some benefit coming into this expecting a fight,\" he replies. \"Although I would prefer a more mundane culprit for our man's seeming disappearance.\""
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_3f4fo"]
+script = ExtResource("6_xbfat")
+title = "Agree"
+events = Array[ExtResource("1_rshiv")]([SubResource("Resource_0ocij")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_kbhlj"]
+script = ExtResource("4_4bi2q")
+lines = "The Crown agent's expression brightens visibly. \"Good to know that you're taking the rumors with a grain of salt,\" he replies. \"It's far more likely that everyday ne'er do wells are responsible for our man's lack of contact. Looters or brigands, I'd say.\""
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_v6k4r"]
+script = ExtResource("6_xbfat")
+title = "Disagree"
+events = Array[ExtResource("1_rshiv")]([SubResource("Resource_kbhlj")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_2afs7"]
+script = ExtResource("4_4bi2q")
+lines = "The Crown agent's expression sours. \"Come now, our man is likely in distress,\" he chides, wagging his finger. \"It would not do to be so indifferent to his plight!\""
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_ok8hj"]
+script = ExtResource("6_xbfat")
+title = "Shrug"
+events = Array[ExtResource("1_rshiv")]([SubResource("Resource_2afs7")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_opigw"]
+script = ExtResource("7_uhd8p")
+choice_time = 4.0
+default_choice = 2
+choices = Array[ExtResource("6_xbfat")]([SubResource("Resource_3f4fo"), SubResource("Resource_v6k4r"), SubResource("Resource_ok8hj")])
+metadata/_custom_type_script = "uid://5e50cn5p01dd"
+
+[sub_resource type="Resource" id="Resource_jefor"]
+script = ExtResource("3_jefor")
+image = ExtResource("5_cr0j4")
+metadata/_custom_type_script = "uid://40q0ab7v28b4"
+
+[sub_resource type="Resource" id="Resource_4g07q"]
+script = ExtResource("4_4bi2q")
+lines = "As you approach Fendringham, the road becomes a narrow, ragged thing. Neglect and lack of traffic have allowed the wilderness to choke the old road into the rough path the coach is attempting to navigate. You and the King's man feel like a pair of dice as the coach shakes and rattles from traversing the uneven ground.
+\"I've heard that the area around the mansion has positively gone to the dogs,\" he remarks. \"Roads choked with overgrowth, packs of wild animals and worse things running rampant, and a strange fog that sickens those who linger in it overlong. Could it be related to the missing agents?\""
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_6lqn1"]
+script = ExtResource("4_4bi2q")
+lines = "The King's man blanches for a moment before collecting himself. \"Forgive me, but I sincerely hope you're wrong,\" he counters. \"I don't fancy the idea of facing off with the sort of power that blights great swathes of the countryside!\""
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_rsi24"]
+script = ExtResource("6_xbfat")
+title = "It's definitely related"
+events = Array[ExtResource("1_rshiv")]([SubResource("Resource_6lqn1")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_b0vy5"]
+script = ExtResource("4_4bi2q")
+lines = "The King's man breathes a short sigh of relief. \"Well, if a seasoned adventurer such as yourself sees no connection, then I suppose there's no reason to get swept away by the rumor mill.\""
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_adul7"]
+script = ExtResource("6_xbfat")
+title = "There's no connection"
+events = Array[ExtResource("1_rshiv")]([SubResource("Resource_b0vy5")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_hh6ce"]
+script = ExtResource("4_4bi2q")
+lines = "The King's man agrees with your assessment, albeit with some hesitation. \"I suppose it would be prudent to observe further before coming to a conclusion,\" he replies with a hint of disappointment. The lack of certainty seems to unsettle him."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_t7csj"]
+script = ExtResource("6_xbfat")
+title = "Don't jump to conclusions"
+events = Array[ExtResource("1_rshiv")]([SubResource("Resource_hh6ce")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_5abps"]
+script = ExtResource("7_uhd8p")
+choice_time = 4.0
+choices = Array[ExtResource("6_xbfat")]([SubResource("Resource_rsi24"), SubResource("Resource_adul7"), SubResource("Resource_t7csj")])
+metadata/_custom_type_script = "uid://5e50cn5p01dd"
+
+[sub_resource type="Resource" id="Resource_e6dfl"]
+script = ExtResource("3_jefor")
+image = ExtResource("8_54phy")
+metadata/_custom_type_script = "uid://40q0ab7v28b4"
+
+[sub_resource type="Resource" id="Resource_l04ru"]
+script = ExtResource("4_4bi2q")
+lines = "At last, you arrive at Fendringham, just as night falls. The tension in the air is palpable. All the doors and windows appear to be firmly shut, and several militia patrols are making their rounds.
+\"The mood around here seems grim, don't you think?\" wonders the King's man aloud. \"It's making me ill at ease, truth be told.\"
+Regardless of the prevailing mood, you have work to do. There appear to be three points of interest: the coaching inn, the market square, and the local temple. You ponder where to look first..."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_sye74"]
+script = ExtResource("9_vt7gr")
+timeline = "mm_inn"
+metadata/_custom_type_script = "uid://cqsprxne5jjhf"
+
+[sub_resource type="Resource" id="Resource_dp3so"]
+script = ExtResource("6_xbfat")
+title = "Go to the inn"
+events = Array[ExtResource("1_rshiv")]([SubResource("Resource_sye74")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_r74hd"]
+script = ExtResource("9_vt7gr")
+timeline = "mm_square"
+metadata/_custom_type_script = "uid://cqsprxne5jjhf"
+
+[sub_resource type="Resource" id="Resource_reuqk"]
+script = ExtResource("6_xbfat")
+title = "Go to the market square"
+events = Array[ExtResource("1_rshiv")]([SubResource("Resource_r74hd")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_n4lwl"]
+script = ExtResource("9_vt7gr")
+timeline = "mm_temple"
+metadata/_custom_type_script = "uid://cqsprxne5jjhf"
+
+[sub_resource type="Resource" id="Resource_u1jqr"]
+script = ExtResource("6_xbfat")
+title = "Go to the temple"
+events = Array[ExtResource("1_rshiv")]([SubResource("Resource_n4lwl")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_oibrk"]
+script = ExtResource("7_uhd8p")
+choices = Array[ExtResource("6_xbfat")]([SubResource("Resource_dp3so"), SubResource("Resource_reuqk"), SubResource("Resource_u1jqr")])
+metadata/_custom_type_script = "uid://5e50cn5p01dd"
+
+[resource]
+script = ExtResource("9_45uem")
+events = Array[ExtResource("1_rshiv")]([SubResource("Resource_75srb"), SubResource("Resource_cb3ot"), SubResource("Resource_u7t40"), SubResource("Resource_ghngd"), SubResource("Resource_r8kev"), SubResource("Resource_vt7gr"), SubResource("Resource_pr1g3"), SubResource("Resource_opigw"), SubResource("Resource_jefor"), SubResource("Resource_4g07q"), SubResource("Resource_5abps"), SubResource("Resource_e6dfl"), SubResource("Resource_l04ru"), SubResource("Resource_oibrk")])
+metadata/_custom_type_script = "uid://c702wmxhq83je"

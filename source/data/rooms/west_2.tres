@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Room" format=3 uid="uid://boycqesl37wub"]
+
+[ext_resource type="Script" uid="uid://0roridvigmn0" path="res://classes/room.gd" id="1_2423q"]
+[ext_resource type="Texture2D" uid="uid://cnyrhisswpfve" path="res://data/textures/west_2.png" id="1_qbxri"]
+
+[resource]
+script = ExtResource("1_2423q")
+name = "West Wing 2"
+background = ExtResource("1_qbxri")
+desc = "This is the second chamber of the West Wing.
+The West Wing extends to the north and south, while the Garden lies to the east."
+exits = Dictionary[String, String]({
+"e": "garden",
+"n": "west_3",
+"s": "west_1"
+})
+metadata/_custom_type_script = "uid://0roridvigmn0"

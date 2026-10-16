@@ -2,17 +2,72 @@
 
 [ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/timeline/event.gd" id="1_hr1w6"]
 [ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="2_clkdl"]
+[ext_resource type="Script" uid="uid://40q0ab7v28b4" path="res://classes/timeline/event_image.gd" id="2_pmmxa"]
 [ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="2_qclhi"]
+[ext_resource type="Script" uid="uid://dkfdnmlrdhh5u" path="res://classes/timeline/choice_branch.gd" id="3_ss58i"]
+[ext_resource type="Script" uid="uid://5e50cn5p01dd" path="res://classes/timeline/event_choice.gd" id="4_0ncg8"]
+[ext_resource type="Script" uid="uid://cqsprxne5jjhf" path="res://classes/timeline/event_jump.gd" id="6_1sxrp"]
+
+[sub_resource type="Resource" id="Resource_kcdlv"]
+script = ExtResource("2_pmmxa")
+metadata/_custom_type_script = "uid://40q0ab7v28b4"
 
 [sub_resource type="Resource" id="Resource_7p6hl"]
 script = ExtResource("2_qclhi")
-lines = "Temple
-The temple is dedicated to the God of Ways. Normally, it would be filled with all manner of guests and travellers seeking blessings or divine guidance for their journeys. It quickly becomes clear that these are not normal cirumstances.
-Grieviously wounded people occupy most of the space, tended to by healers and volunteers. Most of the wounded appear to have been attacked by beasts, but what kind you cannot say.
-A cordoned off area lies in the back, presumably a space for the sick. A censer sits in the middle of that area, emanating smoke that smells sharply of herbs and resin."
+lines = "The temple is dedicated to the God of Ways. Normally, it would be filled with all manner of guests and travellers seeking blessings or divine guidance for their journeys. At the moment however, the space is occupied by the sick and wounded, tended to by healers and volunteers.
+The wounded all seem to have sustained grievous injuries. Whether they were mauled by beasts, or savaged by bandits, you cannot say.
+The sick appear to be separated from the wounded, relegated to a cordoned off area in the back. A censer sits in the middle of that area, emanating smoke that smells sharply of herbs and resin."
 metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_ah3my"]
+script = ExtResource("3_ss58i")
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_y3on8"]
+script = ExtResource("3_ss58i")
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_qsy2e"]
+script = ExtResource("3_ss58i")
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_sfsyt"]
+script = ExtResource("4_0ncg8")
+choices = Array[ExtResource("3_ss58i")]([SubResource("Resource_ah3my"), SubResource("Resource_y3on8"), SubResource("Resource_qsy2e")])
+metadata/_custom_type_script = "uid://5e50cn5p01dd"
+
+[sub_resource type="Resource" id="Resource_jmbsy"]
+script = ExtResource("2_qclhi")
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_tlm8x"]
+script = ExtResource("6_1sxrp")
+timeline = "mm_inn2"
+metadata/_custom_type_script = "uid://cqsprxne5jjhf"
+
+[sub_resource type="Resource" id="Resource_rnbfj"]
+script = ExtResource("3_ss58i")
+title = "Go to the inn"
+events = Array[ExtResource("1_hr1w6")]([SubResource("Resource_tlm8x")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_cb1uq"]
+script = ExtResource("6_1sxrp")
+timeline = "mm_square2"
+metadata/_custom_type_script = "uid://cqsprxne5jjhf"
+
+[sub_resource type="Resource" id="Resource_1w0us"]
+script = ExtResource("3_ss58i")
+title = "Go to the market square"
+events = Array[ExtResource("1_hr1w6")]([SubResource("Resource_cb1uq")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_e7f1k"]
+script = ExtResource("4_0ncg8")
+choices = Array[ExtResource("3_ss58i")]([SubResource("Resource_rnbfj"), SubResource("Resource_1w0us")])
+metadata/_custom_type_script = "uid://5e50cn5p01dd"
 
 [resource]
 script = ExtResource("2_clkdl")
-events = Array[ExtResource("1_hr1w6")]([SubResource("Resource_7p6hl")])
+events = Array[ExtResource("1_hr1w6")]([SubResource("Resource_kcdlv"), SubResource("Resource_7p6hl"), SubResource("Resource_sfsyt"), SubResource("Resource_jmbsy"), SubResource("Resource_e7f1k")])
 metadata/_custom_type_script = "uid://c702wmxhq83je"

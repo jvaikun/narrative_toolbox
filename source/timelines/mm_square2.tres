@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Timeline" format=3 uid="uid://m3ghys2a12bb"]
+
+[ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/timeline/event.gd" id="1_mxmis"]
+[ext_resource type="Texture2D" uid="uid://bledl0utey0dd" path="res://timelines/textures/inn.png" id="2_7kfl3"]
+[ext_resource type="Script" uid="uid://40q0ab7v28b4" path="res://classes/timeline/event_image.gd" id="3_j62sd"]
+[ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="4_d5tt4"]
+[ext_resource type="Resource" uid="uid://co52dsgi8du4s" path="res://data/enemies/ghoul.tres" id="5_ufodt"]
+[ext_resource type="Script" uid="uid://crfkknay75iw3" path="res://classes/timeline/event_combat.gd" id="6_mxmis"]
+[ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="8_ium8p"]
+
+[sub_resource type="Resource" id="Resource_sxafl"]
+script = ExtResource("3_j62sd")
+image = ExtResource("2_7kfl3")
+metadata/_custom_type_script = "uid://40q0ab7v28b4"
+
+[sub_resource type="Resource" id="Resource_qclhi"]
+script = ExtResource("4_d5tt4")
+lines = "Fendringham's market square is crawling with armed militiamen, their expressions grim. Patrols frequently pass through, giving updates to the militia commander before continuing their rounds. You hear muttering and bickering about whether 'another pack' will come by.
+Dominating the middle of the square is a pile of charred remains that are distressingly human shaped, the waning light and deepening shadows making their shapes all the more grotesque. You approach for a closer look, but are stopped by one of the militiamen.
+\"Careful now,\" he cautions. \"That's undead remains there. Ghouls, they were. They been attacking the village in packs every other bloody night.\"
+This is distressing news. Ghouls are supposed to be carrion feeders, not marauding pack hunters. You ought to find out more."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_tpri1"]
+script = ExtResource("6_mxmis")
+enemy = ExtResource("5_ufodt")
+metadata/_custom_type_script = "uid://crfkknay75iw3"
+
+[resource]
+script = ExtResource("8_ium8p")
+events = Array[ExtResource("1_mxmis")]([SubResource("Resource_sxafl"), SubResource("Resource_qclhi"), SubResource("Resource_tpri1")])
+metadata/_custom_type_script = "uid://c702wmxhq83je"

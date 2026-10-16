@@ -1,5 +1,6 @@
 extends Node
 
+const ROOM_PATH = "res://data/rooms/%s.tres"
 const ITEM_PATH = "res://data/items/%s.tres"
 const ENEMY_PATH = "res://data/enemies/%s.tres"
 const ATLASES = {
@@ -33,7 +34,9 @@ var player : Dictionary = {
 	"luck": 12
 }
 
+var stamina_max : int = 0
 var inventory : Array = ["magnum", "knife", "sandwich"]
+var rations : int = 10
 
 var game_state = {
 	"intro": {},
@@ -52,6 +55,9 @@ var settings = {
 }
 
 var current_enemy : EnemyData
+var first_room : Room = load("res://data/rooms/outside.tres")
+var day : int = 1
+var time : String = "Morning"
 
 
 func _ready() -> void:

@@ -61,4 +61,10 @@ func _on_btn_ok_pressed() -> void:
 	char_data.name = $Dialog/Main/Content/Body/Portrait/Name.text
 	for key in char_data.keys():
 		Game.player[key] = char_data[key]
+	Game.stamina_max = Game.player.stamina
 	Game.new_game()
+
+
+func _on_visibility_changed() -> void:
+	if visible:
+		_on_btn_roll_pressed()

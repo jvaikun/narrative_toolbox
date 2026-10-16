@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Timeline" format=3 uid="uid://blmk6560vw0bn"]
+
+[ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/timeline/event.gd" id="1_mgtmg"]
+[ext_resource type="Script" uid="uid://40q0ab7v28b4" path="res://classes/timeline/event_image.gd" id="2_d66pp"]
+[ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="3_5kk4y"]
+[ext_resource type="Resource" uid="uid://co52dsgi8du4s" path="res://data/enemies/ghoul.tres" id="4_tpri1"]
+[ext_resource type="Script" uid="uid://crfkknay75iw3" path="res://classes/timeline/event_combat.gd" id="5_mgtmg"]
+[ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="7_jmute"]
+
+[sub_resource type="Resource" id="Resource_kcdlv"]
+script = ExtResource("2_d66pp")
+metadata/_custom_type_script = "uid://40q0ab7v28b4"
+
+[sub_resource type="Resource" id="Resource_7p6hl"]
+script = ExtResource("3_5kk4y")
+lines = "The temple is dedicated to the God of Ways. Normally, it would be filled with all manner of guests and travellers seeking blessings or divine guidance for their journeys. At the moment however, the space is occupied by the sick and wounded, tended to by healers and volunteers.
+The wounded all seem to have sustained grievous injuries. Whether they were mauled by beasts, or savaged by bandits, you cannot say.
+The sick appear to be separated from the wounded, relegated to a cordoned off area in the back. A censer sits in the middle of that area, emanating smoke that smells sharply of herbs and resin."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_almav"]
+script = ExtResource("5_mgtmg")
+enemy = ExtResource("4_tpri1")
+metadata/_custom_type_script = "uid://crfkknay75iw3"
+
+[resource]
+script = ExtResource("7_jmute")
+events = Array[ExtResource("1_mgtmg")]([SubResource("Resource_kcdlv"), SubResource("Resource_7p6hl"), SubResource("Resource_almav")])
+metadata/_custom_type_script = "uid://c702wmxhq83je"

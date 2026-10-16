@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Room" format=3 uid="uid://cjt7uhtrf6px7"]
+
+[ext_resource type="Script" uid="uid://0roridvigmn0" path="res://classes/room.gd" id="1_es8ws"]
+[ext_resource type="Texture2D" uid="uid://b544f65o38h65" path="res://data/textures/east_1.png" id="1_heikw"]
+
+[resource]
+script = ExtResource("1_es8ws")
+name = "East Wing 1"
+background = ExtResource("1_heikw")
+desc = "This is the first chamber of the East Wing.
+The East Wing continues to the north, while the Entrance lies to the west."
+exits = Dictionary[String, String]({
+"n": "east_2",
+"w": "entrance"
+})
+metadata/_custom_type_script = "uid://0roridvigmn0"

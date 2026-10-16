@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Room" format=3 uid="uid://coqynu82kpduh"]
+
+[ext_resource type="Texture2D" uid="uid://c5i1ei6onywy3" path="res://mansion/title/bg_title.png" id="1_nwy10"]
+[ext_resource type="Script" uid="uid://0roridvigmn0" path="res://classes/room.gd" id="1_png60"]
+
+[resource]
+script = ExtResource("1_png60")
+name = "Outside Mansion"
+background = ExtResource("1_nwy10")
+desc = "Mortus Mansion looms above you, all sharp edges and dark corners. The entrance to the mansion proper lies north."
+exits = Dictionary[String, String]({
+"n": "entrance"
+})
+metadata/_custom_type_script = "uid://0roridvigmn0"

@@ -138,12 +138,22 @@ texture = ExtResource("3_bjfdm")
 layout_mode = 2
 texture = ExtResource("3_bjfdm")
 
+[node name="Results" type="Label" parent="Dialog/Main/Content" unique_id=440976356]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+text = "Round results"
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="BtnRoll" type="Button" parent="Dialog/Main/Content" unique_id=1472385751]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_qksdb")
 text = "Roll Attack"
 
 [node name="BtnLuck" type="Button" parent="Dialog/Main/Content" unique_id=1520726006]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme = ExtResource("4_qksdb")
@@ -155,11 +165,15 @@ layout_mode = 2
 theme = ExtResource("4_qksdb")
 text = "Use an Item"
 
-[node name="BtnBack" type="Button" parent="Dialog/Main/Content" unique_id=442104248]
+[node name="BtnContinue" type="Button" parent="Dialog/Main/Content" unique_id=442104248]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
-text = "Back"
+text = "Continue"
+
+[node name="Anims" type="AnimationPlayer" parent="." unique_id=796460914]
 
 [connection signal="pressed" from="Dialog/Main/Content/BtnRoll" to="." method="_on_btn_roll_pressed"]
 [connection signal="pressed" from="Dialog/Main/Content/BtnLuck" to="." method="_on_btn_luck_pressed"]
 [connection signal="pressed" from="Dialog/Main/Content/BtnItem" to="." method="_on_btn_item_pressed"]
-[connection signal="pressed" from="Dialog/Main/Content/BtnBack" to="." method="_on_btn_back_pressed"]
+[connection signal="pressed" from="Dialog/Main/Content/BtnContinue" to="." method="_on_btn_continue_pressed"]

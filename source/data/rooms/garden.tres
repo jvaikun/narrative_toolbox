@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Room" format=3 uid="uid://upb0nbhkh013"]
+
+[ext_resource type="Script" uid="uid://0roridvigmn0" path="res://classes/room.gd" id="1_5e0p7"]
+[ext_resource type="Texture2D" uid="uid://j2vexdwabfhi" path="res://data/textures/garden.png" id="1_407wp"]
+
+[resource]
+script = ExtResource("1_5e0p7")
+name = "Garden"
+background = ExtResource("1_407wp")
+desc = "The gardens are a hollow shell what they once were. Even the dead plants have crumbled to dust and scraps.
+Exits to the East and West wings lie in those directions."
+exits = Dictionary[String, String]({
+"e": "east_2",
+"w": "west_2"
+})
+metadata/_custom_type_script = "uid://0roridvigmn0"

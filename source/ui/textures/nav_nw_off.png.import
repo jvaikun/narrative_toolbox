@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ced8ckvay1w57"
-path="res://.godot/imported/compass.jpg-adc5a6d9efad6a0db03be850ba4ae8c6.ctex"
+uid="uid://d1f174je77j5f"
+path="res://.godot/imported/nav_nw_off.png-4fd53a562675b031edf679bb46e2a28c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://adventure/compass.jpg"
-dest_files=["res://.godot/imported/compass.jpg-adc5a6d9efad6a0db03be850ba4ae8c6.ctex"]
+source_file="res://ui/textures/nav_nw_off.png"
+dest_files=["res://.godot/imported/nav_nw_off.png-4fd53a562675b031edf679bb46e2a28c.ctex"]
 
 [params]
 

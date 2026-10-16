@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [audio]
 
 buses/default_bus_layout="uid://dya5chrfixyot"
+general/default_playback_type.web=0
 
 [autoload]
 
@@ -28,10 +29,6 @@ Game="*res://globals/game.gd"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/timeline_edit/plugin.cfg")
 
 [input]
 

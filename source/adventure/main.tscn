@@ -2,32 +2,59 @@
 
 [ext_resource type="Script" uid="uid://publbuj28h7u" path="res://adventure/main.gd" id="1_pieo5"]
 [ext_resource type="Theme" uid="uid://p8ostjsjud8l" path="res://ui/themes/paper_white.tres" id="1_wsf4b"]
+[ext_resource type="FontFile" uid="uid://cou7t00vw3boe" path="res://ui/fonts/notjam_oldstyle.ttf" id="3_p72ej"]
 [ext_resource type="Texture2D" uid="uid://0v24q4moaf4c" path="res://ui/textures/paper.png" id="3_t68go"]
 [ext_resource type="StyleBox" uid="uid://dwx5p0gcq3exw" path="res://ui/themes/stylebox_frame_book.tres" id="4_hlrdr"]
 [ext_resource type="Texture2D" uid="uid://c5i1ei6onywy3" path="res://mansion/title/bg_title.png" id="5_jtwj4"]
 [ext_resource type="StyleBox" uid="uid://by3qtvs4oekxa" path="res://ui/themes/stylebox_frame_player.tres" id="6_wsf4b"]
-[ext_resource type="Texture2D" uid="uid://cal802f87ngbx" path="res://data/textures/flintlock.png" id="7_ximeu"]
-[ext_resource type="Texture2D" uid="uid://dfl5mhy8h8tml" path="res://data/textures/knife.png" id="8_k1fs4"]
-[ext_resource type="Texture2D" uid="uid://cjvsgaa565c2g" path="res://data/textures/sandwich.png" id="9_11qgx"]
-[ext_resource type="Texture2D" uid="uid://ced8ckvay1w57" path="res://adventure/compass.jpg" id="10_brceg"]
+[ext_resource type="Texture2D" uid="uid://bmjxyka2dcbld" path="res://ui/borders/border_book.png" id="7_brceg"]
+[ext_resource type="Texture2D" uid="uid://cal802f87ngbx" path="res://data/textures/flintlock.png" id="8_h22ha"]
+[ext_resource type="Texture2D" uid="uid://e0qkss3pbvba" path="res://ui/textures/nav_nw_on.png" id="9_rp85h"]
+[ext_resource type="Texture2D" uid="uid://c4d1xg745clwq" path="res://ui/textures/nav_n_on.png" id="10_0qstt"]
+[ext_resource type="Texture2D" uid="uid://d1f174je77j5f" path="res://ui/textures/nav_nw_off.png" id="10_hwhqb"]
+[ext_resource type="Texture2D" uid="uid://dwxdgqdtv4opl" path="res://ui/textures/nav_ne_on.png" id="11_65yeg"]
+[ext_resource type="Texture2D" uid="uid://cnw28kalyjvxd" path="res://ui/textures/nav_n_off.png" id="12_p72ej"]
+[ext_resource type="Texture2D" uid="uid://bpupnsn6sg60l" path="res://ui/textures/nav_w_on.png" id="12_tc7ad"]
+[ext_resource type="Texture2D" uid="uid://crubncgtjd83n" path="res://ui/textures/nav_u_on.png" id="13_k8esm"]
+[ext_resource type="Texture2D" uid="uid://sbdfu1xpc7qe" path="res://ui/textures/nav_d_on.png" id="14_f10jt"]
+[ext_resource type="Texture2D" uid="uid://d3aipyd2ncv1y" path="res://ui/textures/nav_ne_off.png" id="14_n83fq"]
+[ext_resource type="Texture2D" uid="uid://bwuv6082oa4sh" path="res://ui/textures/nav_e_on.png" id="15_u23tg"]
+[ext_resource type="Texture2D" uid="uid://dd6ab6hpaslu" path="res://ui/textures/nav_sw_on.png" id="16_736f8"]
+[ext_resource type="Texture2D" uid="uid://cuoc8pthdrok3" path="res://ui/textures/nav_w_off.png" id="16_bgg8m"]
+[ext_resource type="Texture2D" uid="uid://cx6uce4c30jnv" path="res://ui/textures/nav_s_on.png" id="17_hwhqb"]
+[ext_resource type="Texture2D" uid="uid://brw5q57dxciwl" path="res://ui/textures/nav_se_on.png" id="18_p72ej"]
+[ext_resource type="Texture2D" uid="uid://ej24jisohkwx" path="res://ui/textures/nav_u_off.png" id="18_w08o3"]
+[ext_resource type="Texture2D" uid="uid://ce3jddirpewow" path="res://ui/textures/nav_d_off.png" id="20_gg5yq"]
+[ext_resource type="Texture2D" uid="uid://brxj6jqunukfk" path="res://ui/textures/nav_e_off.png" id="22_kdj2y"]
+[ext_resource type="Texture2D" uid="uid://dpbqk7iidx2cg" path="res://ui/textures/nav_sw_off.png" id="24_bkahi"]
+[ext_resource type="Texture2D" uid="uid://cxlbwoxlurhpc" path="res://ui/textures/nav_s_off.png" id="26_q8wij"]
+[ext_resource type="Texture2D" uid="uid://b2h3k0yfxrj7a" path="res://ui/textures/nav_se_off.png" id="28_74paa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n83fq"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+texture = ExtResource("3_t68go")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vt7gr"]
+blend_mode = 3
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h22ha"]
 texture = ExtResource("3_t68go")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
-[sub_resource type="Gradient" id="Gradient_0qstt"]
-offsets = PackedFloat32Array(0.9, 1)
-colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_wp5od"]
-gradient = SubResource("Gradient_0qstt")
-width = 32
-height = 32
-fill = 2
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 0.5)
-metadata/_snap_enabled = true
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t4dck"]
+texture = ExtResource("7_brceg")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+modulate_color = Color(0, 0, 0, 1)
+draw_center = false
 
 [node name="Main" type="Control" unique_id=486406146]
 texture_filter = 1
@@ -39,6 +66,20 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_wsf4b")
 script = ExtResource("1_pieo5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1382663085]
+
+[node name="CursorTag" type="Label" parent="CanvasLayer" unique_id=522072093]
+unique_name_in_owner = true
+visible = false
+offset_right = 140.0
+offset_bottom = 33.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_p72ej")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_n83fq")
+text = "CursorTag"
 
 [node name="Background" type="TextureRect" parent="." unique_id=1258484874]
 layout_mode = 1
@@ -68,6 +109,8 @@ size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("4_hlrdr")
 
 [node name="Scene" type="TextureRect" parent="Main/Display/Room" unique_id=577754721]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_vt7gr")
 layout_mode = 2
 texture = ExtResource("5_jtwj4")
 expand_mode = 1
@@ -83,6 +126,7 @@ layout_mode = 2
 theme_override_styles/panel = ExtResource("6_wsf4b")
 
 [node name="Info" type="Label" parent="Main/Display/Room/RoomInfo/Frame" unique_id=427810778]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Time, Room Info"
 
@@ -90,96 +134,212 @@ text = "Time, Room Info"
 layout_mode = 2
 theme_override_styles/panel = ExtResource("4_hlrdr")
 
-[node name="Text" type="Label" parent="Main/Display/Narration" unique_id=1652287791]
+[node name="RoomText" type="RichTextLabel" parent="Main/Display/Narration" unique_id=495138354]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
 size_flags_vertical = 0
 text = "Descriptive text of scene"
+visible_characters_behavior = 1
 
 [node name="ToolBar" type="VBoxContainer" parent="Main" unique_id=1873170967]
 layout_mode = 2
 
-[node name="Inventory" type="PanelContainer" parent="Main/ToolBar" unique_id=2076974026]
+[node name="Inventory" type="PanelContainer" parent="Main/ToolBar" unique_id=639949107]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("4_hlrdr")
+theme_override_styles/panel = SubResource("StyleBoxTexture_t4dck")
 
-[node name="IconGrid" type="GridContainer" parent="Main/ToolBar/Inventory" unique_id=514015294]
+[node name="Slots" type="GridContainer" parent="Main/ToolBar/Inventory" unique_id=1509260625]
+unique_name_in_owner = true
 layout_mode = 2
 columns = 2
 
-[node name="TextureRect" type="TextureRect" parent="Main/ToolBar/Inventory/IconGrid" unique_id=709387364]
+[node name="Slot1" type="TextureButton" parent="Main/ToolBar/Inventory/Slots" unique_id=995082104]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
-texture = ExtResource("7_ximeu")
-expand_mode = 1
+texture_normal = ExtResource("8_h22ha")
+ignore_texture_size = true
 stretch_mode = 5
 
-[node name="TextureRect2" type="TextureRect" parent="Main/ToolBar/Inventory/IconGrid" unique_id=386203309]
+[node name="Slot2" type="TextureButton" parent="Main/ToolBar/Inventory/Slots" unique_id=739188192]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
-texture = ExtResource("8_k1fs4")
-expand_mode = 1
+texture_normal = ExtResource("8_h22ha")
+ignore_texture_size = true
 stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="Main/ToolBar/Inventory/IconGrid" unique_id=1002640532]
+[node name="Slot3" type="TextureButton" parent="Main/ToolBar/Inventory/Slots" unique_id=1112167782]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
-texture = ExtResource("9_11qgx")
-expand_mode = 1
+texture_normal = ExtResource("8_h22ha")
+ignore_texture_size = true
 stretch_mode = 5
 
-[node name="TextureRect4" type="TextureRect" parent="Main/ToolBar/Inventory/IconGrid" unique_id=1505889336]
+[node name="Slot4" type="TextureButton" parent="Main/ToolBar/Inventory/Slots" unique_id=1568223856]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
-texture = SubResource("GradientTexture2D_wp5od")
-expand_mode = 1
+texture_normal = ExtResource("8_h22ha")
+ignore_texture_size = true
 stretch_mode = 5
 
-[node name="TextureRect5" type="TextureRect" parent="Main/ToolBar/Inventory/IconGrid" unique_id=1593963044]
+[node name="Slot5" type="TextureButton" parent="Main/ToolBar/Inventory/Slots" unique_id=1223690635]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
-texture = SubResource("GradientTexture2D_wp5od")
-expand_mode = 1
+texture_normal = ExtResource("8_h22ha")
+ignore_texture_size = true
 stretch_mode = 5
 
-[node name="TextureRect6" type="TextureRect" parent="Main/ToolBar/Inventory/IconGrid" unique_id=13353942]
+[node name="Slot6" type="TextureButton" parent="Main/ToolBar/Inventory/Slots" unique_id=269238647]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
-texture = SubResource("GradientTexture2D_wp5od")
-expand_mode = 1
+texture_normal = ExtResource("8_h22ha")
+ignore_texture_size = true
 stretch_mode = 5
 
-[node name="TextureRect7" type="TextureRect" parent="Main/ToolBar/Inventory/IconGrid" unique_id=408605595]
+[node name="Slot7" type="TextureButton" parent="Main/ToolBar/Inventory/Slots" unique_id=923251209]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
-texture = SubResource("GradientTexture2D_wp5od")
-expand_mode = 1
+texture_normal = ExtResource("8_h22ha")
+ignore_texture_size = true
 stretch_mode = 5
 
-[node name="TextureRect8" type="TextureRect" parent="Main/ToolBar/Inventory/IconGrid" unique_id=1484246181]
+[node name="Slot8" type="TextureButton" parent="Main/ToolBar/Inventory/Slots" unique_id=687830441]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
-texture = SubResource("GradientTexture2D_wp5od")
-expand_mode = 1
+texture_normal = ExtResource("8_h22ha")
+ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Navigation" type="PanelContainer" parent="Main/ToolBar" unique_id=49539300]
+[node name="Navigation" type="PanelContainer" parent="Main/ToolBar" unique_id=2017495283]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("4_hlrdr")
 
-[node name="Content" type="VBoxContainer" parent="Main/ToolBar/Navigation" unique_id=113392532]
+[node name="Content" type="VBoxContainer" parent="Main/ToolBar/Navigation" unique_id=1436531945]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Header" type="Label" parent="Main/ToolBar/Navigation/Content" unique_id=406335745]
+[node name="Header" type="Label" parent="Main/ToolBar/Navigation/Content" unique_id=1458057093]
 layout_mode = 2
 text = "Navigation"
 horizontal_alignment = 1
 
-[node name="Compass" type="TextureRect" parent="Main/ToolBar/Navigation/Content" unique_id=116701415]
-custom_minimum_size = Vector2(96, 96)
+[node name="Compass" type="GridContainer" parent="Main/ToolBar/Navigation/Content" unique_id=1179671044]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("10_brceg")
-expand_mode = 1
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 3
+
+[node name="BtnNW" type="TextureButton" parent="Main/ToolBar/Navigation/Content/Compass" unique_id=826633128]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("9_rp85h")
+texture_disabled = ExtResource("10_hwhqb")
+ignore_texture_size = true
 stretch_mode = 5
+
+[node name="BtnN" type="TextureButton" parent="Main/ToolBar/Navigation/Content/Compass" unique_id=1945280520]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("10_0qstt")
+texture_disabled = ExtResource("12_p72ej")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="BtnNE" type="TextureButton" parent="Main/ToolBar/Navigation/Content/Compass" unique_id=1143000874]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("11_65yeg")
+texture_disabled = ExtResource("14_n83fq")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="BtnW" type="TextureButton" parent="Main/ToolBar/Navigation/Content/Compass" unique_id=654955514]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("12_tc7ad")
+texture_disabled = ExtResource("16_bgg8m")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="UpDown" type="VBoxContainer" parent="Main/ToolBar/Navigation/Content/Compass" unique_id=745289004]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="BtnUp" type="TextureButton" parent="Main/ToolBar/Navigation/Content/Compass/UpDown" unique_id=1992887384]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("13_k8esm")
+texture_disabled = ExtResource("18_w08o3")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="BtnDown" type="TextureButton" parent="Main/ToolBar/Navigation/Content/Compass/UpDown" unique_id=1995373379]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("14_f10jt")
+texture_disabled = ExtResource("20_gg5yq")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="BtnE" type="TextureButton" parent="Main/ToolBar/Navigation/Content/Compass" unique_id=2919112]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("15_u23tg")
+texture_disabled = ExtResource("22_kdj2y")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="BtnSW" type="TextureButton" parent="Main/ToolBar/Navigation/Content/Compass" unique_id=2060617876]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("16_736f8")
+texture_disabled = ExtResource("24_bkahi")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="BtnS" type="TextureButton" parent="Main/ToolBar/Navigation/Content/Compass" unique_id=271273157]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("17_hwhqb")
+texture_disabled = ExtResource("26_q8wij")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="BtnSE" type="TextureButton" parent="Main/ToolBar/Navigation/Content/Compass" unique_id=790374014]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("18_p72ej")
+texture_disabled = ExtResource("28_74paa")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=543896747]
+bus = &"music"
+
+[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=1229507014]
+bus = &"sfx"
+
+[node name="Voice" type="AudioStreamPlayer" parent="." unique_id=1630744534]
+bus = &"vo"

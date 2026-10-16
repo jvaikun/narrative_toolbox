@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Room" format=3 uid="uid://c53gwmfv528ui"]
+
+[ext_resource type="Texture2D" uid="uid://cd2mftpg04c3f" path="res://data/textures/entrance.png" id="1_1ww1b"]
+[ext_resource type="Script" uid="uid://0roridvigmn0" path="res://classes/room.gd" id="1_dsyv7"]
+
+[resource]
+script = ExtResource("1_dsyv7")
+name = "Entrance Hall"
+background = ExtResource("1_1ww1b")
+desc = "The spacious entrance hall lies before you, in all its faded opulence.
+Exits to the East and West wings are in those directions, while the exit to the outside is to the south."
+exits = Dictionary[String, String]({
+"e": "east_1",
+"s": "outside",
+"w": "west_1"
+})
+metadata/_custom_type_script = "uid://0roridvigmn0"

@@ -321,20 +321,33 @@ theme_override_fonts/font = ExtResource("3_grrlh")
 theme_override_font_sizes/font_size = 36
 text = "12"
 
+[node name="HSeparator" type="HSeparator" parent="Content/Player/Content/Body" unique_id=2144200276]
+layout_mode = 2
+
+[node name="Rations" type="Label" parent="Content/Player/Content/Body" unique_id=2000857307]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Rations: 10"
+
+[node name="BtnEat" type="Button" parent="Content/Player/Content/Body" unique_id=1412359429]
+layout_mode = 2
+text = "Eat Ration"
+
 [node name="BtnInventory" type="Button" parent="Content/Player/Content/Body" unique_id=9350398]
 layout_mode = 2
 theme = ExtResource("7_bsumw")
 text = "Inventory"
 
+[node name="BtnCombat" type="Button" parent="Content/Player/Content/Body" unique_id=2127886532]
+visible = false
+layout_mode = 2
+theme = ExtResource("7_bsumw")
+text = "Combat Test"
+
 [node name="BtnOptions" type="Button" parent="Content/Player/Content/Body" unique_id=1591243890]
 layout_mode = 2
 theme = ExtResource("7_bsumw")
 text = "System"
-
-[node name="BtnCombat" type="Button" parent="Content/Player/Content/Body" unique_id=2127886532]
-layout_mode = 2
-theme = ExtResource("7_bsumw")
-text = "Combat Test"
 
 [node name="MenuOverlay" type="ColorRect" parent="." unique_id=450626394]
 visible = false
@@ -369,6 +382,7 @@ bus = &"sfx"
 bus = &"vo"
 
 [connection signal="timeout" from="Content/Book/TwoPage/PageR/Frame/Content/Body/Choices/ChoiceTimer" to="." method="_on_choice_timeout"]
+[connection signal="pressed" from="Content/Player/Content/Body/BtnEat" to="." method="_on_btn_eat_pressed"]
 [connection signal="pressed" from="Content/Player/Content/Body/BtnInventory" to="." method="_on_btn_inventory_pressed"]
-[connection signal="pressed" from="Content/Player/Content/Body/BtnOptions" to="." method="_on_btn_options_pressed"]
 [connection signal="pressed" from="Content/Player/Content/Body/BtnCombat" to="." method="_on_btn_combat_pressed"]
+[connection signal="pressed" from="Content/Player/Content/Body/BtnOptions" to="." method="_on_btn_options_pressed"]

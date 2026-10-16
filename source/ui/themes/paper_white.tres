@@ -26,6 +26,13 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_63o7t"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+thickness = 2
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c005b"]
 content_margin_left = 4.0
 content_margin_top = 4.0
@@ -132,6 +139,7 @@ Button/styles/focus = null
 Button/styles/hover = SubResource("StyleBoxFlat_63o7t")
 Button/styles/normal = SubResource("StyleBoxFlat_sg811")
 Button/styles/pressed = null
+HSeparator/styles/separator = SubResource("StyleBoxLine_63o7t")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_c005b")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_prdef")
 HSlider/styles/slider = SubResource("StyleBoxFlat_fdgj7")
