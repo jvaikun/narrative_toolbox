@@ -10,7 +10,7 @@ const WAIT_TIME = 0.1
 @onready var audio_channels = {
 	"music": $Music,
 	"sfx": $SFX,
-	"vo": $Voice,
+	"voice": $Voice,
 }
 @onready var player_stat_ui = {
 	"name": $Content/Player/Content/Body/Name,

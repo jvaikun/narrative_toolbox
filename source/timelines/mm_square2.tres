@@ -1,11 +1,12 @@
 [gd_resource type="Resource" script_class="Timeline" format=3 uid="uid://m3ghys2a12bb"]
 
 [ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/timeline/event.gd" id="1_mxmis"]
-[ext_resource type="Texture2D" uid="uid://bledl0utey0dd" path="res://timelines/textures/inn.png" id="2_7kfl3"]
+[ext_resource type="Texture2D" uid="uid://bledl0utey0dd" path="res://timelines/textures/square.png" id="2_7kfl3"]
 [ext_resource type="Script" uid="uid://40q0ab7v28b4" path="res://classes/timeline/event_image.gd" id="3_j62sd"]
 [ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="4_d5tt4"]
 [ext_resource type="Resource" uid="uid://co52dsgi8du4s" path="res://data/enemies/ghoul.tres" id="5_ufodt"]
 [ext_resource type="Script" uid="uid://crfkknay75iw3" path="res://classes/timeline/event_combat.gd" id="6_mxmis"]
+[ext_resource type="Script" uid="uid://cqsprxne5jjhf" path="res://classes/timeline/event_jump.gd" id="7_sp35b"]
 [ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="8_ium8p"]
 
 [sub_resource type="Resource" id="Resource_sxafl"]
@@ -15,18 +16,37 @@ metadata/_custom_type_script = "uid://40q0ab7v28b4"
 
 [sub_resource type="Resource" id="Resource_qclhi"]
 script = ExtResource("4_d5tt4")
-lines = "Fendringham's market square is crawling with armed militiamen, their expressions grim. Patrols frequently pass through, giving updates to the militia commander before continuing their rounds. You hear muttering and bickering about whether 'another pack' will come by.
-Dominating the middle of the square is a pile of charred remains that are distressingly human shaped, the waning light and deepening shadows making their shapes all the more grotesque. You approach for a closer look, but are stopped by one of the militiamen.
+lines = "Fendringham's market square is crawling with grim-faced militiamen, with patrols frequently passing through. You hear muttering and bickering about whether 'another pack' will come by.
+Dominating the middle of the square is a pile of charred remains that are distressingly humanoid, the waning light and deepening shadows making their shapes all the more grotesque. You approach for a closer look, but are stopped by one of the militiamen.
 \"Careful now,\" he cautions. \"That's undead remains there. Ghouls, they were. They been attacking the village in packs every other bloody night.\"
-This is distressing news. Ghouls are supposed to be carrion feeders, not marauding pack hunters. You ought to find out more."
+You frown. Ghouls are carrion feeders, not marauding pack hunters. Why would they be hounding villages like this?"
 metadata/_custom_type_script = "uid://qiibr5iabuqw"
 
-[sub_resource type="Resource" id="Resource_tpri1"]
+[sub_resource type="Resource" id="Resource_kklp4"]
+script = ExtResource("4_d5tt4")
+lines = "You ask the militiaman as much. \"Aye, normally they feast on the dead, rooting about barrows n' graveyards n' such,\" he explains. \"But these buggers are a different sort.\"
+The man prods at some of the burnt remains with his spear. The spearhead connects with a metallic noise, strangely. \"Iron bands,\" he grumbles. \"Set into their very flesh and bones. The worst of them have blades set into their arms, if you can believe it.\"
+You are about to question his dubious claim when the clanging of a bell interrupts you. \"Damn it all, another attack,\" growls the militiaman. He hefts his spear and rushes off along with the rest of the militia."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_7kfl3"]
+script = ExtResource("4_d5tt4")
+lines = "You follow the armed men to the edge of the village, where a front line of spearmen are fending off the attackers. A wave of stench hits you full force, the unmistakable smell of rot leaving no question that these creatures were undead.
+A second line of militia begins to form up in order to catch any monsters that break through the front line. You and the King's man join them in defense of the village.
+Far too soon, one of the beasts bowls over a front liner, charging directly into the second line and attacking with inhuman frenzy. The humanoid shape and crouched posture is familiar to you: this is a Ghoul, a foul carrion feeder. Steeling yourself, you charge into battle!"
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_b4t42"]
 script = ExtResource("6_mxmis")
 enemy = ExtResource("5_ufodt")
 metadata/_custom_type_script = "uid://crfkknay75iw3"
 
+[sub_resource type="Resource" id="Resource_4jd1w"]
+script = ExtResource("7_sp35b")
+timeline = "mm_aftermath"
+metadata/_custom_type_script = "uid://cqsprxne5jjhf"
+
 [resource]
 script = ExtResource("8_ium8p")
-events = Array[ExtResource("1_mxmis")]([SubResource("Resource_sxafl"), SubResource("Resource_qclhi"), SubResource("Resource_tpri1")])
+events = Array[ExtResource("1_mxmis")]([SubResource("Resource_sxafl"), SubResource("Resource_qclhi"), SubResource("Resource_kklp4"), SubResource("Resource_7kfl3"), SubResource("Resource_b4t42"), SubResource("Resource_4jd1w")])
 metadata/_custom_type_script = "uid://c702wmxhq83je"

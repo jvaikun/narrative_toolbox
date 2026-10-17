@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="Timeline" format=3 uid="uid://cmhobiqw8cxak"]
 
 [ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/timeline/event.gd" id="1_hr1w6"]
+[ext_resource type="Texture2D" uid="uid://bs0j35vheljqb" path="res://timelines/textures/temple.png" id="2_1sxrp"]
 [ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="2_clkdl"]
 [ext_resource type="Script" uid="uid://40q0ab7v28b4" path="res://classes/timeline/event_image.gd" id="2_pmmxa"]
 [ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="2_qclhi"]
@@ -10,6 +11,7 @@
 
 [sub_resource type="Resource" id="Resource_kcdlv"]
 script = ExtResource("2_pmmxa")
+image = ExtResource("2_1sxrp")
 metadata/_custom_type_script = "uid://40q0ab7v28b4"
 
 [sub_resource type="Resource" id="Resource_7p6hl"]
@@ -19,28 +21,53 @@ The wounded all seem to have sustained grievous injuries. Whether they were maul
 The sick appear to be separated from the wounded, relegated to a cordoned off area in the back. A censer sits in the middle of that area, emanating smoke that smells sharply of herbs and resin."
 metadata/_custom_type_script = "uid://qiibr5iabuqw"
 
-[sub_resource type="Resource" id="Resource_ah3my"]
-script = ExtResource("3_ss58i")
-metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
-
-[sub_resource type="Resource" id="Resource_y3on8"]
-script = ExtResource("3_ss58i")
-metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
-
-[sub_resource type="Resource" id="Resource_qsy2e"]
-script = ExtResource("3_ss58i")
-metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
-
 [sub_resource type="Resource" id="Resource_sfsyt"]
-script = ExtResource("4_0ncg8")
-choices = Array[ExtResource("3_ss58i")]([SubResource("Resource_ah3my"), SubResource("Resource_y3on8"), SubResource("Resource_qsy2e")])
-metadata/_custom_type_script = "uid://5e50cn5p01dd"
-
-[sub_resource type="Resource" id="Resource_jmbsy"]
 script = ExtResource("2_qclhi")
+lines = "One of the volunteers approaches you. She appears to be a local hedge witch or wise woman, likely pitching in to help the healers. \"You both look well. Are you here to lend a hand?\" she asks.
+You explain that you are here to help, in a manner of speaking, to which she scoffs. \"Well, miasma's not something you can hold at sword point. I think fighting off the undead is more your speed,\" she says. Seeing your furrowed brow at the mention of miasma, she explains for your benefit.
+\"The mist has been thick and heavy of late, and it carries sickness with it, Lung Rot to be exact. It's a deep kind of sick, a death that takes its time.\""
 metadata/_custom_type_script = "uid://qiibr5iabuqw"
 
 [sub_resource type="Resource" id="Resource_tlm8x"]
+script = ExtResource("2_qclhi")
+lines = "The woman looks at you, up and down. \"You lot seem loaded for bear, ready for a fight. I don't think we have much to offer you, aside from herb bundles. They keep the Lung Rot at bay. The herbs are common enough, but we've been going through a lot of them lately.\"
+She gestures to your pack. \"I don't have many to spare, but I'm willing to trade supplies for supplies. Your rations for our herbs,\" she explains."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_cb1uq"]
+script = ExtResource("2_qclhi")
+lines = "Relief and gratitude wash over her features. \"Thank you, these will go a long way to getting people back on their feet. The weakness after the Lung Rot leaves you can be just as deadly as the sickness itself.\"
+She hands over the Fragrant Herbs, two bundles of herbs wrapped in a strip of linen, meant to be tied over the mouth and nose."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_ah3my"]
+script = ExtResource("3_ss58i")
+title = "Accept the trade"
+events = Array[ExtResource("1_hr1w6")]([SubResource("Resource_cb1uq")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_jmbsy"]
+script = ExtResource("2_qclhi")
+lines = "She purses her lips for a moment. \"Very well, that is your choice to make. But do be careful if you decide to brave the mists. As I said, there is something unnatural about those vapors...\""
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_y3on8"]
+script = ExtResource("3_ss58i")
+title = "Decline the trade"
+events = Array[ExtResource("1_hr1w6")]([SubResource("Resource_jmbsy")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_pmmxa"]
+script = ExtResource("4_0ncg8")
+choices = Array[ExtResource("3_ss58i")]([SubResource("Resource_ah3my"), SubResource("Resource_y3on8")])
+metadata/_custom_type_script = "uid://5e50cn5p01dd"
+
+[sub_resource type="Resource" id="Resource_1sxrp"]
+script = ExtResource("2_qclhi")
+lines = "Seeing that you've gotten what you can from investigating the temple, you make your way out. You pause for a moment outside the temple to consider where you will go next..."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_s3hoy"]
 script = ExtResource("6_1sxrp")
 timeline = "mm_inn2"
 metadata/_custom_type_script = "uid://cqsprxne5jjhf"
@@ -48,10 +75,10 @@ metadata/_custom_type_script = "uid://cqsprxne5jjhf"
 [sub_resource type="Resource" id="Resource_rnbfj"]
 script = ExtResource("3_ss58i")
 title = "Go to the inn"
-events = Array[ExtResource("1_hr1w6")]([SubResource("Resource_tlm8x")])
+events = Array[ExtResource("1_hr1w6")]([SubResource("Resource_s3hoy")])
 metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
 
-[sub_resource type="Resource" id="Resource_cb1uq"]
+[sub_resource type="Resource" id="Resource_dxosx"]
 script = ExtResource("6_1sxrp")
 timeline = "mm_square2"
 metadata/_custom_type_script = "uid://cqsprxne5jjhf"
@@ -59,7 +86,7 @@ metadata/_custom_type_script = "uid://cqsprxne5jjhf"
 [sub_resource type="Resource" id="Resource_1w0us"]
 script = ExtResource("3_ss58i")
 title = "Go to the market square"
-events = Array[ExtResource("1_hr1w6")]([SubResource("Resource_cb1uq")])
+events = Array[ExtResource("1_hr1w6")]([SubResource("Resource_dxosx")])
 metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
 
 [sub_resource type="Resource" id="Resource_e7f1k"]
@@ -69,5 +96,5 @@ metadata/_custom_type_script = "uid://5e50cn5p01dd"
 
 [resource]
 script = ExtResource("2_clkdl")
-events = Array[ExtResource("1_hr1w6")]([SubResource("Resource_kcdlv"), SubResource("Resource_7p6hl"), SubResource("Resource_sfsyt"), SubResource("Resource_jmbsy"), SubResource("Resource_e7f1k")])
+events = Array[ExtResource("1_hr1w6")]([SubResource("Resource_kcdlv"), SubResource("Resource_7p6hl"), SubResource("Resource_sfsyt"), SubResource("Resource_tlm8x"), SubResource("Resource_pmmxa"), SubResource("Resource_1sxrp"), SubResource("Resource_e7f1k")])
 metadata/_custom_type_script = "uid://c702wmxhq83je"

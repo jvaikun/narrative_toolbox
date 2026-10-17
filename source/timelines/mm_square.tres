@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/timeline/event.gd" id="1_ie28q"]
 [ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="2_e7f1k"]
-[ext_resource type="Texture2D" uid="uid://bledl0utey0dd" path="res://timelines/textures/inn.png" id="2_kcdlv"]
+[ext_resource type="Texture2D" uid="uid://bledl0utey0dd" path="res://timelines/textures/square.png" id="2_kcdlv"]
 [ext_resource type="Script" uid="uid://dkfdnmlrdhh5u" path="res://classes/timeline/choice_branch.gd" id="3_rnbfj"]
 [ext_resource type="Script" uid="uid://40q0ab7v28b4" path="res://classes/timeline/event_image.gd" id="3_tlm8x"]
 [ext_resource type="Script" uid="uid://cqsprxne5jjhf" path="res://classes/timeline/event_jump.gd" id="4_e7f1k"]
@@ -34,15 +34,41 @@ metadata/_custom_type_script = "uid://qiibr5iabuqw"
 script = ExtResource("2_e7f1k")
 lines = "Thanking the militiaman, you make to leave, but he stops you. \"Hold a moment, sir,\" he says while looking around furtively. \"You seem seasoned enough, reckon you're wanting to take a crack at the mansion, just like those fellers from a few weeks back, eh?\"
 You shrug non-committally, not wanting to give the game away too early. The man presses on, making you an offer. \"We've been going through Ghoulbane faster than the apothecary can make it, but I've got a few extra vials of it tucked away. Could be useful to you gents if you're having a go at the mansion. How about you trade me some of your grub for a few doses worth?\"
-The man is asking for 2 Provisions in exchange for 2 vials of Ghoulbane, no more, no less, and he will not haggle."
+The man is asking for 2 Rations in exchange for 2 vials of Ghoulbane, no more, no less, and he will not haggle."
 metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_kcdlv"]
+script = ExtResource("2_e7f1k")
+lines = "You hand over the rations and the man smoothly exchanges them for the Ghoulbane. \"Lovely,\" he says with a grin. \"Pleasure to have your custom, sir.\"
+Before you can reply, he's jogged off to rejoin his squad on their patrol route. Before pocketing the vials, you examine them briefly. Sure enough, it's Ghoulbane, 2 vials containing 3 doses each."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_4r6ij"]
+script = ExtResource("3_rnbfj")
+title = "Accept the trade"
+events = Array[ExtResource("1_ie28q")]([SubResource("Resource_kcdlv")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
+
+[sub_resource type="Resource" id="Resource_tlm8x"]
+script = ExtResource("2_e7f1k")
+lines = "If your refusal upsets the man, he does not show it. \"No worries sir,\" he says with a shrug. \"Hope your sword arm's good enough to keep those rations useful. Won't be enjoying them much if you're a Ghoul's meal, after all.\"
+Any rebuttal you may have is thwarted by his quick exit, as he jogs away to rejoin his squad on patrol."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_2kjse"]
+script = ExtResource("3_rnbfj")
+title = "Decline the trade"
+events = Array[ExtResource("1_ie28q")]([SubResource("Resource_tlm8x")])
+metadata/_custom_type_script = "uid://dkfdnmlrdhh5u"
 
 [sub_resource type="Resource" id="Resource_32lfk"]
 script = ExtResource("4_kcdlv")
+choices = Array[ExtResource("3_rnbfj")]([SubResource("Resource_4r6ij"), SubResource("Resource_2kjse")])
 metadata/_custom_type_script = "uid://5e50cn5p01dd"
 
 [sub_resource type="Resource" id="Resource_nakv5"]
 script = ExtResource("2_e7f1k")
+lines = "There seems to be nothing else of interest remaining in the market square. You stop to think about where you'd investigate next..."
 metadata/_custom_type_script = "uid://qiibr5iabuqw"
 
 [sub_resource type="Resource" id="Resource_is5tp"]

@@ -1,15 +1,25 @@
 [gd_resource type="Resource" script_class="Timeline" format=3 uid="uid://bjo6xnepmjavu"]
 
 [ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/timeline/event.gd" id="1_rshiv"]
+[ext_resource type="AudioStream" uid="uid://dc6nowy0rbbda" path="res://audio/amb_loop1.mp3" id="2_cr0j4"]
 [ext_resource type="Texture2D" uid="uid://dwsrfigvhaem3" path="res://timelines/textures/map.png" id="2_vt7gr"]
 [ext_resource type="Script" uid="uid://40q0ab7v28b4" path="res://classes/timeline/event_image.gd" id="3_jefor"]
+[ext_resource type="Script" uid="uid://daxaos2xxqnnj" path="res://classes/timeline/event_audio.gd" id="3_xbfat"]
 [ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="4_4bi2q"]
 [ext_resource type="Texture2D" uid="uid://s2n85t1uyqng" path="res://timelines/textures/coach.png" id="5_cr0j4"]
+[ext_resource type="Texture2D" uid="uid://ij04u2lyxl0" path="res://timelines/textures/npc_partner.png" id="5_jefor"]
 [ext_resource type="Script" uid="uid://dkfdnmlrdhh5u" path="res://classes/timeline/choice_branch.gd" id="6_xbfat"]
 [ext_resource type="Script" uid="uid://5e50cn5p01dd" path="res://classes/timeline/event_choice.gd" id="7_uhd8p"]
-[ext_resource type="Texture2D" uid="uid://bledl0utey0dd" path="res://timelines/textures/inn.png" id="8_54phy"]
+[ext_resource type="Texture2D" uid="uid://bledl0utey0dd" path="res://timelines/textures/square.png" id="8_54phy"]
 [ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="9_45uem"]
 [ext_resource type="Script" uid="uid://cqsprxne5jjhf" path="res://classes/timeline/event_jump.gd" id="9_vt7gr"]
+[ext_resource type="AudioStream" uid="uid://hfga2epo1caq" path="res://audio/tense_loop.mp3" id="12_xbfat"]
+
+[sub_resource type="Resource" id="Resource_5lwgk"]
+script = ExtResource("3_xbfat")
+audio = ExtResource("2_cr0j4")
+channel = "Music"
+metadata/_custom_type_script = "uid://daxaos2xxqnnj"
 
 [sub_resource type="Resource" id="Resource_75srb"]
 script = ExtResource("3_jefor")
@@ -26,7 +36,7 @@ metadata/_custom_type_script = "uid://qiibr5iabuqw"
 
 [sub_resource type="Resource" id="Resource_u7t40"]
 script = ExtResource("3_jefor")
-image = ExtResource("5_cr0j4")
+image = ExtResource("5_jefor")
 metadata/_custom_type_script = "uid://40q0ab7v28b4"
 
 [sub_resource type="Resource" id="Resource_ghngd"]
@@ -183,6 +193,12 @@ script = ExtResource("3_jefor")
 image = ExtResource("8_54phy")
 metadata/_custom_type_script = "uid://40q0ab7v28b4"
 
+[sub_resource type="Resource" id="Resource_cr0j4"]
+script = ExtResource("3_xbfat")
+audio = ExtResource("12_xbfat")
+channel = "Music"
+metadata/_custom_type_script = "uid://daxaos2xxqnnj"
+
 [sub_resource type="Resource" id="Resource_l04ru"]
 script = ExtResource("4_4bi2q")
 lines = "At last, you arrive at Fendringham, just as night falls. The tension in the air is palpable. All the doors and windows appear to be firmly shut, and several militia patrols are making their rounds.
@@ -230,5 +246,5 @@ metadata/_custom_type_script = "uid://5e50cn5p01dd"
 
 [resource]
 script = ExtResource("9_45uem")
-events = Array[ExtResource("1_rshiv")]([SubResource("Resource_75srb"), SubResource("Resource_cb3ot"), SubResource("Resource_u7t40"), SubResource("Resource_ghngd"), SubResource("Resource_r8kev"), SubResource("Resource_vt7gr"), SubResource("Resource_pr1g3"), SubResource("Resource_opigw"), SubResource("Resource_jefor"), SubResource("Resource_4g07q"), SubResource("Resource_5abps"), SubResource("Resource_e6dfl"), SubResource("Resource_l04ru"), SubResource("Resource_oibrk")])
+events = Array[ExtResource("1_rshiv")]([SubResource("Resource_5lwgk"), SubResource("Resource_75srb"), SubResource("Resource_cb3ot"), SubResource("Resource_u7t40"), SubResource("Resource_ghngd"), SubResource("Resource_r8kev"), SubResource("Resource_vt7gr"), SubResource("Resource_pr1g3"), SubResource("Resource_opigw"), SubResource("Resource_jefor"), SubResource("Resource_4g07q"), SubResource("Resource_5abps"), SubResource("Resource_e6dfl"), SubResource("Resource_cr0j4"), SubResource("Resource_l04ru"), SubResource("Resource_oibrk")])
 metadata/_custom_type_script = "uid://c702wmxhq83je"

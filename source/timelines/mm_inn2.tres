@@ -1,16 +1,17 @@
 [gd_resource type="Resource" script_class="Timeline" format=3 uid="uid://dbdevpkrsqrjs"]
 
 [ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/timeline/event.gd" id="1_56ku4"]
-[ext_resource type="Texture2D" uid="uid://bledl0utey0dd" path="res://timelines/textures/inn.png" id="2_2xjdt"]
+[ext_resource type="Texture2D" uid="uid://770h6mv76a5k" path="res://timelines/textures/inn_2.png" id="2_56ku4"]
 [ext_resource type="Script" uid="uid://40q0ab7v28b4" path="res://classes/timeline/event_image.gd" id="3_h0akf"]
 [ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="4_edend"]
 [ext_resource type="Resource" uid="uid://co52dsgi8du4s" path="res://data/enemies/ghoul.tres" id="5_ij8y1"]
 [ext_resource type="Script" uid="uid://crfkknay75iw3" path="res://classes/timeline/event_combat.gd" id="6_56ku4"]
+[ext_resource type="Script" uid="uid://cqsprxne5jjhf" path="res://classes/timeline/event_jump.gd" id="7_yq3nf"]
 [ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="8_elrme"]
 
 [sub_resource type="Resource" id="Resource_54phy"]
 script = ExtResource("3_h0akf")
-image = ExtResource("2_2xjdt")
+image = ExtResource("2_56ku4")
 metadata/_custom_type_script = "uid://40q0ab7v28b4"
 
 [sub_resource type="Resource" id="Resource_us6gg"]
@@ -22,21 +23,32 @@ metadata/_custom_type_script = "uid://qiibr5iabuqw"
 
 [sub_resource type="Resource" id="Resource_xbfat"]
 script = ExtResource("3_h0akf")
-image = ExtResource("2_2xjdt")
+image = ExtResource("2_56ku4")
 metadata/_custom_type_script = "uid://40q0ab7v28b4"
 
 [sub_resource type="Resource" id="Resource_uhd8p"]
 script = ExtResource("4_edend")
 lines = "The last team's luggage is stacked in a corner of the storage area, and has been for a while, given the thin film of dust on them. On closer inspection, the locks on the trunks have clearly been forced open. Even a cursory examination of their contents tells you they've been picked clean of anything remotely of value.
-With that revelation, the reason for the innkeeper's unease is clear, as he is likely the one who looted the luggage. The question at hand now is how to deal with the crook."
+Before you can confront the innkeeper about this, you hear the loud clanging of a bell from outside. The innkeeper pales. \"It's another attack! We need to bar the doors!\" he cries out, before bolting back to the inn proper."
 metadata/_custom_type_script = "uid://qiibr5iabuqw"
 
-[sub_resource type="Resource" id="Resource_mgtmg"]
+[sub_resource type="Resource" id="Resource_sf3n2"]
+script = ExtResource("4_edend")
+lines = "You follow the innkeeper back to the main entrace, where he is frantically barring the door shut, and shoving furniture to further barricade it. The King's man joins him in his efforts. 
+You are about to do the same when something crashes through the window! The foul stench of rot that fills the room soon after leaves no room for doubt: the town is being attacked by an undead scourge! The hideous creature crouched before you appears to be a Ghoul, a particularly foul undead with paralytic venom in its claws. You must fight this menace!"
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_vab0l"]
 script = ExtResource("6_56ku4")
 enemy = ExtResource("5_ij8y1")
 metadata/_custom_type_script = "uid://crfkknay75iw3"
 
+[sub_resource type="Resource" id="Resource_3jhrq"]
+script = ExtResource("7_yq3nf")
+timeline = "mm_aftermath"
+metadata/_custom_type_script = "uid://cqsprxne5jjhf"
+
 [resource]
 script = ExtResource("8_elrme")
-events = Array[ExtResource("1_56ku4")]([SubResource("Resource_54phy"), SubResource("Resource_us6gg"), SubResource("Resource_xbfat"), SubResource("Resource_uhd8p"), SubResource("Resource_mgtmg")])
+events = Array[ExtResource("1_56ku4")]([SubResource("Resource_54phy"), SubResource("Resource_us6gg"), SubResource("Resource_xbfat"), SubResource("Resource_uhd8p"), SubResource("Resource_sf3n2"), SubResource("Resource_vab0l"), SubResource("Resource_3jhrq")])
 metadata/_custom_type_script = "uid://c702wmxhq83je"
