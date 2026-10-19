@@ -4,8 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://770h6mv76a5k" path="res://timelines/textures/inn_2.png" id="2_56ku4"]
 [ext_resource type="Script" uid="uid://40q0ab7v28b4" path="res://classes/timeline/event_image.gd" id="3_h0akf"]
 [ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="4_edend"]
+[ext_resource type="AudioStream" uid="uid://5n8w7vlh52w5" path="res://audio/combat_loop.mp3" id="5_h0akf"]
 [ext_resource type="Resource" uid="uid://co52dsgi8du4s" path="res://data/enemies/ghoul.tres" id="5_ij8y1"]
 [ext_resource type="Script" uid="uid://crfkknay75iw3" path="res://classes/timeline/event_combat.gd" id="6_56ku4"]
+[ext_resource type="Script" uid="uid://daxaos2xxqnnj" path="res://classes/timeline/event_audio.gd" id="6_edend"]
 [ext_resource type="Script" uid="uid://cqsprxne5jjhf" path="res://classes/timeline/event_jump.gd" id="7_yq3nf"]
 [ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="8_elrme"]
 
@@ -32,6 +34,12 @@ lines = "The last team's luggage is stacked in a corner of the storage area, and
 Before you can confront the innkeeper about this, you hear the loud clanging of a bell from outside. The innkeeper pales. \"It's another attack! We need to bar the doors!\" he cries out, before bolting back to the inn proper."
 metadata/_custom_type_script = "uid://qiibr5iabuqw"
 
+[sub_resource type="Resource" id="Resource_442ds"]
+script = ExtResource("6_edend")
+audio = ExtResource("5_h0akf")
+channel = "Music"
+metadata/_custom_type_script = "uid://daxaos2xxqnnj"
+
 [sub_resource type="Resource" id="Resource_sf3n2"]
 script = ExtResource("4_edend")
 lines = "You follow the innkeeper back to the main entrace, where he is frantically barring the door shut, and shoving furniture to further barricade it. The King's man joins him in his efforts. 
@@ -50,5 +58,5 @@ metadata/_custom_type_script = "uid://cqsprxne5jjhf"
 
 [resource]
 script = ExtResource("8_elrme")
-events = Array[ExtResource("1_56ku4")]([SubResource("Resource_54phy"), SubResource("Resource_us6gg"), SubResource("Resource_xbfat"), SubResource("Resource_uhd8p"), SubResource("Resource_sf3n2"), SubResource("Resource_vab0l"), SubResource("Resource_3jhrq")])
+events = Array[ExtResource("1_56ku4")]([SubResource("Resource_54phy"), SubResource("Resource_us6gg"), SubResource("Resource_xbfat"), SubResource("Resource_uhd8p"), SubResource("Resource_442ds"), SubResource("Resource_sf3n2"), SubResource("Resource_vab0l"), SubResource("Resource_3jhrq")])
 metadata/_custom_type_script = "uid://c702wmxhq83je"

@@ -3,8 +3,16 @@
 [ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/timeline/event.gd" id="1_1ciye"]
 [ext_resource type="Texture2D" uid="uid://bledl0utey0dd" path="res://timelines/textures/square.png" id="2_3jhrq"]
 [ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="2_hc8te"]
+[ext_resource type="AudioStream" uid="uid://hfga2epo1caq" path="res://audio/tense_loop.mp3" id="2_jiinn"]
 [ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="2_mpqsi"]
 [ext_resource type="Script" uid="uid://40q0ab7v28b4" path="res://classes/timeline/event_image.gd" id="3_4jd1w"]
+[ext_resource type="Script" uid="uid://daxaos2xxqnnj" path="res://classes/timeline/event_audio.gd" id="3_mgr74"]
+
+[sub_resource type="Resource" id="Resource_y0i11"]
+script = ExtResource("3_mgr74")
+audio = ExtResource("2_jiinn")
+channel = "Music"
+metadata/_custom_type_script = "uid://daxaos2xxqnnj"
 
 [sub_resource type="Resource" id="Resource_4jd1w"]
 script = ExtResource("3_4jd1w")
@@ -14,12 +22,16 @@ metadata/_custom_type_script = "uid://40q0ab7v28b4"
 [sub_resource type="Resource" id="Resource_mpqsi"]
 script = ExtResource("2_mpqsi")
 lines = "By the time you finish off the Ghoul, the remainder of the undead have been defeated. You trudge back to the market square, where the creatures' remains are being piled up for a fresh pyre. The whole affair is ghastly, to say the least.
-Turning away from the sight, you see that the wounded have to be carried to the temple, due to the paralyzing venom of Ghoul claws. Overall, the village is down, but not out. But you wonder how long they can put up a fight. You cannot say why exactly, but you suspect that Mortus Mansion could be connected to these goings on.
-The King's man is shaken by what he has seen so far. \"This was supposed to be an inquest on some remote country estate,\" he says to you. \"Just what in the Hells have we stumbled into?\"
+Turning away from the sight, you see that the wounded have to be carried to the temple, due to the paralyzing venom of Ghoul claws. Overall, the village is down, but not out. But you wonder how long they can put up a fight. You cannot say why exactly, but you suspect that Mortus Mansion could be connected to these goings on."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_gggph"]
+script = ExtResource("2_mpqsi")
+lines = "The King's man is shaken by what he has seen so far. \"This was supposed to be an inquest on some remote country estate,\" he says to you. \"Just what in the Hells have we stumbled into?\"
 You cannot answer him with any certainty. The only thing you can say for sure, is that this is only the beginning of something vast and terrible."
 metadata/_custom_type_script = "uid://qiibr5iabuqw"
 
 [resource]
 script = ExtResource("2_hc8te")
-events = Array[ExtResource("1_1ciye")]([SubResource("Resource_4jd1w"), SubResource("Resource_mpqsi")])
+events = Array[ExtResource("1_1ciye")]([SubResource("Resource_y0i11"), SubResource("Resource_4jd1w"), SubResource("Resource_mpqsi"), SubResource("Resource_gggph")])
 metadata/_custom_type_script = "uid://c702wmxhq83je"

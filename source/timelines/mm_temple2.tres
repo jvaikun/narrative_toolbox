@@ -6,7 +6,9 @@
 [ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="3_5kk4y"]
 [ext_resource type="Resource" uid="uid://co52dsgi8du4s" path="res://data/enemies/ghoul.tres" id="4_tpri1"]
 [ext_resource type="Script" uid="uid://crfkknay75iw3" path="res://classes/timeline/event_combat.gd" id="5_mgtmg"]
+[ext_resource type="AudioStream" uid="uid://5n8w7vlh52w5" path="res://audio/combat_loop.mp3" id="5_vab0l"]
 [ext_resource type="Script" uid="uid://cqsprxne5jjhf" path="res://classes/timeline/event_jump.gd" id="6_5kk4y"]
+[ext_resource type="Script" uid="uid://daxaos2xxqnnj" path="res://classes/timeline/event_audio.gd" id="6_b4t42"]
 [ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="7_jmute"]
 
 [sub_resource type="Resource" id="Resource_kcdlv"]
@@ -25,8 +27,18 @@ metadata/_custom_type_script = "uid://qiibr5iabuqw"
 script = ExtResource("3_5kk4y")
 lines = "One of the volunteers approaches you. She appears to be a local hedge witch or wise woman, likely pitching in to help the healers. \"You both look well. Are you here to lend a hand?\" she asks.
 You explain that you are here to help, in a manner of speaking, to which she scoffs. \"Well, miasma's not something you can hold at sword point. I think fighting off the undead is more your speed,\" she says.
-You are about to ask her about the miasma, when you hear the loud clanging of a bell from outside. \"Damn it all, another attack? Come on, help us with the barricade!\" barks out the hedge witch.
-You rush ahead of the healers and exit the temple before they bar the main doors. Outside, you can see a few militiamen fighting hideous creatures. The stench of rot emanating from them tells you everything: Ghouls.
+You are about to ask her about the miasma, when you hear the loud clanging of a bell from outside. \"Damn it all, another attack? Come on, help us with the barricade!\" barks out the hedge witch."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_g5pcy"]
+script = ExtResource("6_b4t42")
+audio = ExtResource("5_vab0l")
+channel = "Music"
+metadata/_custom_type_script = "uid://daxaos2xxqnnj"
+
+[sub_resource type="Resource" id="Resource_i3a5k"]
+script = ExtResource("3_5kk4y")
+lines = "You rush ahead of the healers and exit the temple before they bar the main doors. Outside, you can see a few militiamen fighting hideous creatures. The stench of rot emanating from them tells you everything: Ghouls.
 Leaping into action, you engage the nearest fiend!"
 metadata/_custom_type_script = "uid://qiibr5iabuqw"
 
@@ -42,5 +54,5 @@ metadata/_custom_type_script = "uid://cqsprxne5jjhf"
 
 [resource]
 script = ExtResource("7_jmute")
-events = Array[ExtResource("1_mgtmg")]([SubResource("Resource_kcdlv"), SubResource("Resource_7p6hl"), SubResource("Resource_sfsyt"), SubResource("Resource_jmute"), SubResource("Resource_3jhrq")])
+events = Array[ExtResource("1_mgtmg")]([SubResource("Resource_kcdlv"), SubResource("Resource_7p6hl"), SubResource("Resource_sfsyt"), SubResource("Resource_g5pcy"), SubResource("Resource_i3a5k"), SubResource("Resource_jmute"), SubResource("Resource_3jhrq")])
 metadata/_custom_type_script = "uid://c702wmxhq83je"

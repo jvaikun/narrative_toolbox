@@ -4,7 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bledl0utey0dd" path="res://timelines/textures/square.png" id="2_7kfl3"]
 [ext_resource type="Script" uid="uid://40q0ab7v28b4" path="res://classes/timeline/event_image.gd" id="3_j62sd"]
 [ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="4_d5tt4"]
+[ext_resource type="AudioStream" uid="uid://5n8w7vlh52w5" path="res://audio/combat_loop.mp3" id="5_j62sd"]
 [ext_resource type="Resource" uid="uid://co52dsgi8du4s" path="res://data/enemies/ghoul.tres" id="5_ufodt"]
+[ext_resource type="Script" uid="uid://daxaos2xxqnnj" path="res://classes/timeline/event_audio.gd" id="6_d5tt4"]
 [ext_resource type="Script" uid="uid://crfkknay75iw3" path="res://classes/timeline/event_combat.gd" id="6_mxmis"]
 [ext_resource type="Script" uid="uid://cqsprxne5jjhf" path="res://classes/timeline/event_jump.gd" id="7_sp35b"]
 [ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="8_ium8p"]
@@ -29,6 +31,12 @@ The man prods at some of the burnt remains with his spear. The spearhead connect
 You are about to question his dubious claim when the clanging of a bell interrupts you. \"Damn it all, another attack,\" growls the militiaman. He hefts his spear and rushes off along with the rest of the militia."
 metadata/_custom_type_script = "uid://qiibr5iabuqw"
 
+[sub_resource type="Resource" id="Resource_thymd"]
+script = ExtResource("6_d5tt4")
+audio = ExtResource("5_j62sd")
+channel = "Music"
+metadata/_custom_type_script = "uid://daxaos2xxqnnj"
+
 [sub_resource type="Resource" id="Resource_7kfl3"]
 script = ExtResource("4_d5tt4")
 lines = "You follow the armed men to the edge of the village, where a front line of spearmen are fending off the attackers. A wave of stench hits you full force, the unmistakable smell of rot leaving no question that these creatures were undead.
@@ -48,5 +56,5 @@ metadata/_custom_type_script = "uid://cqsprxne5jjhf"
 
 [resource]
 script = ExtResource("8_ium8p")
-events = Array[ExtResource("1_mxmis")]([SubResource("Resource_sxafl"), SubResource("Resource_qclhi"), SubResource("Resource_kklp4"), SubResource("Resource_7kfl3"), SubResource("Resource_b4t42"), SubResource("Resource_4jd1w")])
+events = Array[ExtResource("1_mxmis")]([SubResource("Resource_sxafl"), SubResource("Resource_qclhi"), SubResource("Resource_kklp4"), SubResource("Resource_thymd"), SubResource("Resource_7kfl3"), SubResource("Resource_b4t42"), SubResource("Resource_4jd1w")])
 metadata/_custom_type_script = "uid://c702wmxhq83je"
