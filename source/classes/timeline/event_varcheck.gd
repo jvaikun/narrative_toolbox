@@ -1,4 +1,4 @@
-class_name EventCondition
+class_name EventVarCheck
 extends Event
 
 @export var condition : Condition

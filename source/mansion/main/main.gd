@@ -97,6 +97,27 @@ func next_event(index : int = 0):
 	play_event()
 
 
+func set_variable(event : EventVarSet):
+	var global = get_tree().root.get_node_or_null(event.global_name)
+	if global:
+		global.set(event.var_name, event.set_value)
+
+
+func check_condition(cond : Condition):
+	var compare = Expression.new()
+	var exp_string = "comp_var" + cond.comparator + str(cond.comp_value)
+	var error = compare.parse(exp_string, ["comp_var"])
+	if error != OK:
+		push_error(compare.get_error_text())
+		return false
+	var check_var = get_tree().root.get_node_or_null(Game.get(cond.var_name))
+	var result = compare.execute([check_var], self)
+	if not compare.has_execute_failed() and result is bool:
+		return result
+	else:
+		return false
+
+
 func play_audio(event : EventAudio):
 	var this_player : AudioStreamPlayer = audio_channels[event.channel.to_lower()]
 	this_player.stream = event.audio
