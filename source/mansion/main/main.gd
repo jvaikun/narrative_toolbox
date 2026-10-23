@@ -176,6 +176,7 @@ func jump(event: EventJump):
 
 
 func next_prompt():
+	_disable_choices(true)
 	if ui_choices.modulate.a != 0:
 		anim_book.play_backwards("btn_fade_in")
 		await anim_book.animation_finished
@@ -187,9 +188,12 @@ func next_prompt():
 		else:
 			choice_btns[i].hide()
 	anim_book.play("btn_fade_in")
+	await anim_book.animation_finished
+	_disable_choices(false)
 
 
 func show_choice(event : EventChoice):
+	_disable_choices(true)
 	if ui_choices.modulate.a != 0:
 		anim_book.play_backwards("btn_fade_in")
 		await anim_book.animation_finished
@@ -205,11 +209,13 @@ func show_choice(event : EventChoice):
 			choice_btns[i].text = event.choices[i].title
 	anim_book.play("btn_fade_in")
 	await anim_book.animation_finished
+	_disable_choices(false)
 	if event.choice_time > 0.0:
 		choice_timer.start(event.choice_time)
 
 
 func _on_choice_made(index: int):
+	_disable_choices(true)
 	choice_timer.stop()
 	anim_book.play_backwards("btn_fade_in")
 	await anim_book.animation_finished
@@ -226,6 +232,11 @@ func _info_update():
 	for key in player_stat_ui.keys():
 		player_stat_ui[key].text = str(Game.player[key])
 	%Rations.text = "Rations: %d" % Game.rations
+
+
+func _disable_choices(disable : bool):
+	for button in choice_btns:
+		button.disabled = disable
 
 
 func _on_btn_inventory_pressed() -> void:

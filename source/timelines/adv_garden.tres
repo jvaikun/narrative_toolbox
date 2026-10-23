@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Timeline" format=3 uid="uid://cafs1mhyiuyvq"]
+
+[ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/timeline/event.gd" id="1_rft2q"]
+[ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="2_sh3ep"]
+
+[resource]
+script = ExtResource("2_sh3ep")
+metadata/_custom_type_script = "uid://c702wmxhq83je"

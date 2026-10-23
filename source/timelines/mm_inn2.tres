@@ -18,8 +18,7 @@ metadata/_custom_type_script = "uid://40q0ab7v28b4"
 
 [sub_resource type="Resource" id="Resource_us6gg"]
 script = ExtResource("4_edend")
-lines = "Inn
-The coaching inn is a modest affair, favoring simple comfort over gaudy luxury. It would be downright cosy, were it not for the dark mood that seems to hang in the air. The innkeeper is at the front counter, regarding you with trepidition. You introduce yourselves and ask about the previous team. The innkeeper nods in recognition, but remains tense.
+lines = "The coaching inn is a modest affair, favoring simple comfort over gaudy luxury. It would be downright cosy, were it not for the dark mood that seems to hang in the air. The innkeeper is at the front counter, regarding you with trepidition. You introduce yourselves and ask about the previous team. The innkeeper nods in recognition, but remains tense.
 \"Aye, that lot came through 'ere about a few weeks ago. We've cleaned up their rooms and stowed their luggage since then, though,\" he explains. When asked to show you the stored luggage, he obliges and leads you to a storage area by the pantries."
 metadata/_custom_type_script = "uid://qiibr5iabuqw"
 

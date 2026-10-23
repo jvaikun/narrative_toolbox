@@ -26,6 +26,60 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t5uqm"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iignp"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nnckd"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a65ms"]
+content_margin_left = 0.0
+content_margin_top = 4.0
+content_margin_right = 0.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_63o7t"]
 content_margin_left = 4.0
 content_margin_top = 0.0
@@ -131,6 +185,60 @@ border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vgbmk"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xv1vl"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nn06"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ntfek"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/font_sizes/font_size = 24
@@ -139,6 +247,10 @@ Button/styles/focus = null
 Button/styles/hover = SubResource("StyleBoxFlat_63o7t")
 Button/styles/normal = SubResource("StyleBoxFlat_sg811")
 Button/styles/pressed = null
+HScrollBar/styles/grabber = SubResource("StyleBoxFlat_t5uqm")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_iignp")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_nnckd")
+HScrollBar/styles/scroll = SubResource("StyleBoxFlat_a65ms")
 HSeparator/styles/separator = SubResource("StyleBoxLine_63o7t")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_c005b")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_prdef")
@@ -181,3 +293,7 @@ TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_l56ys")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_xl1lo")
 TextEdit/font_sizes/font_size = 24
 TextEdit/fonts/font = ExtResource("1_63o7t")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_vgbmk")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_xv1vl")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_5nn06")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_ntfek")

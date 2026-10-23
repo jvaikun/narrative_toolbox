@@ -47,10 +47,10 @@ var game_state = {
 }
 
 var settings = {
-	"music": 1.0,
-	"sfx": 1.0,
-	"vo": 1.0,
-	"text_speed": 60,
+	"music": 0.5,
+	"sfx": 0.5,
+	"vo": 0.5,
+	"text_speed": 80,
 	"auto_text": false,
 }
 
@@ -62,6 +62,9 @@ var time : String = "Morning"
 
 func _ready() -> void:
 	randomize()
+	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("music"), settings.music)
+	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("sfx"), settings.sfx)
+	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("vo"), settings.vo)
 
 
 func set_audio(val : float, type : String):
