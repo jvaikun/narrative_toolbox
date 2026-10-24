@@ -2,10 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://bla6l0joq4wys" path="res://data/textures/west_1.png" id="1_7cosu"]
 [ext_resource type="Script" uid="uid://0roridvigmn0" path="res://classes/room.gd" id="1_qyfnq"]
+[ext_resource type="Resource" uid="uid://dti41tfyqgxwm" path="res://timelines/adv_west1.tres" id="3_2sat6"]
 
 [resource]
 script = ExtResource("1_qyfnq")
 name = "West Wing 1"
+timeline = ExtResource("3_2sat6")
 background = ExtResource("1_7cosu")
 desc = "This is the first chamber of the West Wing.
 The West Wing continues to the north, while the Entrance lies to the east."

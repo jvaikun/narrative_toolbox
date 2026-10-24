@@ -2,10 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://c5i1ei6onywy3" path="res://mansion/title/bg_title.png" id="1_nwy10"]
 [ext_resource type="Script" uid="uid://0roridvigmn0" path="res://classes/room.gd" id="1_png60"]
+[ext_resource type="Resource" uid="uid://d2d0qlrthfod7" path="res://timelines/adv_outside.tres" id="3_2cotd"]
 
 [resource]
 script = ExtResource("1_png60")
 name = "Outside Mansion"
+timeline = ExtResource("3_2cotd")
 background = ExtResource("1_nwy10")
 desc = "Mortus Mansion looms above you, all sharp edges and dark corners. The entrance to the mansion proper lies north."
 exits = Dictionary[String, String]({

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Timeline" format=3 uid="uid://fs7kasvod157"]
+
+[ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/timeline/event.gd" id="1_lfysh"]
+[ext_resource type="Texture2D" uid="uid://b544f65o38h65" path="res://data/textures/east_1.png" id="2_lfysh"]
+[ext_resource type="Script" uid="uid://40q0ab7v28b4" path="res://classes/timeline/event_image.gd" id="3_uawgg"]
+[ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="4_c1fx3"]
+[ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="5_n5wbk"]
+
+[sub_resource type="Resource" id="Resource_6dy4e"]
+script = ExtResource("3_uawgg")
+image = ExtResource("2_lfysh")
+metadata/_custom_type_script = "uid://40q0ab7v28b4"
+
+[sub_resource type="Resource" id="Resource_gudvm"]
+script = ExtResource("4_c1fx3")
+lines = "This is the first chamber of the East Wing.
+The East Wing continues to the north, while the Entrance lies to the west."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[resource]
+script = ExtResource("5_n5wbk")
+events = Array[ExtResource("1_lfysh")]([SubResource("Resource_6dy4e"), SubResource("Resource_gudvm")])
+metadata/_custom_type_script = "uid://c702wmxhq83je"

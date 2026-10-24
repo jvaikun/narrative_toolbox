@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Timeline" format=3 uid="uid://n58nf0uwoyvn"]
+
+[ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/timeline/event.gd" id="1_750ic"]
+[ext_resource type="Texture2D" uid="uid://dnax7trk75wu6" path="res://data/textures/east_3.png" id="2_750ic"]
+[ext_resource type="Script" uid="uid://40q0ab7v28b4" path="res://classes/timeline/event_image.gd" id="3_as0o8"]
+[ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="4_076p3"]
+[ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="5_ksslt"]
+
+[sub_resource type="Resource" id="Resource_6dy4e"]
+script = ExtResource("3_as0o8")
+image = ExtResource("2_750ic")
+metadata/_custom_type_script = "uid://40q0ab7v28b4"
+
+[sub_resource type="Resource" id="Resource_gudvm"]
+script = ExtResource("4_076p3")
+lines = "This is the third and final chamber of the East Wing.
+The rest of the East Wing runs to the south."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[resource]
+script = ExtResource("5_ksslt")
+events = Array[ExtResource("1_750ic")]([SubResource("Resource_6dy4e"), SubResource("Resource_gudvm")])
+metadata/_custom_type_script = "uid://c702wmxhq83je"

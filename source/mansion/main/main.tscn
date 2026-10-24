@@ -161,7 +161,6 @@ theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
 [node name="Image" type="TextureRect" parent="Content/Book/TwoPage/PageL/Frame/Content" unique_id=466740716]
-use_parent_material = true
 layout_mode = 2
 texture = ExtResource("4_bsumw")
 expand_mode = 1

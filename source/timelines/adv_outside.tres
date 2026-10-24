@@ -2,7 +2,21 @@
 
 [ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/timeline/event.gd" id="1_xfhfo"]
 [ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="2_10r7h"]
+[ext_resource type="Texture2D" uid="uid://c5i1ei6onywy3" path="res://mansion/title/bg_title.png" id="2_s7ogq"]
+[ext_resource type="Script" uid="uid://40q0ab7v28b4" path="res://classes/timeline/event_image.gd" id="3_8htl4"]
+[ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="4_4r7vs"]
+
+[sub_resource type="Resource" id="Resource_6dy4e"]
+script = ExtResource("3_8htl4")
+image = ExtResource("2_s7ogq")
+metadata/_custom_type_script = "uid://40q0ab7v28b4"
+
+[sub_resource type="Resource" id="Resource_gudvm"]
+script = ExtResource("4_4r7vs")
+lines = "Mortus Mansion looms above you, all sharp edges and dark corners. The entrance to the mansion proper lies north."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
 
 [resource]
 script = ExtResource("2_10r7h")
+events = Array[ExtResource("1_xfhfo")]([SubResource("Resource_6dy4e"), SubResource("Resource_gudvm")])
 metadata/_custom_type_script = "uid://c702wmxhq83je"

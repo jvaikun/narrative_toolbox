@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Timeline" format=3 uid="uid://b186wi2e3023l"]
+
+[ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/timeline/event.gd" id="1_0e3by"]
+[ext_resource type="Texture2D" uid="uid://cnyrhisswpfve" path="res://data/textures/west_2.png" id="2_0e3by"]
+[ext_resource type="Script" uid="uid://40q0ab7v28b4" path="res://classes/timeline/event_image.gd" id="3_84thr"]
+[ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="4_hmdb5"]
+[ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="5_r21ev"]
+
+[sub_resource type="Resource" id="Resource_6dy4e"]
+script = ExtResource("3_84thr")
+image = ExtResource("2_0e3by")
+metadata/_custom_type_script = "uid://40q0ab7v28b4"
+
+[sub_resource type="Resource" id="Resource_gudvm"]
+script = ExtResource("4_hmdb5")
+lines = "This is the second chamber of the West Wing.
+The West Wing extends to the north and south, while the Garden lies to the east."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[resource]
+script = ExtResource("5_r21ev")
+events = Array[ExtResource("1_0e3by")]([SubResource("Resource_6dy4e"), SubResource("Resource_gudvm")])
+metadata/_custom_type_script = "uid://c702wmxhq83je"

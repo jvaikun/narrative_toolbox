@@ -2,10 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://cj2lsjvnkqs7j" path="res://data/textures/west_3.png" id="1_2rarl"]
 [ext_resource type="Script" uid="uid://0roridvigmn0" path="res://classes/room.gd" id="1_wdvxi"]
+[ext_resource type="Resource" uid="uid://bnd5chb3d62el" path="res://timelines/adv_west3.tres" id="3_01tjk"]
 
 [resource]
 script = ExtResource("1_wdvxi")
 name = "West Wing 3"
+timeline = ExtResource("3_01tjk")
 background = ExtResource("1_2rarl")
 desc = "This is the third and final chamber of the West Wing.
 The rest of the West Wing lies to the south."

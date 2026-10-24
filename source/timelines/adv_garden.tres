@@ -1,8 +1,23 @@
 [gd_resource type="Resource" script_class="Timeline" format=3 uid="uid://cafs1mhyiuyvq"]
 
-[ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/timeline/event.gd" id="1_rft2q"]
-[ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="2_sh3ep"]
+[ext_resource type="Script" uid="uid://qt17kiciirfa" path="res://classes/timeline/event.gd" id="1_3ocsh"]
+[ext_resource type="Texture2D" uid="uid://j2vexdwabfhi" path="res://data/textures/garden.png" id="2_3ocsh"]
+[ext_resource type="Script" uid="uid://40q0ab7v28b4" path="res://classes/timeline/event_image.gd" id="3_wq821"]
+[ext_resource type="Script" uid="uid://qiibr5iabuqw" path="res://classes/timeline/event_text.gd" id="4_r6dhn"]
+[ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="5_d72c3"]
+
+[sub_resource type="Resource" id="Resource_6dy4e"]
+script = ExtResource("3_wq821")
+image = ExtResource("2_3ocsh")
+metadata/_custom_type_script = "uid://40q0ab7v28b4"
+
+[sub_resource type="Resource" id="Resource_gudvm"]
+script = ExtResource("4_r6dhn")
+lines = "The gardens are a hollow shell what they once were. Even the dead plants have crumbled to dust and scraps.
+Exits to the East and West wings lie in those directions."
+metadata/_custom_type_script = "uid://qiibr5iabuqw"
 
 [resource]
-script = ExtResource("2_sh3ep")
+script = ExtResource("5_d72c3")
+events = Array[ExtResource("1_3ocsh")]([SubResource("Resource_6dy4e"), SubResource("Resource_gudvm")])
 metadata/_custom_type_script = "uid://c702wmxhq83je"

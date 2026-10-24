@@ -2,10 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://cd2mftpg04c3f" path="res://data/textures/entrance.png" id="1_1ww1b"]
 [ext_resource type="Script" uid="uid://0roridvigmn0" path="res://classes/room.gd" id="1_dsyv7"]
+[ext_resource type="Resource" uid="uid://chj0664l60roq" path="res://timelines/adv_entrance.tres" id="3_i5l8g"]
 
 [resource]
 script = ExtResource("1_dsyv7")
 name = "Entrance Hall"
+timeline = ExtResource("3_i5l8g")
 background = ExtResource("1_1ww1b")
 desc = "The spacious entrance hall lies before you, in all its faded opulence.
 Exits to the East and West wings are in those directions, while the exit to the outside is to the south."

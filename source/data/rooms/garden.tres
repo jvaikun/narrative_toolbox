@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://0roridvigmn0" path="res://classes/room.gd" id="1_5e0p7"]
 [ext_resource type="Texture2D" uid="uid://j2vexdwabfhi" path="res://data/textures/garden.png" id="1_407wp"]
+[ext_resource type="Resource" uid="uid://cafs1mhyiuyvq" path="res://timelines/adv_garden.tres" id="3_1ean3"]
 
 [resource]
 script = ExtResource("1_5e0p7")
 name = "Garden"
+timeline = ExtResource("3_1ean3")
 background = ExtResource("1_407wp")
 desc = "The gardens are a hollow shell what they once were. Even the dead plants have crumbled to dust and scraps.
 Exits to the East and West wings lie in those directions."

@@ -39,9 +39,6 @@ texture = ExtResource("3_t68go")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vt7gr"]
-blend_mode = 3
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h22ha"]
 texture = ExtResource("3_t68go")
 axis_stretch_horizontal = 1
@@ -56,6 +53,100 @@ texture_margin_bottom = 18.0
 modulate_color = Color(0, 0, 0, 1)
 draw_center = false
 
+[sub_resource type="Animation" id="Animation_p72ej"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Main/Display/Room/Scene:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Main/Display/Narration/RoomText:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_w08o3"]
+resource_name = "room_fade_out"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Main/Display/Room/Scene:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.9, 0.8, 1), Color(1, 0.9, 0.8, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Main/Display/Narration/RoomText:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.19999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_n83fq"]
+resource_name = "scene_fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Main/Display/Room/Scene:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.9, 0.8, 0), Color(1, 0.9, 0.8, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bgg8m"]
+resource_name = "text_fade_out"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Main/Display/Narration/RoomText:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bgg8m"]
+_data = {
+&"RESET": SubResource("Animation_p72ej"),
+&"room_fade_out": SubResource("Animation_w08o3"),
+&"scene_fade_in": SubResource("Animation_n83fq"),
+&"text_fade_out": SubResource("Animation_bgg8m")
+}
+
 [node name="Main" type="Control" unique_id=486406146]
 texture_filter = 1
 layout_mode = 3
@@ -69,17 +160,33 @@ script = ExtResource("1_pieo5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1382663085]
 
-[node name="CursorTag" type="Label" parent="CanvasLayer" unique_id=522072093]
+[node name="Cursor" type="VBoxContainer" parent="CanvasLayer" unique_id=382687831]
 unique_name_in_owner = true
 visible = false
-offset_right = 140.0
-offset_bottom = 33.0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_constants/separation = -16
+
+[node name="CursorIcon" type="TextureRect" parent="CanvasLayer/Cursor" unique_id=409776459]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CursorTag" type="Label" parent="CanvasLayer/Cursor" unique_id=522072093]
+unique_name_in_owner = true
+layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_p72ej")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxTexture_n83fq")
 text = "CursorTag"
+horizontal_alignment = 1
 
 [node name="Background" type="TextureRect" parent="." unique_id=1258484874]
 layout_mode = 1
@@ -110,7 +217,7 @@ theme_override_styles/panel = ExtResource("4_hlrdr")
 
 [node name="Scene" type="TextureRect" parent="Main/Display/Room" unique_id=577754721]
 unique_name_in_owner = true
-material = SubResource("CanvasItemMaterial_vt7gr")
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 texture = ExtResource("5_jtwj4")
 expand_mode = 1
@@ -343,3 +450,7 @@ bus = &"sfx"
 
 [node name="Voice" type="AudioStreamPlayer" parent="." unique_id=1630744534]
 bus = &"vo"
+
+[node name="RoomAnim" type="AnimationPlayer" parent="." unique_id=1614371929]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_bgg8m")
