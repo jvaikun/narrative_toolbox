@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c5i1ei6onywy3" path="res://mansion/title/bg_title.png" id="5_jtwj4"]
 [ext_resource type="StyleBox" uid="uid://by3qtvs4oekxa" path="res://ui/themes/stylebox_frame_player.tres" id="6_wsf4b"]
 [ext_resource type="Texture2D" uid="uid://bmjxyka2dcbld" path="res://ui/borders/border_book.png" id="7_brceg"]
-[ext_resource type="Texture2D" uid="uid://cal802f87ngbx" path="res://data/textures/flintlock.png" id="8_h22ha"]
+[ext_resource type="PackedScene" uid="uid://dyo4n7fd6fy5o" path="res://adventure/inv_button.tscn" id="9_p72ej"]
 [ext_resource type="Texture2D" uid="uid://e0qkss3pbvba" path="res://ui/textures/nav_nw_on.png" id="9_rp85h"]
 [ext_resource type="Texture2D" uid="uid://c4d1xg745clwq" path="res://ui/textures/nav_n_on.png" id="10_0qstt"]
 [ext_resource type="Texture2D" uid="uid://d1f174je77j5f" path="res://ui/textures/nav_nw_off.png" id="10_hwhqb"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://dpbqk7iidx2cg" path="res://ui/textures/nav_sw_off.png" id="24_bkahi"]
 [ext_resource type="Texture2D" uid="uid://cxlbwoxlurhpc" path="res://ui/textures/nav_s_off.png" id="26_q8wij"]
 [ext_resource type="Texture2D" uid="uid://b2h3k0yfxrj7a" path="res://ui/textures/nav_se_off.png" id="28_74paa"]
+[ext_resource type="PackedScene" uid="uid://dwir4ul5vpqnn" path="res://mansion/main/system.tscn" id="30_n83fq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n83fq"]
 content_margin_left = 4.0
@@ -82,7 +83,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_w08o3"]
 resource_name = "room_fade_out"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -261,69 +262,29 @@ unique_name_in_owner = true
 layout_mode = 2
 columns = 2
 
-[node name="Slot1" type="TextureButton" parent="Main/ToolBar/Inventory/Slots" unique_id=995082104]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(96, 96)
+[node name="Slot1" parent="Main/ToolBar/Inventory/Slots" unique_id=1591087209 instance=ExtResource("9_p72ej")]
 layout_mode = 2
-texture_normal = ExtResource("8_h22ha")
-ignore_texture_size = true
-stretch_mode = 5
 
-[node name="Slot2" type="TextureButton" parent="Main/ToolBar/Inventory/Slots" unique_id=739188192]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(96, 96)
+[node name="Slot2" parent="Main/ToolBar/Inventory/Slots" unique_id=18468168 instance=ExtResource("9_p72ej")]
 layout_mode = 2
-texture_normal = ExtResource("8_h22ha")
-ignore_texture_size = true
-stretch_mode = 5
 
-[node name="Slot3" type="TextureButton" parent="Main/ToolBar/Inventory/Slots" unique_id=1112167782]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(96, 96)
+[node name="Slot3" parent="Main/ToolBar/Inventory/Slots" unique_id=1565736854 instance=ExtResource("9_p72ej")]
 layout_mode = 2
-texture_normal = ExtResource("8_h22ha")
-ignore_texture_size = true
-stretch_mode = 5
 
-[node name="Slot4" type="TextureButton" parent="Main/ToolBar/Inventory/Slots" unique_id=1568223856]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(96, 96)
+[node name="Slot4" parent="Main/ToolBar/Inventory/Slots" unique_id=159161239 instance=ExtResource("9_p72ej")]
 layout_mode = 2
-texture_normal = ExtResource("8_h22ha")
-ignore_texture_size = true
-stretch_mode = 5
 
-[node name="Slot5" type="TextureButton" parent="Main/ToolBar/Inventory/Slots" unique_id=1223690635]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(96, 96)
+[node name="Slot5" parent="Main/ToolBar/Inventory/Slots" unique_id=1814958865 instance=ExtResource("9_p72ej")]
 layout_mode = 2
-texture_normal = ExtResource("8_h22ha")
-ignore_texture_size = true
-stretch_mode = 5
 
-[node name="Slot6" type="TextureButton" parent="Main/ToolBar/Inventory/Slots" unique_id=269238647]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(96, 96)
+[node name="Slot6" parent="Main/ToolBar/Inventory/Slots" unique_id=1120015472 instance=ExtResource("9_p72ej")]
 layout_mode = 2
-texture_normal = ExtResource("8_h22ha")
-ignore_texture_size = true
-stretch_mode = 5
 
-[node name="Slot7" type="TextureButton" parent="Main/ToolBar/Inventory/Slots" unique_id=923251209]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(96, 96)
+[node name="Slot7" parent="Main/ToolBar/Inventory/Slots" unique_id=2089936125 instance=ExtResource("9_p72ej")]
 layout_mode = 2
-texture_normal = ExtResource("8_h22ha")
-ignore_texture_size = true
-stretch_mode = 5
 
-[node name="Slot8" type="TextureButton" parent="Main/ToolBar/Inventory/Slots" unique_id=687830441]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(96, 96)
+[node name="Slot8" parent="Main/ToolBar/Inventory/Slots" unique_id=1002466995 instance=ExtResource("9_p72ej")]
 layout_mode = 2
-texture_normal = ExtResource("8_h22ha")
-ignore_texture_size = true
-stretch_mode = 5
 
 [node name="Navigation" type="PanelContainer" parent="Main/ToolBar" unique_id=2017495283]
 layout_mode = 2
@@ -442,6 +403,14 @@ texture_disabled = ExtResource("28_74paa")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="BtnSystem" type="Button" parent="Main/ToolBar/Navigation/Content" unique_id=904840493]
+layout_mode = 2
+text = "System"
+
+[node name="System" parent="." unique_id=1066409869 instance=ExtResource("30_n83fq")]
+visible = false
+layout_mode = 1
+
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=543896747]
 bus = &"music"
 
@@ -454,3 +423,5 @@ bus = &"vo"
 [node name="RoomAnim" type="AnimationPlayer" parent="." unique_id=1614371929]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_bgg8m")
+
+[connection signal="pressed" from="Main/ToolBar/Navigation/Content/BtnSystem" to="." method="_on_btn_system_pressed"]

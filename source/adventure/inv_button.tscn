@@ -1,8 +1,52 @@
 [gd_scene format=3 uid="uid://dyo4n7fd6fy5o"]
 
+[ext_resource type="Script" uid="uid://d2rqi8bws64w8" path="res://adventure/inv_button.gd" id="1_mrdwb"]
+[ext_resource type="Texture2D" uid="uid://cjvsgaa565c2g" path="res://data/textures/sandwich.png" id="2_jo3k8"]
+[ext_resource type="AudioStream" uid="uid://bt5prjd1wb4j2" path="res://audio/sfx/click1.ogg" id="3_jo3k8"]
+
+[sub_resource type="Gradient" id="Gradient_s7c36"]
+offsets = PackedFloat32Array(0.5, 1)
+colors = PackedColorArray(0, 0, 0, 0.5019608, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wp5od"]
+gradient = SubResource("Gradient_s7c36")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_1y1fm"]
+offsets = PackedFloat32Array(0.5, 1)
+colors = PackedColorArray(0, 0, 0, 0.5019608, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u0k7o"]
+gradient = SubResource("Gradient_1y1fm")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
 [node name="InvButton" type="TextureButton" unique_id=1591087209]
 custom_minimum_size = Vector2(96, 96)
 offset_right = 96.0
 offset_bottom = 96.0
+texture_normal = SubResource("GradientTexture2D_wp5od")
+texture_hover = SubResource("GradientTexture2D_u0k7o")
 ignore_texture_size = true
 stretch_mode = 5
+script = ExtResource("1_mrdwb")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=772937031]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("2_jo3k8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=458098100]
+stream = ExtResource("3_jo3k8")
+volume_db = -10.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

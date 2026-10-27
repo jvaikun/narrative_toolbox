@@ -39,4 +39,4 @@ func _on_btn_back_pressed() -> void:
 
 
 func _on_btn_quit_pressed() -> void:
-	get_tree().change_scene_to_file("res://mansion/title/title.tscn")
+	get_tree().change_scene_to_file("res://main_title/main_title.tscn")

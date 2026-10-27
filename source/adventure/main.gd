@@ -1,20 +1,13 @@
 extends Control
 
+const RAND_STEPS = preload("res://audio/rand_steps.tres")
+
 @onready var audio_channels = {
 	"music": $Music,
 	"sfx": $SFX,
 	"vo": $Voice,
 }
-@onready var inv_slots = [
-	{"button": %Slot1, "item": null},
-	{"button": %Slot2, "item": null},
-	{"button": %Slot3, "item": null},
-	{"button": %Slot4, "item": null},
-	{"button": %Slot5, "item": null},
-	{"button": %Slot6, "item": null},
-	{"button": %Slot7, "item": null},
-	{"button": %Slot8, "item": null},
-]
+@onready var inv_slots = %Slots.get_children()
 @onready var nav_buttons = {
 	"nw": %BtnNW, "n": %BtnN, "ne": %BtnNE,
 	"w": %BtnW, "u": %BtnUp, "d": %BtnDown, "e": %BtnE,
@@ -32,7 +25,7 @@ var active_item : ItemData = null
 func _ready() -> void:
 	room_anim.play("RESET")
 	for i in inv_slots.size():
-		inv_slots[i].button.pressed.connect(_on_inv_clicked.bind(i))
+		inv_slots[i].pressed.connect(_on_inv_clicked.bind(i))
 	for key in nav_buttons.keys():
 		nav_buttons[key].pressed.connect(_on_nav_pressed.bind(key))
 	load_room(Game.first_room)
@@ -126,18 +119,16 @@ func _inv_update():
 	var inv_size = Game.inventory.size()
 	for i in inv_slots.size():
 		if i >= inv_size:
-			inv_slots[i].item = null
-			inv_slots[i].button.texture_normal = null
+			inv_slots[i].item_data = null
 		else:
 			var new_item = load(Game.ITEM_PATH % Game.inventory[i])
-			inv_slots[i].item = new_item
-			inv_slots[i].button.texture_normal = new_item.image
+			inv_slots[i].item_data = new_item
 
 
 func _on_inv_clicked(slot: int):
 	if slot < inv_slots.size():
-		print("Inventory clicked: %s" % inv_slots[slot].item.name)
-		active_item = inv_slots[slot].item
+		#print("Inventory clicked: %s" % inv_slots[slot].item_data.name)
+		active_item = inv_slots[slot].item_data
 		%CursorIcon.texture = active_item.image
 		%CursorTag.text = active_item.name
 		%Cursor.show()
@@ -145,8 +136,17 @@ func _on_inv_clicked(slot: int):
 
 func _on_nav_pressed(dir: String):
 	if dir in nav_buttons.keys():
-		print("Direction clicked: %s to %s" % [dir, current_room.exits[dir]])
+		#print("Direction clicked: %s to %s" % [dir, current_room.exits[dir]])
+		$SFX.stream = RAND_STEPS
+		$SFX.volume_db = -20.0
 		room_anim.play("room_fade_out")
-		await room_anim.animation_finished
+		for i in 3:
+			$SFX.play()
+			await $SFX.finished
+		$SFX.volume_db = 0.0
 		var new_room = load(Game.ROOM_PATH % current_room.exits[dir])
 		load_room(new_room)
+
+
+func _on_btn_system_pressed() -> void:
+	$System.show()
