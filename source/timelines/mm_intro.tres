@@ -10,8 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://ij04u2lyxl0" path="res://timelines/textures/npc_partner.png" id="5_jefor"]
 [ext_resource type="Script" uid="uid://dkfdnmlrdhh5u" path="res://classes/timeline/choice_branch.gd" id="6_xbfat"]
 [ext_resource type="Script" uid="uid://5e50cn5p01dd" path="res://classes/timeline/event_choice.gd" id="7_uhd8p"]
+[ext_resource type="PackedScene" uid="uid://5s5ph6dh0rpo" path="res://mansion/main/popup.tscn" id="8_45uem"]
 [ext_resource type="Texture2D" uid="uid://bledl0utey0dd" path="res://timelines/textures/square.png" id="8_54phy"]
 [ext_resource type="Script" uid="uid://c702wmxhq83je" path="res://classes/timeline/timeline.gd" id="9_45uem"]
+[ext_resource type="Script" uid="uid://cigq5mlkcihy4" path="res://classes/timeline/event_popup.gd" id="9_ri352"]
 [ext_resource type="Script" uid="uid://cqsprxne5jjhf" path="res://classes/timeline/event_jump.gd" id="9_vt7gr"]
 [ext_resource type="AudioStream" uid="uid://hfga2epo1caq" path="res://audio/tense_loop.mp3" id="12_xbfat"]
 
@@ -45,6 +47,11 @@ lines = "Your fellow traveler is a surprisingly youthful and enthusiastic fellow
 On the bright side, he seems to be properly equipped for the task at hand. Light leathers and arms, gear for scouting work, the same as you chose for the job. That bodes well for the adventuring work, at least.
 The King's man greets you, all smiles. \"You're our man, or our new man, I should say. Well met!\""
 metadata/_custom_type_script = "uid://qiibr5iabuqw"
+
+[sub_resource type="Resource" id="Resource_cdsur"]
+script = ExtResource("9_ri352")
+popup_scene = ExtResource("8_45uem")
+metadata/_custom_type_script = "uid://cigq5mlkcihy4"
 
 [sub_resource type="Resource" id="Resource_gy1kq"]
 script = ExtResource("4_4bi2q")
@@ -246,5 +253,5 @@ metadata/_custom_type_script = "uid://5e50cn5p01dd"
 
 [resource]
 script = ExtResource("9_45uem")
-events = Array[ExtResource("1_rshiv")]([SubResource("Resource_5lwgk"), SubResource("Resource_75srb"), SubResource("Resource_cb3ot"), SubResource("Resource_u7t40"), SubResource("Resource_ghngd"), SubResource("Resource_r8kev"), SubResource("Resource_vt7gr"), SubResource("Resource_pr1g3"), SubResource("Resource_opigw"), SubResource("Resource_jefor"), SubResource("Resource_4g07q"), SubResource("Resource_5abps"), SubResource("Resource_e6dfl"), SubResource("Resource_cr0j4"), SubResource("Resource_l04ru"), SubResource("Resource_oibrk")])
+events = Array[ExtResource("1_rshiv")]([SubResource("Resource_5lwgk"), SubResource("Resource_75srb"), SubResource("Resource_cb3ot"), SubResource("Resource_u7t40"), SubResource("Resource_ghngd"), SubResource("Resource_cdsur"), SubResource("Resource_r8kev"), SubResource("Resource_vt7gr"), SubResource("Resource_pr1g3"), SubResource("Resource_opigw"), SubResource("Resource_jefor"), SubResource("Resource_4g07q"), SubResource("Resource_5abps"), SubResource("Resource_e6dfl"), SubResource("Resource_cr0j4"), SubResource("Resource_l04ru"), SubResource("Resource_oibrk")])
 metadata/_custom_type_script = "uid://c702wmxhq83je"

@@ -12,9 +12,11 @@ extends Resource
 ]
 
 
-func add_to_schedule(event : Dictionary):
-	pass
+func add_to_schedule(new_event : Dictionary):
+	if !(new_event in schedule):
+		schedule.append(new_event)
 
 
-func remove_from_schedule(event : Dictionary):
-	pass
+func remove_from_schedule(remove_event : Dictionary):
+	if remove_event in schedule:
+		schedule.erase(remove_event)

@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://5s5ph6dh0rpo"]
+
+[ext_resource type="Theme" uid="uid://p8ostjsjud8l" path="res://ui/themes/paper_white.tres" id="1_jc6xl"]
+[ext_resource type="Texture2D" uid="uid://0v24q4moaf4c" path="res://ui/textures/paper.png" id="2_cdsur"]
+[ext_resource type="StyleBox" uid="uid://dwx5p0gcq3exw" path="res://ui/themes/stylebox_frame_book.tres" id="3_8863k"]
+[ext_resource type="Script" uid="uid://3np0tfylqrvf" path="res://mansion/main/popup.gd" id="3_cdsur"]
+[ext_resource type="Texture2D" uid="uid://j57lv4uciish" path="res://mansion/main/textures/npc_partner.png" id="4_46l5s"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_77i5h"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource("2_cdsur")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_s5s46"]
+content_margin_left = 0.0
+content_margin_top = 4.0
+content_margin_right = 0.0
+content_margin_bottom = 4.0
+grow_begin = -1.0
+grow_end = -1.0
+thickness = 2
+vertical = true
+
+[node name="Popup" type="PanelContainer" unique_id=381875532]
+texture_filter = 1
+offset_right = 96.0
+offset_bottom = 112.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_jc6xl")
+theme_override_styles/panel = SubResource("StyleBoxTexture_77i5h")
+script = ExtResource("3_cdsur")
+
+[node name="Frame" type="PanelContainer" parent="." unique_id=1127434472]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_8863k")
+
+[node name="Content" type="HBoxContainer" parent="Frame" unique_id=1009198968]
+layout_mode = 2
+
+[node name="ViewCont" type="SubViewportContainer" parent="Frame/Content" unique_id=1662978691]
+custom_minimum_size = Vector2(128, 160)
+layout_mode = 2
+stretch = true
+
+[node name="View" type="SubViewport" parent="Frame/Content/ViewCont" unique_id=2033112963]
+handle_input_locally = false
+size = Vector2i(128, 160)
+render_target_update_mode = 4
+
+[node name="Sprite" type="Sprite2D" parent="Frame/Content/ViewCont/View" unique_id=2107779753]
+modulate = Color(1, 0.9, 0.8, 1)
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("4_46l5s")
+centered = false
+hframes = 6
+vframes = 3
+
+[node name="VSeparator" type="VSeparator" parent="Frame/Content" unique_id=959185999]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_s5s46")
+
+[node name="Dialogue" type="RichTextLabel" parent="Frame/Content" unique_id=1894263674]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "Dialogue text"
+visible_characters_behavior = 1

@@ -165,6 +165,13 @@ layout_mode = 2
 texture = ExtResource("4_bsumw")
 expand_mode = 1
 
+[node name="Popups" type="MarginContainer" parent="Content/Book/TwoPage/PageL/Frame" unique_id=237451356]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
 [node name="PageR" type="PanelContainer" parent="Content/Book/TwoPage" unique_id=1431296532]
 layout_mode = 2
 size_flags_horizontal = 3

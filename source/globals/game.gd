@@ -59,6 +59,10 @@ var first_room : Room = load("res://data/rooms/outside.tres")
 var day : int = 1
 var time : String = "Morning"
 
+var state_var1 : int = 0
+var state_var2 : int = 0
+var state_var3 : int = 0
+
 
 func _ready() -> void:
 	randomize()

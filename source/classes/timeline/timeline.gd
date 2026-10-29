@@ -29,5 +29,15 @@ func build_tree(trunk : Array[Event]) -> void:
 					build_tree(branch)
 					if not_at_end:
 						branch[-1].next_events.append(trunk[i+1])
+		elif this_event is EventVarCheck:
+			for branch in [this_event.events, this_event.else_events]:
+				if branch.is_empty():
+					if not_at_end:
+						this_event.next_events.append(trunk[i+1])
+				else:
+					this_event.next_events.append(branch[0])
+					build_tree(branch)
+					if not_at_end:
+						branch[-1].next_events.append(trunk[i+1])
 		elif not_at_end:
 			this_event.next_events.append(trunk[i+1])

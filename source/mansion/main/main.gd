@@ -20,6 +20,7 @@ const WAIT_TIME = 0.1
 }
 @onready var player_portrait = $Content/Player/Content/Body/Portrait
 @onready var image_container = $Content/Book/TwoPage/PageL/Frame/Content
+@onready var popup_container = $Content/Book/TwoPage/PageL/Frame/Popups
 @onready var book_image = $Content/Book/TwoPage/PageL/Frame/Content/Image
 @onready var narrate_text = $Content/Book/TwoPage/PageR/Frame/Content/Body/Text
 @onready var ui_choices = $Content/Book/TwoPage/PageR/Frame/Content/Body/Choices
@@ -84,6 +85,8 @@ func play_event():
 		start_combat(current_event)
 	elif current_event is EventJump:
 		jump(current_event)
+	elif current_event is EventPopup:
+		show_popup(current_event)
 	else:
 		print("Invalid event type, check timeline data.")
 
@@ -125,7 +128,25 @@ func play_audio(event : EventAudio):
 	next_event()
 
 
+func show_popup(event : EventPopup):
+	var popup_inst = event.popup_scene.instantiate()
+	popup_inst.is_dialogue = false
+	popup_inst.modulate.a = 0.0
+	popup_container.add_child(popup_inst)
+	var tween_fade = create_tween()
+	tween_fade.tween_property(popup_inst, "modulate:a", 1.0, 0.5)
+	tween_fade.play()
+	await tween_fade.finished
+	next_event()
+
+
+func clear_popups():
+	for child in popup_container.get_children():
+		child.queue_free()
+
+
 func show_image(event : EventImage):
+	clear_popups()
 	if image_container.modulate.a != 0:
 		anim_book.play("scene_fade_in", -1, -1.0/event.fade_time, true)
 		await anim_book.animation_finished
